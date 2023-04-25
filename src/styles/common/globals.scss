@@ -1,0 +1,306 @@
+/* ----------------------------------------------------- */
+/* ********************* VARIABLES ********************* */
+/* ----------------------------------------------------- */
+
+/*==============================
+=            COLORS            =
+==============================*/
+
+/*----------  PRIMARY  ----------*/
+$colorPrimary_1: #101010;
+$colorPrimary_2: #f95b17;
+
+/*----------  SECONDARY  ----------*/
+$colorSecondary_1: #ebb7f5;
+$colorSecondary_2: #b8ffc3;
+$colorSecondary_3: #fff8b8;
+
+/*----------  GREYSCALE  ----------*/
+$colorGreyscale_1: #101010;
+$colorGreyscale_2: #434649;
+$colorGreyscale_3: #888c8f;
+$colorGreyscale_4: #cdced0;
+$colorGreyscale_5: #f5f5f5;
+$colorGreyscale_6: #ffffff;
+
+/*----------  SYSTEM PALETTE  ----------*/
+$colorError: #eb392e;
+$colorSuccess: #22af5c;
+
+/*=====  End of COLORS  ======*/
+
+/*=============================
+=            FONTS            =
+=============================*/
+
+@font-face {
+  font-family: Inter-Bold;
+  src: url(../../../assets/fonts/Inter/Inter-Bold.ttf);
+}
+$font_1_bold: Inter-Bold;
+
+@font-face {
+  font-family: Inter-Regular;
+  src: url(../../../assets/fonts/Inter/Inter-Regular.ttf);
+}
+$font_1_regular: Inter-Regular;
+
+/*=====  End of FONTS  ======*/
+
+/*=================================
+=            TEXT SIZE            =
+=================================*/
+/*----------  H1  ----------*/
+$h1_textsize_desktop: 64px;
+$h1_textsize_mobile: 40px;
+
+/*----------  H2  ----------*/
+$h2_textsize_desktop: 48px;
+$h2_textsize_mobile: 32px;
+
+/*----------  H3  ----------*/
+$h3_textsize_desktop: 32px;
+$h3_textsize_mobile: 28px;
+
+/*----------  H4  ----------*/
+$h4_textsize_desktop: 24px;
+$h4_textsize_mobile: 24px;
+
+/*----------  H5  ----------*/
+$h5_textsize_desktop: 20px;
+$h5_textsize_mobile: 20px;
+
+/*----------  H6  ----------*/
+$h6_textsize_desktop: 18px;
+$h6_textsize_mobile: 18px;
+
+/*----------  PARAGRAPH QUOTE  ----------*/
+$paragraphQuote_textsize_desktop: 24px;
+
+/*----------  PARAGRAPH BIG  ----------*/
+$paragraphBig_textsize_desktop: 18px;
+
+/*----------  PARAGRAPH MEDIUM  ----------*/
+$paragraphMedium_textsize_desktop: 16px;
+
+/*----------  PARAGRAPH SMALL  ----------*/
+$paragraphSmall_textsize_desktop: 14px;
+
+/*----------  PARAGRAPH TINY  ----------*/
+$paragraphTiny_textsize_desktop: 11px;
+
+/*----------  LINK  ----------*/
+$linkBig_textsize_desktop: 18px;
+$linkMedium_textsize_desktop: 16px;
+$linkSmall_textsize_desktop: 14px;
+
+/*=====  End of TEXT SIZE  ======*/
+
+/*----------  GRID  ----------*/
+
+$grid_width: 64px; // COL WIDTH
+$grid_gap: 40px; // GUTTER WIDTH
+$grid_col: 12; // COL DEFAULT
+
+$gap_tablet: 32px; // PADDING LEFT & RIGHT TABLET
+$grid_tablet: calc(100% - (#{$gap_tablet} * 2)); // GRID TABLET
+
+$gap_mobile: 16px; // PADDING LEFT & RIGHT MOBILE
+$grid_mobile: calc(100% - (#{$gap_mobile} * 2)); // GRID MOBILE
+
+@function calcGrid($numCol: 12, $addGap: 0) {
+  $gap: calc(#{$addGap} * #{$grid_gap});
+  $grid_gap: calc(#{$grid_gap} * 11 / 12);
+  @return calc(
+    (
+        (#{$grid_width} * #{$numCol}) +
+          (
+            (#{$grid_gap} * #{$grid_col} / (#{$grid_col} - 1)) *
+              (#{$numCol} - 1)
+          )
+      ) + #{$gap}
+  );
+}
+
+$breakPoint_tablet: calc(calcGrid() + (#{$gap_tablet} * 2));
+$breakPoint_mobile: 700px;
+
+@mixin styleGrid($numCol: 12, $addGap: 0) {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (width > $breakPoint_tablet) {
+    width: calcGrid($numCol, $addGap);
+  }
+
+  @media screen and ($breakPoint_mobile <= width <= $breakPoint_tablet) {
+    width: $grid_tablet;
+  }
+
+  @media screen and (width <= $breakPoint_mobile) {
+    width: $grid_mobile;
+  }
+}
+
+/*===================================
+=            BREAK POINT            =
+===================================*/
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) and (orientation: portrait) {
+}
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) and (orientation: landscape) {
+}
+
+@media ($breakPoint_mobile <= width <= $breakPoint_tablet) {
+}
+
+@media (width <= $breakPoint_mobile) {
+}
+
+/*=====  End of BREAK POINT  ======*/
+
+/* --------------------------------------------------------- */
+/* ********************* END VARIABLES ********************* */
+/* --------------------------------------------------------- */
+
+/* ------------------------------------------------- */
+/* ********************* MIXIN ********************* */
+/* ------------------------------------------------- */
+
+/*----------  HEADING  ----------*/
+@mixin styleH($hx, $color: $colorGreyscale_1, $font: $font_1_bold) {
+  @if $hx== 'h1' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h1_textsize_desktop;
+      $lineHeight: $h1_textsize_desktop * 1.3;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h1_textsize_mobile;
+      $lineHeight: $h1_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  } @else if $hx == 'h2' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h2_textsize_desktop;
+      $lineHeight: $h2_textsize_desktop * 1.3;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h2_textsize_mobile;
+      $lineHeight: $h2_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  } @else if $hx == 'h3' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h3_textsize_desktop;
+      $lineHeight: $h3_textsize_desktop * 1.3;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h3_textsize_mobile;
+      $lineHeight: $h3_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  } @else if $hx == 'h4' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h4_textsize_desktop;
+      $lineHeight: $h4_textsize_desktop * 1.3;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h4_textsize_mobile;
+      $lineHeight: $h4_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  } @else if $hx == 'h5' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h5_textsize_desktop;
+      $lineHeight: $h5_textsize_desktop * 1.1;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h5_textsize_mobile;
+      $lineHeight: $h5_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  } @else if $hx == 'h6' {
+    @media screen and (min-width: $breakPoint_mobile) {
+      font-size: $h6_textsize_desktop;
+      $lineHeight: $h6_textsize_desktop * 1.1;
+      line-height: $lineHeight;
+    }
+
+    @media screen and (max-width: $breakPoint_mobile) {
+      font-size: $h6_textsize_mobile;
+      $lineHeight: $h6_textsize_mobile * 1.4;
+      line-height: $lineHeight;
+    }
+  }
+
+  color: $color;
+  font-family: $font, sans-serif;
+}
+
+/*----------  PARAGRAPH  ----------*/
+@mixin styleP($px, $color: $colorGreyscale_1, $font: $font_1_regular) {
+  @if $px == 'quote' {
+    font-size: $paragraphQuote_textsize_desktop;
+    $lineHeight: $paragraphQuote_textsize_desktop * 1.1;
+    line-height: $lineHeight;
+  } @else if $px == 'big' {
+    font-size: $paragraphBig_textsize_desktop;
+    $lineHeight: $paragraphBig_textsize_desktop * 1.3;
+    line-height: $lineHeight;
+  } @else if $px == 'medium' {
+    font-size: $paragraphMedium_textsize_desktop;
+    $lineHeight: $paragraphMedium_textsize_desktop * 1.3;
+    line-height: $lineHeight;
+  } @else if $px == 'small' {
+    font-size: $paragraphSmall_textsize_desktop;
+    $lineHeight: $paragraphSmall_textsize_desktop * 1.3;
+    line-height: $lineHeight;
+  } @else if $px == 'tiny' {
+    font-size: $paragraphTiny_textsize_desktop;
+    $lineHeight: $paragraphTiny_textsize_desktop * 1.3;
+    line-height: $lineHeight;
+  }
+
+  color: $color;
+  font-family: $font;
+}
+
+/*----------  LINK  ----------*/
+@mixin styleA($ax: 'big', $color: $colorGreyscale_2) {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  text-decoration: none;
+  font-family: $font_2_bold, sans-serif;
+
+  @if $ax == 'big' {
+    font-size: $linkBig_textsize_desktop;
+    $lineHeight: $linkBig_textsize_desktop * 1.1;
+    line-height: $lineHeight;
+  } @else if $ax == 'medium' {
+    font-size: $linkMedium_textsize_desktop;
+    $lineHeight: $linkMedium_textsize_desktop * 1.1;
+    line-height: $lineHeight;
+  } @else if $ax == 'small' {
+    font-size: $linkSmall_textsize_desktop;
+    $lineHeight: $linkSmall_textsize_desktop * 1.1;
+    line-height: $lineHeight;
+  }
+
+  color: $color;
+}
+
+/* ----------------------------------------------------- */
+/* ********************* END MIXIN ********************* */
+/* ----------------------------------------------------- */

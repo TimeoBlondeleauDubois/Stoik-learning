@@ -19,8 +19,8 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
                         fill="white"></path>
                     </svg>
@@ -50,8 +50,8 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
                         fill="white"></path>
                     </svg>
@@ -81,8 +81,8 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
                         fill="white"></path>
                     </svg>
@@ -112,8 +112,8 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
                         fill="white"></path>
                     </svg>
@@ -143,8 +143,8 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
                         fill="white"></path>
                     </svg>

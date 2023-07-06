@@ -1,9 +1,11 @@
 @import '@/styles/common/globals.scss';
 
 .footer_default {
+  @include containerInit;
+
   padding: 40px 0 24px;
   .wrapper {
-    @media (width > $breakPoint_mobile) {
+    @container section (width >= #{$breakPoint_mobile}) {
       @include styleGrid();
     }
   }
@@ -11,7 +13,7 @@
     display: flex;
     width: 100%;
     .container_logo {
-      @media (width > $breakPoint_mobile) {
+      @container section (width >= #{$breakPoint_mobile}) {
         width: calcGrid(2, 1);
       }
 
@@ -37,7 +39,7 @@
           }
 
           .container_arrow {
-            @media (width > $breakPoint_mobile) {
+            @container section (width >= #{$breakPoint_mobile}) {
               display: none;
             }
           }
@@ -67,7 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (width > $breakPoint_mobile) {
+    @container section (width >= #{$breakPoint_mobile}) {
       margin-top: 40px;
       border-top: 1px solid $colorGreyscale_4;
     }
@@ -86,7 +88,7 @@
       position: relative;
 
       .wrapper_responsive {
-        @media (width > $breakPoint_mobile) {
+        @container section (width >= #{$breakPoint_mobile}) {
           display: flex;
           gap: 24px;
         }
@@ -180,10 +182,8 @@
       }
     }
   }
-}
 
-@media (width <= $breakPoint_mobile) {
-  .footer_default {
+  @container section (width < #{$breakPoint_mobile}) {
     .container {
       flex-direction: column;
       .container_logo {
@@ -253,9 +253,11 @@
 }
 
 .footer_v1 {
+  @include containerInit;
+
   padding: 40px 0;
   .wrapper {
-    @media (width > $breakPoint_mobile) {
+    @container section (width >= #{$breakPoint_mobile}) {
       @include styleGrid();
     }
   }
@@ -281,7 +283,7 @@
         align-items: center;
         justify-content: space-between;
 
-        @media (width > $breakPoint_mobile) {
+        @container section (width >= #{$breakPoint_mobile}) {
           gap: 30px;
         }
         li {
@@ -301,7 +303,7 @@
       position: relative;
 
       .wrapper_responsive {
-        @media (width > $breakPoint_mobile) {
+        @container section (width >= #{$breakPoint_mobile}) {
           display: flex;
           gap: 24px;
         }
@@ -398,7 +400,7 @@
   }
   .foot {
     margin-top: 24px;
-    @media (width > $breakPoint_mobile) {
+    @container section (width >= #{$breakPoint_mobile}) {
       background-color: $colorGreyscale_5;
     }
 
@@ -416,10 +418,8 @@
       @include styleP('tiny');
     }
   }
-}
 
-@media (width <= $breakPoint_mobile) {
-  .footer_v1 {
+  @container section (width < #{$breakPoint_mobile}) {
     .container {
       .wrapper {
         flex-direction: column;

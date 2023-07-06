@@ -125,27 +125,33 @@ $grid_mobile: calc(100% - (#{$gap_mobile} * 2)); // GRID MOBILE
 $breakPoint_tablet: calc(calcGrid() + (#{$gap_tablet} * 2));
 $breakPoint_mobile: 700px;
 
-@mixin styleGrid($numCol: 12, $addGap: 0) {
+@mixin styleGrid($numCol: 12, $addGap: 0, $containerName: section) {
   margin-right: auto;
   margin-left: auto;
 
-  @media screen and (width > $breakPoint_tablet) {
+  @container #{$containerName} (width > #{$breakPoint_mobile}) {
     width: calcGrid($numCol, $addGap);
   }
 
-  @media screen and ($breakPoint_mobile <= width <= $breakPoint_tablet) {
+  @container #{$containerName} (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
     width: $grid_tablet;
   }
 
-  @media screen and (width <= $breakPoint_mobile) {
+  @container #{$containerName} (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
     width: $grid_mobile;
   }
 }
 
-/*===================================
-=            BREAK POINT            =
-===================================*/
+@mixin containerInit($containerType: inline-size, $containerName: section) {
+  container-type: #{$containerType};
+  container-name: #{$containerName};
+}
 
+/*===============================
+=            QUERIES            =
+===============================*/
+
+// MEDIA
 @media ($breakPoint_mobile <= width <= $breakPoint_tablet) and (orientation: portrait) {
 }
 
@@ -158,7 +164,15 @@ $breakPoint_mobile: 700px;
 @media (width <= $breakPoint_mobile) {
 }
 
-/*=====  End of BREAK POINT  ======*/
+// CONTAINER QUERIES
+
+@container section (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
+}
+
+@container section (width < #{$breakPoint_mobile}) {
+}
+
+/*=====  End of QUERIES  ======*/
 
 /* --------------------------------------------------------- */
 /* ********************* END VARIABLES ********************* */

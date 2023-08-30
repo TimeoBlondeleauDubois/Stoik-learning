@@ -142,7 +142,7 @@ $breakPoint_mobile: 700px;
   }
 }
 
-@mixin containerInit($containerType: inline-size, $containerName: section) {
+@mixin containerInit($containerName: section, $containerType: inline-size) {
   container-type: #{$containerType};
   container-name: #{$containerName};
 }

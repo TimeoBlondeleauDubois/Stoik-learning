@@ -2,6 +2,7 @@
 
 .footer_default {
   padding: 40px 0 24px;
+
   .wrapper {
     @container section (width >= #{$breakPoint_mobile}) {
       @include styleGrid();

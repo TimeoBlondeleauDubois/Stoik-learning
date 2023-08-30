@@ -1,8 +1,6 @@
 @import '@/styles/common/globals.scss';
 
 .footer_default {
-  @include containerInit;
-
   padding: 40px 0 24px;
   .wrapper {
     @container section (width >= #{$breakPoint_mobile}) {
@@ -253,8 +251,6 @@
 }
 
 .footer_v1 {
-  @include containerInit;
-
   padding: 40px 0;
   .wrapper {
     @container section (width >= #{$breakPoint_mobile}) {

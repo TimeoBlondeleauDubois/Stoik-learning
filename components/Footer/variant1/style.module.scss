@@ -3,7 +3,7 @@
 .footer_v1 {
   padding: 40px 0;
   .wrapper {
-    @container section (width >= #{$breakPoint_mobile}) {
+    @include styleResponsive('wider-mobile') {
       @include styleGrid();
     }
   }
@@ -49,7 +49,7 @@
       position: relative;
 
       .wrapper_responsive {
-        @container section (width >= #{$breakPoint_mobile}) {
+        @include styleResponsive('wider-mobile') {
           display: flex;
           gap: 24px;
         }
@@ -146,7 +146,7 @@
   }
   .foot {
     margin-top: 24px;
-    @container section (width >= #{$breakPoint_mobile}) {
+    @include styleResponsive('wider-mobile') {
       background-color: $colorGreyscale_5;
     }
 
@@ -165,7 +165,7 @@
     }
   }
 
-  @container section (width < #{$breakPoint_mobile}) {
+  @include styleResponsive {
     .container {
       .wrapper {
         flex-direction: column;

@@ -1,7 +1,7 @@
 import { ApiService } from '../../services/api.service'
-import { getLangFromLocale } from '../../utils/get-lang-from-locale'
-import { PageService } from '../../services/page.service'
 import Footer from '../../components/Footer'
+import { PageService } from '../../services/page.service'
+import { getLangFromLocale } from '../../utils/get-lang-from-locale'
 
 export default function Home() {
   return (

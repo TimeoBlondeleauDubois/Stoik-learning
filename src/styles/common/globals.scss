@@ -125,20 +125,75 @@ $grid_mobile: calc(100% - (#{$gap_mobile} * 2)); // GRID MOBILE
 $breakPoint_tablet: calc(calcGrid() + (#{$gap_tablet} * 2));
 $breakPoint_mobile: 700px;
 
+// MIXIN RESPONSIVE
+@mixin styleResponsive($size: 'mobile') {
+  // BASIC SIZE
+  @if $size == 'desktop' {
+    @supports (container-type: inline-size) {
+      @container section (width > #{$breakPoint_tablet}) {
+        @content;
+      }
+    }
+    @supports not (container-type: inline-size) {
+      @media (width > #{$breakPoint_tablet}) {
+        @content;
+      }
+    }
+  } @else if $size == 'tablet' {
+    @supports (container-type: inline-size) {
+      @container section (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
+        @content;
+      }
+    }
+    @supports not (container-type: inline-size) {
+      @media (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
+        @content;
+      }
+    }
+  } @else if $size == 'mobile' {
+    @supports (container-type: inline-size) {
+      @container section (width < #{$breakPoint_mobile}) {
+        @content;
+      }
+    }
+    @supports not (container-type: inline-size) {
+      @media (width <= #{$breakPoint_mobile}) {
+        @content;
+      }
+    }
+  }
+
+  // SPECIFIC SIZE
+  @if $size == 'wider-mobile' {
+    @supports (container-type: inline-size) {
+      @container section (width > #{$breakPoint_mobile}) {
+        @content;
+      }
+    }
+    @supports not (container-type: inline-size) {
+      @media (width >= #{$breakPoint_mobile}) {
+        @content;
+      }
+    }
+  }
+}
+
 @mixin styleGrid($numCol: 12, $addGap: 0, $containerName: section) {
   margin-right: auto;
   margin-left: auto;
 
-  @container #{$containerName} (width > #{$breakPoint_mobile}) {
-    width: calcGrid($numCol, $addGap);
-  }
+  @supports (container-type: inline-size) {
+    @include styleResponsive('desktop') {
+      width: calcGrid($numCol, $addGap);
+    }
 
-  @container #{$containerName} (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
-    width: $grid_tablet;
-  }
+    @include styleResponsive('tablet') {
+      width: $grid_tablet;
+    }
 
-  @container #{$containerName} (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
-    width: $grid_mobile;
+    @include styleResponsive('mobile') {
+      width: $grid_mobile;
+    }
   }
 }
 
@@ -173,11 +228,13 @@ footer {
 }
 
 // CONTAINER QUERIES
+@container section (width > #{$breakPoint_tablet}) {
+}
 
 @container section (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
 }
 
-@container section (width < #{$breakPoint_mobile}) {
+@container section (width <= #{$breakPoint_mobile}) {
 }
 
 /*=====  End of QUERIES  ======*/

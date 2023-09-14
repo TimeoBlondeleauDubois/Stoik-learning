@@ -4,7 +4,7 @@
   padding: 40px 0 24px;
 
   .wrapper {
-    @container section (width >= #{$breakPoint_mobile}) {
+    @include styleResponsive('wider-mobile') {
       @include styleGrid();
     }
   }
@@ -12,10 +12,9 @@
     display: flex;
     width: 100%;
     .container_logo {
-      @container section (width >= #{$breakPoint_mobile}) {
+      @include styleResponsive('wider-mobile') {
         width: calcGrid(2, 1);
       }
-
       img {
         width: 72px;
         height: 55px;
@@ -38,7 +37,7 @@
           }
 
           .container_arrow {
-            @container section (width >= #{$breakPoint_mobile}) {
+            @include styleResponsive('wider-mobile') {
               display: none;
             }
           }
@@ -87,7 +86,7 @@
       position: relative;
 
       .wrapper_responsive {
-        @container section (width >= #{$breakPoint_mobile}) {
+        @include styleResponsive('wider-mobile') {
           display: flex;
           gap: 24px;
         }
@@ -182,7 +181,7 @@
     }
   }
 
-  @container section (width < #{$breakPoint_mobile}) {
+  @include styleResponsive {
     .container {
       flex-direction: column;
       .container_logo {

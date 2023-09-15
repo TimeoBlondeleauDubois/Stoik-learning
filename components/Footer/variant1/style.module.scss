@@ -37,7 +37,7 @@
             @include styleP('small', $color: $colorGreyscale_2);
             transition: color 0.25s ease;
           }
-          &:hover {
+          @include styleHover {
             a {
               color: $colorGreyscale_1;
             }
@@ -93,6 +93,9 @@
           &::marker {
             content: '';
           }
+          &::-webkit-details-marker {
+            display: none;
+          }
           .title {
             flex: 1;
             @include styleP('tiny');
@@ -128,7 +131,7 @@
                 @include styleP('tiny');
                 transition: background-color 0.25s ease;
               }
-              &:hover {
+              @include styleHover {
                 a {
                   background-color: $colorGreyscale_4;
                 }

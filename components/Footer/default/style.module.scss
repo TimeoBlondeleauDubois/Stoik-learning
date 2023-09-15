@@ -18,7 +18,6 @@
       img {
         width: 72px;
         height: 55px;
-        border: 1px solid red;
       }
     }
     .container_list {
@@ -52,7 +51,7 @@
               @include styleP('small', $color: $colorGreyscale_2);
               transition: color 0.25s ease;
             }
-            &:hover {
+            @include styleHover() {
               a {
                 color: $colorGreyscale_1;
               }
@@ -67,7 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @container section (width >= #{$breakPoint_mobile}) {
+    @include styleResponsive('wider-mobile') {
       margin-top: 40px;
       border-top: 1px solid $colorGreyscale_4;
     }
@@ -80,6 +79,10 @@
       gap: 16px;
       a {
         @include styleP('tiny', $color: $colorGreyscale_2);
+        transition: color 0.25s ease;
+        @include styleHover {
+          color: $colorGreyscale_1;
+        }
       }
     }
     .container_actions {
@@ -130,6 +133,9 @@
           &::marker {
             content: '';
           }
+          &::-webkit-details-marker {
+            display: none;
+          }
           .title {
             flex: 1;
             @include styleP('tiny');
@@ -164,7 +170,7 @@
                 @include styleP('tiny');
                 transition: background-color 0.25s ease;
               }
-              &:hover {
+              @include styleHover {
                 a {
                   background-color: $colorGreyscale_4;
                 }

@@ -1,7 +1,3 @@
-/* ----------------------------------------------------- */
-/* ********************* VARIABLES ********************* */
-/* ----------------------------------------------------- */
-
 /*==============================
 =            COLORS            =
 ==============================*/
@@ -37,12 +33,12 @@ $colorSuccess: #22af5c;
   font-family: Inter-Bold;
   src: url(../../../assets/fonts/Inter/Inter-Bold.ttf);
 }
-$font_1_bold: Inter-Bold;
-
 @font-face {
   font-family: Inter-Regular;
   src: url(../../../assets/fonts/Inter/Inter-Regular.ttf);
 }
+
+$font_1_bold: Inter-Bold;
 $font_1_regular: Inter-Regular;
 
 /*=====  End of FONTS  ======*/
@@ -96,7 +92,9 @@ $linkSmall_textsize_desktop: 14px;
 
 /*=====  End of TEXT SIZE  ======*/
 
-/*----------  GRID  ----------*/
+/*============================
+=            GRID            =
+============================*/
 
 $grid_width: 64px; // COL WIDTH
 $grid_gap: 40px; // GUTTER WIDTH
@@ -178,25 +176,25 @@ $breakPoint_mobile: 700px;
   }
 }
 
+// MIXIN GRID
 @mixin styleGrid($numCol: 12, $addGap: 0, $containerName: section) {
   margin-right: auto;
   margin-left: auto;
 
-  @supports (container-type: inline-size) {
-    @include styleResponsive('desktop') {
-      width: calcGrid($numCol, $addGap);
-    }
+  @include styleResponsive('desktop') {
+    width: calcGrid($numCol, $addGap);
+  }
 
-    @include styleResponsive('tablet') {
-      width: $grid_tablet;
-    }
+  @include styleResponsive('tablet') {
+    width: $grid_tablet;
+  }
 
-    @include styleResponsive('mobile') {
-      width: $grid_mobile;
-    }
+  @include styleResponsive('mobile') {
+    width: $grid_mobile;
   }
 }
 
+// MIXIN CONTAINER QUERIES
 @mixin containerInit($containerName: section, $containerType: inline-size) {
   container-type: #{$containerType};
   container-name: #{$containerName};
@@ -209,6 +207,8 @@ footer {
     @include containerInit();
   }
 }
+
+/*=====  End of GRID  ======*/
 
 /*===============================
 =            QUERIES            =
@@ -238,10 +238,6 @@ footer {
 }
 
 /*=====  End of QUERIES  ======*/
-
-/* --------------------------------------------------------- */
-/* ********************* END VARIABLES ********************* */
-/* --------------------------------------------------------- */
 
 /* ------------------------------------------------- */
 /* ********************* MIXIN ********************* */
@@ -358,6 +354,15 @@ footer {
   }
 
   color: $color;
+}
+
+/*----------  HOVER  ----------*/
+@mixin styleHover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
 }
 
 /* ----------------------------------------------------- */

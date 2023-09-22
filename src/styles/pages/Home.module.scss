@@ -1,1 +1,191 @@
 @import '@/styles/common/globals.scss';
+
+.devTools {
+  @include containerInit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99;
+  .container_display {
+    height: 100%;
+    width: 100%;
+    .list_display_tools {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .tool {
+        visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: visibility 0.25s ease;
+        &.style_active {
+          visibility: visible;
+        }
+      }
+      .tool_grid {
+        .container_grid {
+          height: 100%;
+
+          .grid {
+            height: 100%;
+            @include styleGrid;
+            display: flex;
+            justify-content: space-between;
+
+            .col {
+              height: 100%;
+              width: calcGrid(1);
+              backdrop-filter: invert(0.1);
+              background-color: rgba(0, 0, 0, 0.1);
+              transform: scaleX(0);
+              opacity: 0;
+              transition: transform 0.5s ease, opacity 0.5s ease;
+            }
+            @include styleResponsive('mobile') {
+              .col:nth-child(1n + 5) {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &.style_active {
+          .container_grid {
+            .grid {
+              .col {
+                opacity: 1;
+                transform: scaleX(1);
+                @for $i from 6 through 1 {
+                  &:nth-child(#{$i}) {
+                    transition-delay: (6 - $i) * 0.05s;
+                  }
+                }
+                @for $i from 7 through 12 {
+                  &:nth-child(#{$i}) {
+                    transition-delay: ($i - 7) * 0.05s;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .tool_boxes {
+        .container_boxes {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-end;
+          .box {
+            backdrop-filter: blur(2px) invert(0.1);
+            border-radius: 20px;
+            padding: 0 16px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            span {
+              font-size: 12px;
+              color: #000;
+              font-family: Arial;
+            }
+          }
+        }
+      }
+    }
+  }
+  .toolbox {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .container_menu {
+      border: 1px solid red;
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      border: 1px solid rgba(#000, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s ease;
+      cursor: pointer;
+      svg {
+        height: 30px;
+        fill: #000;
+        transition: fill 0.25s ease;
+      }
+      &:hover {
+        background-color: rgba(#000, 1);
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+    .container_tools {
+      overflow: hidden;
+      width: 260px;
+      backdrop-filter: blur(2px) invert(0.1);
+      border-radius: 30px;
+      .container_list_tools {
+        scroll-snap-type: x mandatory;
+        display: flex;
+        overflow: auto;
+        padding: 0;
+        gap: 8px;
+        margin: 0;
+        padding: 4px;
+        list-style-type: none;
+        scroll-padding: 4px;
+
+        .tool {
+          aspect-ratio: 1;
+          scroll-snap-align: start;
+          height: 50px;
+          width: 50px;
+          border: 1px solid rgba(#000, 0.6);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.25s ease, border-color 0.25s ease;
+          cursor: pointer;
+          svg {
+            height: 20px;
+            transition: filter 0.25s ease;
+          }
+          &:hover {
+            border-color: rgba(#000, 1);
+            background-color: rgba(#000, 1);
+            svg {
+              filter: invert(1);
+            }
+          }
+        }
+      }
+    }
+
+    @supports (animation-timeline: view()) {
+      .container_list_tools .tool {
+        animation: scale both linear, scale both linear reverse;
+        animation-timeline: view(inline);
+        animation-range: entry, exit;
+      }
+      @keyframes scale {
+        0% {
+          scale: 0.5;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

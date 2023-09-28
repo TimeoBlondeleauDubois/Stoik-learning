@@ -1,6 +1,6 @@
 {
-  "id": "home",
-  "label": "Home",
+  "id": "p404",
+  "label": "p404",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -11,6 +11,13 @@
         "config": {
           "label": "UID",
           "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
         }
       }
     },

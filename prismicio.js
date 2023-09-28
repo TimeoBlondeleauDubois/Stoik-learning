@@ -17,6 +17,14 @@ const routes = [
     type: 'home',
     path: '/:lang',
   },
+  // {
+  //   type: 'p404',
+  //   path: '/404',
+  // },
+  // {
+  //   type: 'legals',
+  //   path: '/legals/:uid',
+  // },
 ]
 
 /**

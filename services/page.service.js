@@ -8,16 +8,19 @@ export class PageService {
     this.apiService = ApiService.getInstance()
     this.lang = lang
   }
-
-  async getHeader() {
-    return this.apiService.getHeader()
-  }
-
-  async getFooter() {
-    return this.apiService.getFooter()
-  }
-
   async getHome() {
-    return this.apiService.getPage('home', 'home', { lang: this.lang })
+    return await this.apiService.getPage('home', 'home', {
+      lang: this.lang,
+    })
+  }
+  async get404() {
+    return await this.apiService.getPage('p404', '404', {
+      lang: this.lang,
+    })
+  }
+  async getLegals(uid) {
+    return await this.apiService.getPage('legals', uid, {
+      lang: this.lang,
+    })
   }
 }

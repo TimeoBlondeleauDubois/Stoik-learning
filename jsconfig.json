@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/services/*": ["/services/*"],
+      "@/utils/*": ["/utils/*"],
+      "@/components/*": ["./components/*"],
+      "@/slices": ["/slices"],
+      "@/prismicio*": ["./prismicio"],
+      "@/assets/*": ["/assets/*"],
+      "@/styles/*": ["/src/styles/*"]
     }
   }
 }

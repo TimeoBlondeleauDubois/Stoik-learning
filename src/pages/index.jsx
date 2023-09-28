@@ -1,8 +1,9 @@
-import { ApiService } from '../../services/api.service'
-import Footer from '../../components/Footer'
-import { PageService } from '../../services/page.service'
-import { getLangFromLocale } from '../../utils/get-lang-from-locale'
-import styles from '../styles/pages/Home.module.scss'
+import { ApiService } from '@/services/api.service'
+import Footer from '@/components/Footer'
+import { PageService } from '@/services/page.service'
+import { getLangFromLocale } from '@/utils/get-lang-from-locale'
+
+import styles from '@/styles/pages/Home.module.scss'
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
         <div className={styles.container_display}>
           <div className={styles.list_display_tools}>
             <div
-              className={`${styles.tool} ${styles.tool_grid} ${styles.style_active}`}>
+              className={`${styles.tool} ${styles.tool_grid} ${styles.style_active}`}
+            >
               <div className={styles.container_grid}>
                 <div className={styles.grid}>
                   <div className={styles.col}></div>
@@ -31,7 +33,8 @@ export default function Home() {
               </div>
             </div>
             <div
-              className={`${styles.tool} ${styles.tool_boxes} ${styles.style_active}`}>
+              className={`${styles.tool} ${styles.tool_boxes} ${styles.style_active}`}
+            >
               <div className={styles.container_boxes}>
                 <div className={styles.box}>
                   <span>Width : 2000px X Height : 1600px</span>
@@ -50,7 +53,8 @@ export default function Home() {
                 <svg
                   fill="#000000"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fillRule="evenodd"
                     d="M5,22 C3.34314575,22 2,20.6568542 2,19 L2,5 C2,3.34314575 3.34314575,2 5,2 L19,2 C20.6568542,2 22,3.34314575 22,5 L22,19 C22,20.6568542 20.6568542,22 19,22 L5,22 Z M8,4 L5,4 C4.44771525,4 4,4.44771525 4,5 L4,19 C4,19.5522847 4.44771525,20 5,20 L8,20 L8,4 Z M14,4 L10,4 L10,20 L14,20 L14,4 Z M19,4 L16,4 L16,20 L19,20 C19.5522847,20 20,19.5522847 20,19 L20,5 C20,4.44771525 19.5522847,4 19,4 Z"
@@ -63,7 +67,8 @@ export default function Home() {
                   viewBox="0 0 24 24"
                   id="up-down-scroll-bar-2"
                   data-name="Flat Line"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <polyline
                     id="primary"
                     points="10 5 12 3 14 5"
@@ -71,7 +76,8 @@ export default function Home() {
                     stroke="#000"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2px"></polyline>
+                    strokeWidth="2px"
+                  ></polyline>
                   <polyline
                     id="primary-2"
                     data-name="primary"
@@ -80,7 +86,8 @@ export default function Home() {
                     stroke="#000"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2px"></polyline>
+                    strokeWidth="2px"
+                  ></polyline>
                   <path
                     id="primary-3"
                     data-name="primary"
@@ -89,14 +96,16 @@ export default function Home() {
                     stroke="#000"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2px"></path>
+                    strokeWidth="2px"
+                  ></path>
                 </svg>
               </div>
               <div className={styles.tool}>
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M21.7092 2.29502C21.8041 2.3904 21.8757 2.50014 21.9241 2.61722C21.9727 2.73425 21.9996 2.8625 22 2.997L22 3V9C22 9.55228 21.5523 10 21 10C20.4477 10 20 9.55228 20 9V5.41421L14.7071 10.7071C14.3166 11.0976 13.6834 11.0976 13.2929 10.7071C12.9024 10.3166 12.9024 9.68342 13.2929 9.29289L18.5858 4H15C14.4477 4 14 3.55228 14 3C14 2.44772 14.4477 2 15 2H20.9998C21.2749 2 21.5242 2.11106 21.705 2.29078L21.7092 2.29502Z"
                     fill="#000000"
@@ -111,7 +120,8 @@ export default function Home() {
                 <svg
                   fill="#000000"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     fillRule="evenodd"
                     d="M15,13 L20,13 C21.1045695,13 22,13.8954305 22,15 L22,20 C22,21.1045695 21.1045695,22 20,22 L15,22 C13.8954305,22 13,21.1045695 13,20 L13,15 C13,13.8954305 13.8954305,13 15,13 Z M15,15 L15,20 L20,20 L20,15 L15,15 Z M11,4 L11,20 C11,21.1045695 10.1045695,22 9,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,4 C2,2.8954305 2.8954305,2 4,2 L9,2 C10.1045695,2 11,2.8954305 11,4 Z M9,4 L4,4 L4,20 L9,20 L9,4 Z M15,2 L20,2 C21.1045695,2 22,2.8954305 22,4 L22,9 C22,10.1045695 21.1045695,11 20,11 L15,11 C13.8954305,11 13,10.1045695 13,9 L13,4 C13,2.8954305 13.8954305,2 15,2 Z M15,4 L15,9 L20,9 L20,4 L15,4 Z"
@@ -121,7 +131,8 @@ export default function Home() {
               <div className={styles.tool}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 606.2 606.2">
+                  viewBox="0 0 606.2 606.2"
+                >
                   <path d="M544 1H62C30 1 4 27 4 59v64c0 32 26 59 58 59h482c32 0 58-27 58-59V59c0-32-26-58-58-58zm16 122c0 9-7 16-16 16H62c-9 0-15-7-15-16V59c0-9 6-16 15-16h482c9 0 16 7 16 16v64z" />
                   <path d="M544 182H62c-32 0-59-26-59-59V59C3 26 30 0 62 0h482c33 0 59 26 59 59v64c0 33-26 59-59 59zM62 1C30 1 4 27 4 59v64c0 32 26 58 58 58h482c32 0 58-26 58-58V59c0-32-26-58-58-58H62zm482 138H62c-9 0-16-7-16-16V59c0-9 7-16 16-16h482c9 0 16 7 16 16v64c0 9-7 16-16 16zM62 44c-8 0-15 6-15 15v64c0 9 7 15 15 15h482c8 0 15-6 15-15V59c0-9-7-15-15-15H62zM544 213H62c-32 0-58 26-58 58v64c0 33 26 59 58 59h482c32 0 58-26 58-59v-64c0-32-26-58-58-58zm16 122c0 9-7 16-16 16H62c-9 0-15-7-15-16v-64c0-9 6-16 15-16h482c9 0 16 7 16 16v64z" />
                   <path d="M544 394H62c-32 0-59-26-59-59v-64c0-33 27-59 59-59h482c33 0 59 26 59 59v64c0 33-26 59-59 59zM62 213c-32 0-58 26-58 58v64c0 32 26 58 58 58h482c32 0 58-26 58-58v-64c0-32-26-58-58-58H62zm482 138H62c-9 0-16-7-16-16v-64c0-9 7-16 16-16h482c9 0 16 7 16 16v64c0 9-7 16-16 16zM62 256c-8 0-15 7-15 15v64c0 9 7 15 15 15h482c8 0 15-6 15-15v-64c0-8-7-15-15-15H62zM544 425H62c-32 0-58 26-58 58v65c0 32 26 58 58 58h482c32 0 58-26 58-58v-65c0-32-26-58-58-58zm16 123c0 8-7 15-16 15H62c-9 0-15-7-15-15v-65c0-9 6-15 15-15h482c9 0 16 6 16 15v65z" />
@@ -132,7 +143,8 @@ export default function Home() {
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M7 12L17 12"
                     stroke="#000000"

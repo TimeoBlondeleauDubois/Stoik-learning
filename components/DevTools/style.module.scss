@@ -11,6 +11,10 @@
   .container_display {
     height: 100%;
     width: 100%;
+    display: none;
+    &.style_active {
+      display: block;
+    }
     .list_display_tools {
       width: 100%;
       height: 100%;
@@ -30,7 +34,10 @@
       .tool_grid {
         .container_grid {
           height: 100%;
-
+          display: none;
+          &.style_active {
+            display: block;
+          }
           .grid {
             height: 100%;
             @include styleGrid;
@@ -89,8 +96,11 @@
             border-radius: 20px;
             padding: 0 16px;
             height: 40px;
-            display: flex;
             align-items: center;
+            display: none;
+            &.style_active {
+              display: flex;
+            }
             span {
               font-size: 12px;
               color: #000;
@@ -117,8 +127,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.25s ease;
+      transition: background-color 0.25s ease, transform 0.5s ease;
       cursor: pointer;
+      transform: rotate(-180deg);
       svg {
         height: 30px;
         fill: #000;
@@ -136,6 +147,9 @@
       width: 260px;
       backdrop-filter: blur(2px) invert(0.1);
       border-radius: 30px;
+      transition: all 0.5s ease;
+      transform: rotate(-90deg) translateX(-75px) translateY(55px);
+      transform-origin: right;
       .container_list_tools {
         scroll-snap-type: x mandatory;
         display: flex;
@@ -163,6 +177,7 @@
             height: 20px;
             transition: filter 0.25s ease;
           }
+          &.style_active,
           &:hover {
             border-color: rgba(#000, 1);
             background-color: rgba(#000, 1);
@@ -171,6 +186,15 @@
             }
           }
         }
+      }
+    }
+
+    &.style_active {
+      .container_tools {
+        transform: rotate(0deg) translateX(0) translateY(0);
+      }
+      .container_menu {
+        transform: rotate(0deg);
       }
     }
 

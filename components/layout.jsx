@@ -15,12 +15,10 @@ export default function Layout({ children, header, footer }) {
         accelerationIncludingGravity.z ** 2
     )
 
-    const shakeThreshold = 15
+    const shakeThreshold = 25
 
     if (totalAcceleration > shakeThreshold) {
-      setIsDevTools(true)
-    } else {
-      setIsDevTools(false)
+      setIsDevTools(!isDevTools)
     }
   }
 

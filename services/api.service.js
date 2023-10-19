@@ -19,26 +19,17 @@ export class ApiService {
     this.getInstance({ previewData })
   }
 
-  async getHeader({ lang }) {
-    return await this.client.getSingle('header', { lang: lang })
-  }
-
-  async getFooter({ lang }) {
-    return await this.client.getSingle('footer', { lang: lang })
-  }
-
   async getPage(documentType, uid, { lang }) {
     return this.client.getByUID(documentType, uid, { lang })
   }
-  async getAllLegals({ lang, limit = 25 }) {
-    return await this.client.getAllByType('legals', {
-      lang,
-      limit,
-    })
+
+  async getSinglePage(documentType, { lang }) {
+    return this.client.getSingle(documentType, { lang })
   }
-  async getAllType({ type, lang, limit, option }) {
-    return this.apiService.getAllByType(type, {
-      lang: lang,
+
+  async getAllType(documentType, { lang, limit, option }) {
+    return this.client.getAllByType(documentType, {
+      lang,
       limit,
       ...option,
     })

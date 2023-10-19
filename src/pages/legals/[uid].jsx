@@ -6,8 +6,6 @@ import { getLangFromLocale } from '/utils/get-lang-from-locale'
 import Layout from '/components/layout.jsx'
 import SEO from '/components/SEO'
 
-import styles from '@/styles/pages/Legals.module.scss'
-
 const Legals = ({ header, footer, page }) => {
   const data = page.data
   return (
@@ -44,8 +42,8 @@ export async function getStaticProps({ locale, params, previewData }) {
 }
 
 export async function getStaticPaths() {
-  const apiService = ApiService.getInstance()
-  const pages = await apiService.getAllLegals({ lang: '*' })
+  const customService = new CustomService()
+  const pages = await customService.getAllLegals({ lang: '*' })
   const paths = pages.map((page) => ({
     params: {
       uid: page.uid,

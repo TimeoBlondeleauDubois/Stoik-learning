@@ -22,6 +22,7 @@ const nextConfig = async () => {
       ] /* FOR EXCLUDE ALL NOT PAGES */
       const allDocument = await Promise.all(
         locales.map((lang) => client.dangerouslyGetAll({ lang }))
+        /* TODO après recherche getAllByTag si on valide l'utilisation des tags | Ex: tag : 'page' | moins lourds, mieux en perf, plus besoin d'exclude | tag autre possible comme 'rewrite', pour plus de conprehension */
       )
 
       return locales.flatMap((lang, i) => {

@@ -1,7 +1,8 @@
+import slicemachineConfig from './slicemachine.config.json' assert { type: 'json' }
 import * as prismic from '@prismicio/client'
 
 const nextConfig = async () => {
-  const client = prismic.createClient('start-next')
+  const client = prismic.createClient(slicemachineConfig.repositoryName)
   const repository = await client.getRepository()
 
   const locales = repository.languages.map((lang) => lang.id)

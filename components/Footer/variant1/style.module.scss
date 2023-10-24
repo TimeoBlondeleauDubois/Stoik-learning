@@ -1,7 +1,7 @@
 @import "@/styles/common/globals.scss";
 
 .footer_v1 {
-  padding: 40px 0;
+  padding: 72px 0 24px;
   .wrapper {
     @include styleResponsive("wider-mobile") {
       @include styleGrid();
@@ -18,19 +18,14 @@
         img {
           height: 54px;
           width: 71px;
-          border: 1px solid red;
         }
       }
     }
     .container_links {
       ul {
-        list-style: none;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-
         @container section (width >= #{$breakPoint_mobile}) {
-          gap: 30px;
+          gap: 40px;
         }
         li {
           a {
@@ -45,35 +40,59 @@
         }
       }
     }
-    .container_actions {
-      position: relative;
-
-      .wrapper_responsive {
-        @include styleResponsive("wider-mobile") {
-          display: flex;
-          gap: 24px;
-        }
+  }
+  .foot {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid $colorGreyscale_4;
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .copyright {
+      @include styleP("tiny");
+    }
+    .policy {
+      display: flex;
+      gap: 16px;
+      a {
+        @include styleP("tiny");
       }
-      .container_follow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        .title {
-          @include styleP("small", $font: $font_1_bold);
+    }
+    .container_actions_lang {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      .container_actions {
+        position: relative;
+        .wrapper_responsive {
+          @include styleResponsive("wider-mobile") {
+            display: flex;
+            gap: 24px;
+          }
         }
-        .container_el {
+        .container_follow {
           display: flex;
           align-items: center;
           gap: 16px;
-          .el {
-            height: 14px;
-            svg {
-              height: 100%;
-              .fill_1 {
-                fill: $colorPrimary_1;
-              }
-              .fill_2 {
-                fill: $colorGreyscale_6;
+          .title {
+            @include styleP("small", $font: $font_1_bold);
+          }
+          .container_el {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            .el {
+              height: 14px;
+              svg {
+                height: 100%;
+                .fill_1 {
+                  fill: $colorPrimary_1;
+                }
+                .fill_2 {
+                  fill: $colorGreyscale_6;
+                }
               }
             }
           }
@@ -147,60 +166,43 @@
       }
     }
   }
-  .foot {
-    margin-top: 24px;
-    @include styleResponsive("wider-mobile") {
-      background-color: $colorGreyscale_5;
-    }
-
-    .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 0;
-      gap: 16px;
-    }
-    .copyright {
-      @include styleP("tiny");
-    }
-    a {
-      @include styleP("tiny");
-    }
-  }
 
   @include styleResponsive {
     .container {
       .wrapper {
         flex-direction: column;
         .container_links {
-          @include styleGrid();
-          margin-top: 32px;
+          margin-top: 24px;
           ul {
             flex-direction: column;
-            gap: 24px;
-          }
-        }
-        .container_actions {
-          padding: 24px 0;
-          margin-top: 24px;
-          order: 1;
-          width: 100%;
-          justify-content: space-between;
-          border-bottom: 1px solid $colorGreyscale_4;
-          border-top: 1px solid $colorGreyscale_4;
-          .wrapper_responsive {
-            @include styleGrid;
-            display: flex;
-            gap: 24px;
-            justify-content: space-between;
+            gap: 16px;
           }
         }
       }
     }
     .foot {
+      margin-top: 24px;
+      padding-top: 24px;
       .wrapper {
-        @include styleGrid();
+        flex-direction: column-reverse;
         flex-wrap: wrap;
+        .container_actions_lang {
+          order: 3;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 16px;
+          padding-bottom: 24px;
+          border-bottom: 1px solid $colorGreyscale_4;
+          margin-bottom: 24px;
+        }
+        .copyright {
+          order: 2;
+          padding-bottom: 24px;
+        }
+        .policy {
+          order: 1;
+        }
       }
     }
   }

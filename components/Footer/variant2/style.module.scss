@@ -1,6 +1,6 @@
 @import "@/styles/common/globals.scss";
 
-.footer_v1 {
+.footer_v2 {
   padding: 40px 0;
   .wrapper {
     @include styleResponsive("wider-mobile") {
@@ -10,15 +10,16 @@
   .container {
     .wrapper {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 16px;
     }
     .container_logo {
+      margin-bottom: 8px;
       a {
         img {
           height: 54px;
           width: 71px;
-          border: 1px solid red;
         }
       }
     }
@@ -30,7 +31,7 @@
         justify-content: space-between;
 
         @container section (width >= #{$breakPoint_mobile}) {
-          gap: 30px;
+          gap: 40px;
         }
         li {
           a {
@@ -149,8 +150,8 @@
   }
   .foot {
     margin-top: 24px;
+    background-color: $colorGreyscale_5;
     @include styleResponsive("wider-mobile") {
-      background-color: $colorGreyscale_5;
     }
 
     .wrapper {
@@ -172,9 +173,12 @@
     .container {
       .wrapper {
         flex-direction: column;
+        gap: 24px;
+        .container_logo {
+          margin-bottom: 0;
+        }
         .container_links {
           @include styleGrid();
-          margin-top: 32px;
           ul {
             flex-direction: column;
             gap: 24px;
@@ -182,7 +186,6 @@
         }
         .container_actions {
           padding: 24px 0;
-          margin-top: 24px;
           order: 1;
           width: 100%;
           justify-content: space-between;
@@ -192,15 +195,18 @@
             @include styleGrid;
             display: flex;
             gap: 24px;
-            justify-content: space-between;
+            justify-content: center;
           }
         }
       }
     }
     .foot {
+      margin-top: 0;
+      padding: 24px 0;
       .wrapper {
         @include styleGrid();
         flex-wrap: wrap;
+        padding: 0;
       }
     }
   }

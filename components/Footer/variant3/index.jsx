@@ -8,128 +8,136 @@ const FooterVariant3 = () => {
           
           <div className={styles.container_list}>
             <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
-              </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
+              <details>
+                <summary className={styles.container_title}>
+                  <h3>Titre details</h3>
+                  <div className={styles.container_arrow}>
+                    <svg
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                        fill="white"></path>
+                    </svg>
+                  </div>
+                </summary>
+                <ul>
+                  <li>
+                    <a href="">Lien numéro 1</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 2</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 3</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 4</a>
+                  </li>
+                </ul>
+              </details>              
             </div>
             <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
-              </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
+              <details>
+                <summary className={styles.container_title}>
+                  <h3>Titre</h3>
+                  <div className={styles.container_arrow}>
+                    <svg
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                        fill="white"></path>
+                    </svg>
+                  </div>
+                </summary>
+                <ul>
+                  <li>
+                    <a href="">Lien numéro 1</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 2</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 3</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 4</a>
+                  </li>
+                </ul>
+              </details>
             </div>
             <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
-              </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
+              <details>
+                <summary className={styles.container_title}>
+                  <h3>Titre</h3>
+                  <div className={styles.container_arrow}>
+                    <svg
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                        fill="white"></path>
+                    </svg>
+                  </div>
+                </summary>
+                <ul>
+                  <li>
+                    <a href="">Lien numéro 1</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 2</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 3</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 4</a>
+                  </li>
+                </ul>
+              </details>
             </div>
             <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
-              </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
+              <details>
+                <summary className={styles.container_title}>
+                  <h3>Titre</h3>
+                  <div className={styles.container_arrow}>
+                    <svg
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                        fill="white"></path>
+                    </svg>
+                  </div>
+                </summary>
+                <ul>
+                  <li>
+                    <a href="">Lien numéro 1</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 2</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 3</a>
+                  </li>
+                  <li>
+                    <a href="">Lien numéro 4</a>
+                  </li>
+                </ul>
+              </details>
             </div>
             <div className={`${styles.list} ${styles.list_form}`}>
               <div className={`${styles.container_title} ${styles.container_title_form}`}>

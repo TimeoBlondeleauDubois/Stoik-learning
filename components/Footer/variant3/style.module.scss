@@ -1,8 +1,7 @@
 @import "@/styles/common/globals.scss";
 
 .footer_v3 {
-  padding: 40px 0 24px;
-
+  padding: 72px 0 24px;
   .wrapper {
     @include styleResponsive("wider-mobile") {
       @include styleGrid();
@@ -11,22 +10,18 @@
   .container {
     display: flex;
     width: 100%;
-
     .container_list {
-      flex: 1;
       display: flex;
       justify-content: space-between;
+      flex: 1;
       .list {
         .container_title {
           display: flex;
           align-items: center;
-          margin-bottom: 24px;
           justify-content: space-between;
-
           h3 {
             @include styleP("big", $font: $font_1_bold);
           }
-
           .container_arrow {
             @include styleResponsive("wider-mobile") {
               display: none;
@@ -37,10 +32,11 @@
           margin-bottom: 12px;
         }
         ul {
-          list-style: none;
           display: flex;
           flex-direction: column;
           gap: 16px;
+          list-style: none;
+          margin-top: 24px;
           li {
             a {
               @include styleP("small", $color: $colorGreyscale_2);
@@ -54,15 +50,13 @@
           }
         }
         form {
-          font-family: $font_1_regular;
           display: flex;
           flex-direction: column;
           gap: 16px;
-
+          font-family: $font_1_regular;
           .container_input {
             position: relative;
             display: flex;
-            // flex-wrap: wrap;
             gap: 8px;
             .form_mail {
               padding: 10px 10px 10px 40px;
@@ -122,18 +116,15 @@
     }
   }
   .foot {
-    padding: 24px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 24px 0;
     @include styleResponsive("wider-mobile") {
       margin-top: 40px;
       border-top: 1px solid $colorGreyscale_4;
     }
     .container_logo {
-      @include styleResponsive("wider-mobile") {
-        width: calcGrid(2, 1);
-      }
       img {
         width: 72px;
         height: 55px;
@@ -160,7 +151,6 @@
     }
     .container_actions {
       position: relative;
-
       .wrapper_responsive {
         @include styleResponsive("wider-mobile") {
           display: flex;
@@ -268,30 +258,39 @@
 
   @include styleResponsive {
     .container {
-      flex-direction: column;
-
       .container_list {
         flex-direction: column;
         .list {
           padding: 24px 0;
           border-bottom: 1px solid $colorGreyscale_4;
+          details {
+            &[open] {
+              .container_arrow {
+                transform: rotate(180deg);
+              }
+            }
+          }
           &:first-of-type {
-            padding: 0 0 24px;
+            border-top: 1px solid $colorGreyscale_4;
+          }
+          &:last-child {
+            .container_title {
+              margin-bottom: 16px;
+            }
           }
           .container_title {
             cursor: pointer;
             @include styleGrid();
             .container_arrow {
-              transform: rotate(0deg);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: relative;
               height: 20px;
               width: 20px;
+              transform: rotate(0deg);
               border-radius: 50%;
               background-color: $colorGreyscale_1;
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
               svg {
                 width: 9px;
                 transition: transform 0.25s ease;
@@ -336,16 +335,16 @@
     }
     .foot {
       flex-direction: column-reverse;
-      padding: 40px 0 0;
+      padding: 24px 0 0;
       .policy {
-        flex-wrap: wrap;
         justify-content: center;
+        flex-wrap: wrap;
         padding: 24px 0;
         border-bottom: 1px solid $colorGreyscale_4;
         .copyright {
+          width: 100%;
           margin-bottom: 0;
           order: 2;
-          width: 100%;
           text-align: center;
         }
         .container_legals {
@@ -355,19 +354,18 @@
         }
       }
       .container_actions {
+        justify-content: space-between;
+        width: 100%;
         padding-bottom: 24px;
         order: 1;
-        width: 100%;
-        justify-content: space-between;
         border-bottom: 1px solid $colorGreyscale_4;
         .wrapper_responsive {
           @include styleGrid;
           display: flex;
-          gap: 24px;
           justify-content: space-between;
+          gap: 24px;
         }
       }
-
       .container_logo {
         padding: 24px 0 0;
       }

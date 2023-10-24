@@ -1,7 +1,7 @@
 @import "@/styles/common/globals.scss";
 
 .footer_v2 {
-  padding: 40px 0;
+  padding: 72px 0 0;
   .wrapper {
     @include styleResponsive("wider-mobile") {
       @include styleGrid();
@@ -29,7 +29,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         @container section (width >= #{$breakPoint_mobile}) {
           gap: 40px;
         }
@@ -47,8 +46,6 @@
       }
     }
     .container_actions {
-      position: relative;
-
       .wrapper_responsive {
         @include styleResponsive("wider-mobile") {
           display: flex;
@@ -56,12 +53,6 @@
         }
       }
       .container_follow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        .title {
-          @include styleP("small", $font: $font_1_bold);
-        }
         .container_el {
           display: flex;
           align-items: center;
@@ -80,85 +71,18 @@
           }
         }
       }
-      details {
-        position: relative;
-        summary {
-          padding: 0 12px;
-          height: 32px;
-          border-radius: 8px;
-          background-color: $colorGreyscale_5;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          &::marker {
-            content: "";
-          }
-          &::-webkit-details-marker {
-            display: none;
-          }
-          .title {
-            flex: 1;
-            @include styleP("tiny");
-          }
-          svg {
-            width: 8px;
-            stroke-width: 1px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke: $colorGreyscale_1;
-            transition: transform 0.25s ease;
-          }
-        }
-        .dropdown {
-          border-radius: 8px;
-
-          position: absolute;
-          bottom: calc(100% + 8px);
-          width: 100%;
-          background-color: $colorGreyscale_5;
-          ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-
-            li {
-              cursor: pointer;
-
-              a {
-                display: block;
-                border-radius: 8px;
-                padding: 8px 8px;
-                @include styleP("tiny");
-                transition: background-color 0.25s ease;
-              }
-              @include styleHover {
-                a {
-                  background-color: $colorGreyscale_4;
-                }
-              }
-            }
-          }
-        }
-        &[open] summary {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
-      }
     }
   }
   .foot {
-    margin-top: 24px;
+    margin-top: 40px;
+    padding: 8px 0;
     background-color: $colorGreyscale_5;
     @include styleResponsive("wider-mobile") {
     }
 
     .wrapper {
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 12px 0;
       gap: 16px;
     }
     .copyright {
@@ -181,7 +105,7 @@
           @include styleGrid();
           ul {
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
           }
         }
         .container_actions {
@@ -207,6 +131,7 @@
         @include styleGrid();
         flex-wrap: wrap;
         padding: 0;
+        gap: 24px;
       }
     }
   }

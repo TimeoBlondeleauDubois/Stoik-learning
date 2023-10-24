@@ -35,7 +35,6 @@ const FooterVariant2 = () => {
           <div className={styles.container_actions}>
             <div className={styles.wrapper_responsive}>
               <div className={styles.container_follow}>
-                {/* <div className={styles.title}>Nous joindre</div> */}
                 <div className={styles.container_el}>
                   <a href="" className={styles.el}>
                     <svg
@@ -107,33 +106,6 @@ const FooterVariant2 = () => {
                   </a>
                 </div>
               </div>
-              {/* <details>
-                <summary>
-                  <div className={styles.title}>Anglais</div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M1 0.945633L4.81156 4.86528V4.86528C4.91548 4.97231 5.0841 4.97243 5.18818 4.86556C5.18827 4.86547 5.18836 4.86537 5.18845 4.86528L9 0.945633" />
-                  </svg>
-                </summary>
-                <div className={styles.dropdown}>
-                  <ul>
-                    <li>
-                      <a href="">Lang 1</a>
-                    </li>
-                    <li>
-                      <a href="">Lang 2</a>
-                    </li>
-                    <li>
-                      <a href="">Lang 3</a>
-                    </li>
-                  </ul>
-                </div>
-              </details> */}
             </div>
           </div>
         </div>

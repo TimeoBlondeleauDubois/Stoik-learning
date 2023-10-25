@@ -3,7 +3,7 @@ import styles from './style.module.scss'
 const FooterVariant1 = () => {
   return (
     <footer className={styles.footer_v1}>
-      <div className={styles.container}>
+      <div className={styles.top}>
         <div className={styles.wrapper}>
           <div className={styles.container_logo}>
             <a href="">
@@ -35,7 +35,7 @@ const FooterVariant1 = () => {
           
         </div>
       </div>
-      <div className={styles.foot}>
+      <div className={styles.bottom}>
         <div className={styles.wrapper}>
           <div className={styles.copyright}>
             ©2023 Bruno.Tous droits réservés.

@@ -7,11 +7,11 @@
       @include styleGrid();
     }
   }
-  .container {
+  .top {
     .wrapper {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
     .container_logo {
       a {
@@ -41,14 +41,14 @@
       }
     }
   }
-  .foot {
+  .bottom {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid $colorGreyscale_4;
     .wrapper {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
     .copyright {
       @include styleP("tiny");
@@ -62,8 +62,8 @@
     }
     .container_actions_lang {
       display: flex;
-      gap: 24px;
       align-items: center;
+      gap: 24px;
       .container_actions {
         position: relative;
         .wrapper_responsive {
@@ -129,16 +129,15 @@
           }
         }
         .dropdown {
-          border-radius: 8px;
-
           position: absolute;
-          bottom: calc(100% + 8px);
           width: 100%;
+          border-radius: 8px;
+          bottom: calc(100% + 8px);
           background-color: $colorGreyscale_5;
           ul {
-            list-style: none;
             display: flex;
             flex-direction: column;
+            list-style: none;
 
             li {
               cursor: pointer;
@@ -168,7 +167,7 @@
   }
 
   @include styleResponsive {
-    .container {
+    .top {
       .wrapper {
         flex-direction: column;
         .container_links {
@@ -180,21 +179,20 @@
         }
       }
     }
-    .foot {
+    .bottom {
       margin-top: 24px;
       padding-top: 24px;
       .wrapper {
         flex-direction: column-reverse;
         flex-wrap: wrap;
         .container_actions_lang {
-          order: 3;
-          flex-direction: row;
           justify-content: space-between;
+          flex-direction: row;
           width: 100%;
-          padding: 0 16px;
-          padding-bottom: 24px;
-          border-bottom: 1px solid $colorGreyscale_4;
+          padding: 0 16px 24px 16px;
           margin-bottom: 24px;
+          order: 3;
+          border-bottom: 1px solid $colorGreyscale_4;
         }
         .copyright {
           order: 2;

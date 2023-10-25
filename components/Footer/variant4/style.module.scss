@@ -2,42 +2,48 @@
 
 .footer_v4 {
   padding: 40px 0 24px;
-
   .wrapper {
     @include styleResponsive("wider-mobile") {
       @include styleGrid();
     }
   }
-  .container {
+  .top {
     display: flex;
     width: 100%;
-
-    .container_list {
-      flex: 1;
+    .container_title {
       display: flex;
       justify-content: space-between;
-      .list {
-        .container_title {
-          display: flex;
-          align-items: center;
-          margin-bottom: 24px;
-          justify-content: space-between;
-
-          h3 {
-            @include styleP("big", $font: $font_1_bold);
-          }
-
-          .container_arrow {
-            @include styleResponsive("wider-mobile") {
-              display: none;
-            }
+      align-items: center;
+      pointer-events: none;
+      h3 {
+        @include styleP("big", $font: $font_1_bold);
+      }
+      .container_arrow {
+        @include styleResponsive("wider-mobile") {
+          display: none;
+        }
+        svg {
+          fill: none;
+          .fill_path {
+            fill: $colorGreyscale_6;
+            fill-rule: evenodd;
+            clip-rule: evenodd;
           }
         }
+      }
+    }
+    .container_list {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex: 1;
+      .list {
         ul {
-          list-style: none;
           display: flex;
           flex-direction: column;
           gap: 16px;
+          margin-top: 24px;
+          list-style: none;
           li {
             a {
               @include styleP("small", $color: $colorGreyscale_2);
@@ -54,23 +60,30 @@
               align-items: center;
               height: 50px;
               padding: 0 32px;
-              border-radius: 12px;
-              color: $colorGreyscale_6;
-              font-size: $linkMedium_textsize_desktop;
-              font-weight: 700;
+              border-radius: 8px;
+              @include styleA("medium", $color: $colorGreyscale_6);
+              text-wrap: nowrap;
             }
             .button_primary {
+              transition: 0.25s ease all;
               background-color: $colorPrimary_2;
+              &:hover {
+                background-color: $colorPrimary_1;
+              }
             }
             .button_secondary {
               background-color: $colorPrimary_1;
+              transition: 0.25s ease all;
+              &:hover {
+                background-color: $colorPrimary_2;
+              }
             }
           }
         }
       }
     }
   }
-  .foot {
+  .bottom {
     padding: 24px 0;
     display: flex;
     align-items: center;
@@ -216,9 +229,28 @@
   }
 
   @include styleResponsive {
-    .container {
+    .top {
       flex-direction: column;
-
+      .container_title {
+        pointer-events: all;
+        cursor: pointer;
+        @include styleGrid();
+        .container_arrow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          height: 20px;
+          width: 20px;
+          transform: rotate(0deg);
+          border-radius: 50%;
+          background-color: $colorGreyscale_1;
+          svg {
+            width: 9px;
+            transition: transform 0.25s ease;
+          }
+        }
+      }
       .container_list {
         flex-direction: column;
         .list {
@@ -227,38 +259,26 @@
           &:first-of-type {
             padding: 0 0 24px;
           }
-          .container_title {
-            cursor: pointer;
-            @include styleGrid();
-            .container_arrow {
-              transform: rotate(0deg);
-              height: 20px;
-              width: 20px;
-              border-radius: 50%;
-              background-color: $colorGreyscale_1;
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              svg {
-                width: 9px;
-                transition: transform 0.25s ease;
-              }
-            }
-          }
           ul {
             @include styleGrid();
             li {
               .button {
                 border-radius: 8px;
+                width: 100%;
+              }
+            }
+          }
+          details {
+            &[open] {
+              .container_arrow {
+                transform: rotate(180deg);
               }
             }
           }
         }
       }
     }
-    .foot {
+    .bottom {
       flex-direction: column-reverse;
       padding: 40px 0 0;
       .policy {

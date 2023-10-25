@@ -7,11 +7,11 @@
       @include styleGrid();
     }
   }
-  .container {
+  .top {
     .wrapper {
       display: flex;
-      flex-direction: column;
       align-items: center;
+      flex-direction: column;
       gap: 16px;
     }
     .container_logo {
@@ -25,10 +25,9 @@
     }
     .container_links {
       ul {
-        list-style: none;
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         @container section (width >= #{$breakPoint_mobile}) {
           gap: 40px;
         }
@@ -73,7 +72,7 @@
       }
     }
   }
-  .foot {
+  .bottom {
     margin-top: 40px;
     padding: 8px 0;
     background-color: $colorGreyscale_5;
@@ -94,7 +93,7 @@
   }
 
   @include styleResponsive {
-    .container {
+    .top {
       .wrapper {
         flex-direction: column;
         gap: 24px;
@@ -109,22 +108,22 @@
           }
         }
         .container_actions {
-          padding: 24px 0;
-          order: 1;
-          width: 100%;
           justify-content: space-between;
+          width: 100%;
+          padding: 24px 0;
           border-bottom: 1px solid $colorGreyscale_4;
           border-top: 1px solid $colorGreyscale_4;
+          order: 1;
           .wrapper_responsive {
             @include styleGrid;
             display: flex;
-            gap: 24px;
             justify-content: center;
+            gap: 24px;
           }
         }
       }
     }
-    .foot {
+    .bottom {
       margin-top: 0;
       padding: 24px 0;
       .wrapper {

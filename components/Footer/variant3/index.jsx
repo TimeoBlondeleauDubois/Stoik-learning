@@ -7,7 +7,6 @@ const FooterVariant3 = () => {
     const handleResize = () => setWidth(window.innerWidth);
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    console.log(width)
     if(width < 700) {
       setIsDesktop(false)
     }
@@ -18,8 +17,7 @@ const FooterVariant3 = () => {
   return (
     <footer className={styles.footer_v3}>
       <div className={styles.wrapper}>
-        <div className={styles.container}>
-          
+        <div className={styles.top}>        
           <div className={styles.container_list}>
             <div className={styles.list}>
               <details open={isDesktop}>
@@ -28,13 +26,11 @@ const FooterVariant3 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -61,13 +57,11 @@ const FooterVariant3 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -94,13 +88,11 @@ const FooterVariant3 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -127,13 +119,11 @@ const FooterVariant3 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -152,29 +142,31 @@ const FooterVariant3 = () => {
                   </li>
                 </ul>
               </details>
-            </div>
-            <div className={`${styles.list} ${styles.list_form}`}>
-              <div className={`${styles.container_title} ${styles.container_title_form}`}>
-                <h3>Titre</h3>
-              </div>
-              <form>
-                <div className={styles.container_input}>
-                  <input className={styles.form_mail} type="email" name="" id="" placeholder='Email' />
-                  <svg className={styles.input_icon} width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.42543 6.03526L12.5153 3.94041C12.9959 3.61538 13.2833 3.07298 13.2833 2.49286C13.2833 1.52601 12.5002 0.74292 11.534 0.74292H2.69994C1.73377 0.74292 0.950684 1.52601 0.950684 2.49218C0.950684 3.07229 1.238 3.61469 1.71868 3.94041L4.80851 6.03526C6.20257 6.98018 8.03137 6.98018 9.42543 6.03526Z" stroke="#101010" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M0.941895 2.49243V8.97174C0.941895 10.108 1.86281 11.0289 2.99904 11.0289H11.2276C12.3638 11.0289 13.2848 10.108 13.2848 8.97174V2.49312" stroke="#101010" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <button className={`${styles.button} ${styles.button_primary}`}>Button text</button>
-                </div>
-                <div className={styles.container_checkbox}>
-                  <input type="checkbox" name="" id="" />
-                  <label htmlFor="">Lorem ipsum dolor sit amet consectetur. In etiam enim sed velit consequat tellus. In <span className={styles.underline}>etiam</span> enim sed velit consequat tellus.</label>
-                </div>
-              </form>
             </div>
           </div>
+          <div className={styles.container_form}>
+            <div className={styles.container_title}>
+              <h3>Titre</h3>
+            </div>
+            <form>
+              <div className={styles.container_form_top}>
+                <div className={`${styles.container_input}`}>
+                  <input type="email" name="" id="" placeholder='Email' />
+                  <svg className={styles.input_icon} viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.42543 6.03526L12.5153 3.94041C12.9959 3.61538 13.2833 3.07298 13.2833 2.49286C13.2833 1.52601 12.5002 0.74292 11.534 0.74292H2.69994C1.73377 0.74292 0.950684 1.52601 0.950684 2.49218C0.950684 3.07229 1.238 3.61469 1.71868 3.94041L4.80851 6.03526C6.20257 6.98018 8.03137 6.98018 9.42543 6.03526Z"   />
+                    <path d="M0.941895 2.49243V8.97174C0.941895 10.108 1.86281 11.0289 2.99904 11.0289H11.2276C12.3638 11.0289 13.2848 10.108 13.2848 8.97174V2.49312"   />
+                  </svg>
+                </div>
+                <button className={`${styles.button} ${styles.button_primary}`}>Button text</button>
+              </div>
+              <div className={styles.container_checkbox}>
+                <input type="checkbox" name="" id="" />
+                <label htmlFor="">Lorem ipsum dolor sit amet consectetur. In etiam enim sed velit consequat tellus. In <span className={styles.underline}>etiam</span> enim sed velit consequat tellus.</label>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className={styles.foot}>
+        <div className={styles.bottom}>
           <a className={styles.container_logo}>
             <img
               src="https://media.licdn.com/dms/image/C4E0BAQE7uOT_mjt9Cg/company-logo_200_200/0/1614069854120?e=1700697600&v=beta&t=iufCKw6QMW3_AZI0UkynYem9bSYrfK97pniP0AaxwmE"

@@ -7,40 +7,43 @@
       @include styleGrid();
     }
   }
-  .container {
+  .top {
     display: flex;
-    width: 100%;
+    gap: 40px;
+    .container_title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      h3 {
+        @include styleP("big", $font: $font_1_bold);
+      }
+      .container_arrow {
+        @include styleResponsive("wider-mobile") {
+          display: none;
+        }
+        svg {
+          fill: none;
+          .fill_path {
+            fill: $colorGreyscale_6;
+            fill-rule: evenodd;
+            clip-rule: evenodd;
+          }
+        }
+      }
+    }
     .container_list {
       display: flex;
       justify-content: space-between;
-      gap: 32px;
+      gap: 24px;
       flex: 1;
       .list {
-        flex: 1 1 0;
-        .container_title {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          pointer-events: none;
-
-          h3 {
-            @include styleP("big", $font: $font_1_bold);
-          }
-          .container_arrow {
-            @include styleResponsive("wider-mobile") {
-              display: none;
-            }
-          }
-        }
-        .container_title_form {
-          margin-bottom: 12px;
-        }
         ul {
           display: flex;
           flex-direction: column;
           gap: 16px;
-          list-style: none;
           margin-top: 24px;
+          list-style: none;
           li {
             a {
               @include styleP("small", $color: $colorGreyscale_2);
@@ -53,68 +56,120 @@
             }
           }
         }
-        form {
+      }
+    }
+    .container_form {
+      width: calcGrid(4);
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 12px;
+        .container_form_top {
           display: flex;
-          flex-direction: column;
-          gap: 16px;
-          font-family: $font_1_regular;
+          gap: 8px;
           .container_input {
             position: relative;
-            display: flex;
-            gap: 8px;
-            .form_mail {
+            input[type="email"] {
               padding: 10px 10px 10px 40px;
               border-radius: 8px;
               border: 1px solid $colorGreyscale_3;
-              color: $colorGreyscale_2;
+              @include styleP("small");
+              transition: 0.25s ease all;
+              &::placeholder {
+                @include styleP("small", $color: $colorGreyscale_2);
+              }
             }
-            .input_icon {
+            svg {
               position: absolute;
               left: 16px;
-              top: 13px;
+              top: 50%;
+              transform: translateY(-50%);
               width: 16px;
-              height: 16px;
+              aspect-ratio: 1/1;
+              fill: none;
+              stroke: $colorGreyscale_1;
+              stroke-width: 1.5;
+              stroke-linecap: round;
+              stroke-linejoin: round;
             }
-            .button {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 40px;
-              padding: 0 24px;
-              border-radius: 8px;
-              color: $colorGreyscale_6;
-              font-family: $font_1_bold;
-              font-size: $linkSmall_textsize_desktop;
-              text-wrap: nowrap;
+            &:focus {
+              border: 1px solid $colorGreyscale_1;
             }
-            .button_primary {
-              background-color: $colorPrimary_2;
+            &.disabled {
+              input[type="email"] {
+                pointer-events: none;
+                border: 1px solid $colorGreyscale_4;
+                background-color: $colorGreyscale_5;
+                @include styleP("small", $color: $colorGreyscale_4);
+              }
+              svg {
+                stroke: $colorGreyscale_4;
+              }
             }
-            .button_secondary {
+            &.valid {
+              input[type="email"] {
+                border: 1px solid $colorSuccess;
+                @include styleP("small", $color: $colorGreyscale_3);
+              }
+              svg {
+                stroke: $colorSuccess;
+              }
+            }
+            &.error {
+              input[type="email"] {
+                border: 1px solid $colorError;
+                @include styleP("small", $color: $colorGreyscale_3);
+              }
+              svg {
+                stroke: $colorError;
+              }
+            }
+          }
+          .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            padding: 0 24px;
+            border-radius: 8px;
+            @include styleA("small", $color: $colorGreyscale_6);
+            text-wrap: nowrap;
+          }
+          .button_primary {
+            transition: 0.25s ease all;
+            background-color: $colorPrimary_2;
+            &:hover {
               background-color: $colorPrimary_1;
             }
           }
-          .container_checkbox {
-            display: flex;
-            gap: 8px;
-            font-size: $paragraphTiny_textsize_desktop;
-            color: $colorGreyscale_2;
-            input[type="checkbox"] {
-              width: 16px;
-              height: 16px;
-              aspect-ratio: 1/1;
-              border: 1px solid $colorGreyscale_4;
-              border-radius: 3px;
+          .button_secondary {
+            background-color: $colorPrimary_1;
+            transition: 0.25s ease all;
+            &:hover {
+              background-color: $colorPrimary_2;
             }
-            .underline {
-              text-decoration: underline;
-            }
+          }
+        }
+        .container_checkbox {
+          display: flex;
+          gap: 8px;
+          @include styleP("tiny", $color: $colorGreyscale_2);
+          input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            aspect-ratio: 1/1;
+            border: 1px solid $colorGreyscale_4;
+            border-radius: 3px;
+          }
+          .underline {
+            text-decoration: underline;
           }
         }
       }
     }
   }
-  .foot {
+  .bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -256,30 +311,48 @@
   }
 
   @include styleResponsive("tablet") {
-    .container {
-      .container_list {
-        .list {
-          form {
-            .container_input {
-              flex-wrap: wrap;
-              .form_mail,
-              .button {
-                width: 100%;
-              }
+    .top {
+      .container_form {
+        form {
+          .container_form_top {
+            flex-direction: column;
+            .container_input input,
+            .button {
+              width: 100%;
             }
           }
-        }
-        .list_form {
-          flex: 2 1 0;
         }
       }
     }
   }
 
   @include styleResponsive {
-    .container {
+    .top {
+      flex-direction: column;
+      gap: 24px;
+      .container_title {
+        pointer-events: all;
+        cursor: pointer;
+        @include styleGrid();
+        .container_arrow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          height: 20px;
+          width: 20px;
+          transform: rotate(0deg);
+          border-radius: 50%;
+          background-color: $colorGreyscale_1;
+          svg {
+            width: 9px;
+            transition: transform 0.25s ease;
+          }
+        }
+      }
       .container_list {
         flex-direction: column;
+        gap: 0;
         .list {
           padding: 24px 0;
           border-bottom: 1px solid $colorGreyscale_4;
@@ -296,25 +369,6 @@
           &:last-child {
             .container_title {
               margin-bottom: 16px;
-            }
-          }
-          .container_title {
-            cursor: pointer;
-            @include styleGrid();
-            .container_arrow {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              position: relative;
-              height: 20px;
-              width: 20px;
-              transform: rotate(0deg);
-              border-radius: 50%;
-              background-color: $colorGreyscale_1;
-              svg {
-                width: 9px;
-                transition: transform 0.25s ease;
-              }
             }
           }
           ul {
@@ -348,17 +402,31 @@
             }
           }
         }
-        .list_form {
-          max-width: 100%;
+      }
+      .container_form {
+        width: 100%;
+        padding: 0 16px;
+        border-bottom: 1px solid $colorGreyscale_4;
+        form {
+          margin-top: 16px;
+          padding-bottom: 24px;
+          .container_form_top {
+            flex-direction: column;
+            .container_input input,
+            .button {
+              width: 100%;
+            }
+          }
         }
       }
     }
-    .foot {
+    .bottom {
       flex-direction: column-reverse;
       padding: 24px 0 0;
       .policy {
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
         padding: 24px 0;
         border-bottom: 1px solid $colorGreyscale_4;
         .copyright {

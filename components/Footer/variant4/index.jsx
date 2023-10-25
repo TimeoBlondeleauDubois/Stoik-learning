@@ -3,20 +3,21 @@ import styles from './style.module.scss'
 
 const FooterVariant4 = () => {
   const [isDesktop, setIsDesktop] = useState(true)
+  const [width, setWidth] = useState(0);
+    const handleResize = () => setWidth(window.innerWidth);
   useEffect(() => {
-    console.log(window.innerWidth)
-    if(window.innerWidth < 700) {
+    window.addEventListener('resize', handleResize);
+    if(width < 700) {
       setIsDesktop(false)
     }
     else {
       setIsDesktop(true)
     }
-  }, [])
+  }, [width])
   return (
     <footer className={styles.footer_v4}>
       <div className={styles.wrapper}>
-        <div className={styles.container}>
-          
+        <div className={styles.top}>        
           <div className={styles.container_list}>
             <div className={styles.list}>
               <details open={isDesktop}>
@@ -25,13 +26,11 @@ const FooterVariant4 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -58,13 +57,11 @@ const FooterVariant4 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -91,13 +88,11 @@ const FooterVariant4 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -124,13 +119,11 @@ const FooterVariant4 = () => {
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
+                        className={styles.fill_path}
                         d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                        fill="white"></path>
+                        ></path>
                     </svg>
                   </div>
                 </summary>
@@ -165,7 +158,7 @@ const FooterVariant4 = () => {
             </div>
           </div>
         </div>
-        <div className={styles.foot}>
+        <div className={styles.bottom}>
           <a className={styles.container_logo}>
             <img
               src="https://media.licdn.com/dms/image/C4E0BAQE7uOT_mjt9Cg/company-logo_200_200/0/1614069854120?e=1700697600&v=beta&t=iufCKw6QMW3_AZI0UkynYem9bSYrfK97pniP0AaxwmE"

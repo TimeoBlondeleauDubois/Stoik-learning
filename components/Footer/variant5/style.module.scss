@@ -1,7 +1,8 @@
 @import "@/styles/common/globals.scss";
 
-.footer_v3 {
-  padding: 72px 0 24px;
+.footer_v5 {
+  padding: 40px 0 24px;
+
   .wrapper {
     @include styleResponsive("wider-mobile") {
       @include styleGrid();
@@ -10,37 +11,71 @@
   .container {
     display: flex;
     width: 100%;
+    .container_main {
+      width: min-content;
+      .container_logo {
+        @include styleResponsive("wider-mobile") {
+          width: calcGrid(2, 1);
+        }
+        img {
+          width: 72px;
+          height: 55px;
+        }
+      }
+      .baseline {
+        padding: 24px 0;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: min-content;
+          height: 40px;
+          padding: 0 24px;
+          border-radius: 8px;
+          color: $colorGreyscale_6;
+          font-family: $font_1_bold;
+          font-size: $linkMedium_textsize_desktop;
+          text-wrap: nowrap;
+        }
+        .button_primary {
+          background-color: $colorPrimary_2;
+        }
+        .button_secondary {
+          background-color: $colorPrimary_1;
+        }
+      }
+    }
     .container_list {
+      flex: 1;
       display: flex;
       justify-content: space-between;
-      gap: 32px;
-      flex: 1;
       .list {
-        flex: 1 1 0;
         .container_title {
           display: flex;
           align-items: center;
+          margin-bottom: 24px;
           justify-content: space-between;
-          pointer-events: none;
 
           h3 {
             @include styleP("big", $font: $font_1_bold);
           }
+
           .container_arrow {
             @include styleResponsive("wider-mobile") {
               display: none;
             }
           }
         }
-        .container_title_form {
-          margin-bottom: 12px;
-        }
         ul {
+          list-style: none;
           display: flex;
           flex-direction: column;
           gap: 16px;
-          list-style: none;
-          margin-top: 24px;
           li {
             a {
               @include styleP("small", $color: $colorGreyscale_2);
@@ -53,103 +88,36 @@
             }
           }
         }
-        form {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          font-family: $font_1_regular;
-          .container_input {
-            position: relative;
-            display: flex;
-            gap: 8px;
-            .form_mail {
-              padding: 10px 10px 10px 40px;
-              border-radius: 8px;
-              border: 1px solid $colorGreyscale_3;
-              color: $colorGreyscale_2;
-            }
-            .input_icon {
-              position: absolute;
-              left: 16px;
-              top: 13px;
-              width: 16px;
-              height: 16px;
-            }
-            .button {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 40px;
-              padding: 0 24px;
-              border-radius: 8px;
-              color: $colorGreyscale_6;
-              font-family: $font_1_bold;
-              font-size: $linkSmall_textsize_desktop;
-              text-wrap: nowrap;
-            }
-            .button_primary {
-              background-color: $colorPrimary_2;
-            }
-            .button_secondary {
-              background-color: $colorPrimary_1;
-            }
-          }
-          .container_checkbox {
-            display: flex;
-            gap: 8px;
-            font-size: $paragraphTiny_textsize_desktop;
-            color: $colorGreyscale_2;
-            input[type="checkbox"] {
-              width: 16px;
-              height: 16px;
-              aspect-ratio: 1/1;
-              border: 1px solid $colorGreyscale_4;
-              border-radius: 3px;
-            }
-            .underline {
-              text-decoration: underline;
-            }
-          }
-        }
       }
     }
   }
   .foot {
+    padding: 24px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0;
     @include styleResponsive("wider-mobile") {
       margin-top: 40px;
       border-top: 1px solid $colorGreyscale_4;
     }
-    .container_logo {
-      img {
-        width: 72px;
-        height: 55px;
-      }
+    .copyright {
+      @include styleP("tiny", $color: $colorGreyscale_2);
     }
-    .policy {
+    .container_legals {
       display: flex;
+      align-items: center;
       gap: 16px;
-      .copyright {
+      a {
         @include styleP("tiny", $color: $colorGreyscale_2);
-      }
-      .container_legals {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        a {
-          @include styleP("tiny", $color: $colorGreyscale_2);
-          transition: color 0.25s ease;
-          @include styleHover {
-            color: $colorGreyscale_1;
-          }
+        transition: color 0.25s ease;
+        @include styleHover {
+          color: $colorGreyscale_1;
         }
       }
     }
     .container_actions {
       position: relative;
+
       .wrapper_responsive {
         @include styleResponsive("wider-mobile") {
           display: flex;
@@ -255,62 +223,32 @@
     }
   }
 
-  @include styleResponsive("tablet") {
-    .container {
-      .container_list {
-        .list {
-          form {
-            .container_input {
-              flex-wrap: wrap;
-              .form_mail,
-              .button {
-                width: 100%;
-              }
-            }
-          }
-        }
-        .list_form {
-          flex: 2 1 0;
-        }
-      }
-    }
-  }
-
   @include styleResponsive {
     .container {
+      flex-direction: column;
+      .container_logo {
+        display: flex;
+        justify-content: center;
+      }
       .container_list {
         flex-direction: column;
         .list {
           padding: 24px 0;
           border-bottom: 1px solid $colorGreyscale_4;
-          details {
-            &[open] {
-              .container_arrow {
-                transform: rotate(180deg);
-              }
-            }
-          }
-          &:first-of-type {
-            border-top: 1px solid $colorGreyscale_4;
-          }
-          &:last-child {
-            .container_title {
-              margin-bottom: 16px;
-            }
-          }
           .container_title {
             cursor: pointer;
             @include styleGrid();
             .container_arrow {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              position: relative;
+              transform: rotate(0deg);
               height: 20px;
               width: 20px;
-              transform: rotate(0deg);
               border-radius: 50%;
               background-color: $colorGreyscale_1;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
               svg {
                 width: 9px;
                 transition: transform 0.25s ease;
@@ -319,75 +257,36 @@
           }
           ul {
             @include styleGrid();
-            li {
-              .button {
-                border-radius: 8px;
-              }
-            }
           }
-          form {
-            padding: 0 16px;
-            .container_input {
-              flex-direction: column;
-              .form_mail {
-                padding: 10px 10px 10px 40px;
-                border-radius: 8px;
-                border: 1px solid $colorGreyscale_3;
-                color: $colorGreyscale_2;
-                width: auto;
-              }
-            }
-            .container_checkbox {
-              display: flex;
-              gap: 8px;
-              font-size: $paragraphTiny_textsize_desktop;
-              color: $colorGreyscale_2;
-              .underline {
-                text-decoration: underline;
-              }
-            }
-          }
-        }
-        .list_form {
-          max-width: 100%;
         }
       }
     }
     .foot {
-      flex-direction: column-reverse;
-      padding: 24px 0 0;
-      .policy {
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 24px 0;
-        border-bottom: 1px solid $colorGreyscale_4;
-        .copyright {
-          width: 100%;
-          margin-bottom: 0;
-          order: 2;
-          text-align: center;
-        }
-        .container_legals {
-          display: flex;
-          flex-wrap: wrap;
-          order: 3;
-        }
+      flex-direction: column;
+      .copyright {
+        order: 2;
+      }
+      .container_legals {
+        order: 3;
       }
       .container_actions {
-        justify-content: space-between;
-        width: 100%;
         padding-bottom: 24px;
+        margin-bottom: 24px;
         order: 1;
+        width: 100%;
+        justify-content: space-between;
         border-bottom: 1px solid $colorGreyscale_4;
         .wrapper_responsive {
           @include styleGrid;
           display: flex;
-          justify-content: space-between;
           gap: 24px;
+          justify-content: space-between;
         }
       }
-      .container_logo {
-        padding: 24px 0 0;
+      .copyright {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 24px;
       }
     }
   }

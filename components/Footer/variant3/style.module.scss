@@ -13,8 +13,10 @@
     .container_list {
       display: flex;
       justify-content: space-between;
+      gap: 32px;
       flex: 1;
       .list {
+        flex: 1 1 0;
         .container_title {
           display: flex;
           align-items: center;
@@ -63,7 +65,6 @@
               border-radius: 8px;
               border: 1px solid $colorGreyscale_3;
               color: $colorGreyscale_2;
-              width: auto;
             }
             .input_icon {
               position: absolute;
@@ -77,12 +78,11 @@
               justify-content: center;
               align-items: center;
               height: 40px;
-              padding: 0 32px;
+              padding: 0 24px;
               border-radius: 8px;
               color: $colorGreyscale_6;
               font-family: $font_1_bold;
-              font-size: $linkMedium_textsize_desktop;
-              font-weight: 700;
+              font-size: $linkSmall_textsize_desktop;
               text-wrap: nowrap;
             }
             .button_primary {
@@ -109,9 +109,6 @@
             }
           }
         }
-      }
-      .list_form {
-        max-width: 376px;
       }
     }
   }
@@ -251,6 +248,27 @@
           svg {
             transform: rotate(180deg);
           }
+        }
+      }
+    }
+  }
+
+  @include styleResponsive("tablet") {
+    .container {
+      .container_list {
+        .list {
+          form {
+            .container_input {
+              flex-wrap: wrap;
+              .form_mail,
+              .button {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .list_form {
+          flex: 2 1 0;
         }
       }
     }

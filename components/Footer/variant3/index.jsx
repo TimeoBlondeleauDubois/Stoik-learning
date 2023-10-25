@@ -1,6 +1,17 @@
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
 
 const FooterVariant3 = () => {
+  const [isDesktop, setIsDesktop] = useState(true)
+  useEffect(() => {
+    console.log(window.innerWidth)
+    if(window.innerWidth < 700) {
+      setIsDesktop(false)
+    }
+    else {
+      setIsDesktop(true)
+    }
+  }, [])
   return (
     <footer className={styles.footer_v3}>
       <div className={styles.wrapper}>
@@ -8,9 +19,9 @@ const FooterVariant3 = () => {
           
           <div className={styles.container_list}>
             <div className={styles.list}>
-              <details>
+              <details open={isDesktop}>
                 <summary className={styles.container_title}>
-                  <h3>Titre details</h3>
+                  <h3>Titre</h3>
                   <div className={styles.container_arrow}>
                     <svg
                       viewBox="0 0 10 7"
@@ -41,7 +52,7 @@ const FooterVariant3 = () => {
               </details>              
             </div>
             <div className={styles.list}>
-              <details>
+              <details open={isDesktop}>
                 <summary className={styles.container_title}>
                   <h3>Titre</h3>
                   <div className={styles.container_arrow}>
@@ -74,7 +85,7 @@ const FooterVariant3 = () => {
               </details>
             </div>
             <div className={styles.list}>
-              <details>
+              <details open={isDesktop}>
                 <summary className={styles.container_title}>
                   <h3>Titre</h3>
                   <div className={styles.container_arrow}>
@@ -107,7 +118,7 @@ const FooterVariant3 = () => {
               </details>
             </div>
             <div className={styles.list}>
-              <details>
+              <details open={isDesktop}>
                 <summary className={styles.container_title}>
                   <h3>Titre</h3>
                   <div className={styles.container_arrow}>

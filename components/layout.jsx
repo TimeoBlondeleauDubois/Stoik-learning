@@ -46,8 +46,8 @@ export default function Layout({ children, header, footer }) {
       {/* <Footer variation={'default'} footer={footer} /> */}
       {/* <Footer variation={'variant1'} footer={footer} /> */}
       {/* <Footer variation={'variant2'} footer={footer} /> */}
-      <Footer variation={'variant3'} footer={footer} />
-      {/* <Footer variation={'variant4'} footer={footer} /> */}
+      {/* <Footer variation={'variant3'} footer={footer} /> */}
+      <Footer variation={'variant4'} footer={footer} />
     </>
   )
 }

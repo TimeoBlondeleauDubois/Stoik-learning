@@ -150,7 +150,7 @@ const FooterVariant3 = () => {
             </div>
             <form>
               <div className={styles.container_form_top}>
-                <div className={`${styles.container_input}`}>
+                <div className={`${styles.container_input} ${styles.style_disabled}`}>
                   <input type="email" name="" id="" placeholder='Email' />
                   <svg className={styles.input_icon} viewBox="0 0 15 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.42543 6.03526L12.5153 3.94041C12.9959 3.61538 13.2833 3.07298 13.2833 2.49286C13.2833 1.52601 12.5002 0.74292 11.534 0.74292H2.69994C1.73377 0.74292 0.950684 1.52601 0.950684 2.49218C0.950684 3.07229 1.238 3.61469 1.71868 3.94041L4.80851 6.03526C6.20257 6.98018 8.03137 6.98018 9.42543 6.03526Z"   />

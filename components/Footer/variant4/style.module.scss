@@ -69,6 +69,7 @@
               background-color: $colorPrimary_2;
               &:hover {
                 background-color: $colorPrimary_1;
+                @include styleA("medium", $color: $colorGreyscale_6);
               }
             }
             .button_secondary {
@@ -76,6 +77,7 @@
               transition: 0.25s ease all;
               &:hover {
                 background-color: $colorPrimary_2;
+                @include styleA("medium", $color: $colorGreyscale_6);
               }
             }
           }

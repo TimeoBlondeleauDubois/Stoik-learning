@@ -1,10 +1,23 @@
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
 
 const FooterVariant5 = () => {
+  const [isDesktop, setIsDesktop] = useState(true)
+  const [width, setWidth] = useState(0);
+    const handleResize = () => setWidth(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    if(width < 700) {
+      setIsDesktop(false)
+    }
+    else {
+      setIsDesktop(true)
+    }
+  }, [width])
   return (
     <footer className={styles.footer_v5}>
       <div className={styles.wrapper}>
-        <div className={styles.container}>
+        <div className={styles.top}>
           <div className={styles.container_main}>
             <a className={styles.container_logo}>
               <img
@@ -20,167 +33,306 @@ const FooterVariant5 = () => {
                 <li>
                   <a href="" className={`${styles.button} ${styles.button_secondary}`}>Button text</a>
                 </li>
-              </ul>
+            </ul>
+            <div className={styles.container_notes}>
+              <div className={styles.note}>
+                <div className={styles.stars}>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                </div>
+                <p className={styles.note_label}>Note sur site</p>
+              </div>
+              <div className={styles.note}>
+                <div className={styles.stars}>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                  <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <path className={styles.fill_path} d="M7.51489 0.549819L9.20969 5.06155H12.5218H12.5107C12.9538 5.0394 13.3304 5.39387 13.3415 5.84803C13.3415 6.08065 13.2418 6.31328 13.0646 6.47943L10.1845 8.4844L11.7796 12.1554C11.9568 12.5985 11.7464 13.0969 11.3033 13.2853C11.0485 13.3849 10.7605 13.3628 10.5279 13.2299L6.67302 11.0477L2.81816 13.2188V13.2077C2.39723 13.4403 1.86552 13.2963 1.62183 12.8865C1.47782 12.6428 1.46675 12.3658 1.56644 12.1111L3.16155 8.44009L0.281487 6.42405C-0.0619052 6.12496 -0.0951365 5.60434 0.203947 5.27202C0.359028 5.08371 0.591648 4.98401 0.835346 4.99509H4.14742L5.85331 0.483356H5.8522C6.06267 0.0513457 6.59437 -0.125889 7.02638 0.0956551C7.18146 0.173195 7.31439 0.306122 7.40301 0.472279L7.51489 0.549819Z" />
+                  </svg>
+                </div>
+                <p className={styles.note_label}>Note sur site</p>
+              </div>
+            </div>
           </div>
-          <div className={styles.container_list}>
-            <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
+          <div className={styles.container_lists}>
+            <div className={styles.container_list}>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
               </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
+              </div>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
+              </div>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
+              </div>
             </div>
-            <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
+            <div className={styles.container_list}>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
               </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
               </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
               </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.list}>
-              <div className={styles.container_title}>
-                <h3>Titre</h3>
-                <div className={styles.container_arrow}>
-                  <svg
-                    viewBox="0 0 10 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
-                      fill="white"></path>
-                  </svg>
-                </div>
+              <div className={styles.list}>
+                <details open={isDesktop}>
+                  <summary className={styles.container_title}>
+                    <h3>Titre</h3>
+                    <div className={styles.container_arrow}>
+                      <svg
+                        viewBox="0 0 10 7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className={styles.fill_path}
+                          d="M5 6.5L-5.24203e-08 1.69924L1.25099 0.5L5 4.09962L8.749 0.500006L10 1.69924L5 6.5Z"
+                          ></path>
+                      </svg>
+                    </div>
+                  </summary>
+                  <ul>
+                    <li>
+                      <a href="">Lien numéro 1</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 2</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 3</a>
+                    </li>
+                    <li>
+                      <a href="">Lien numéro 4</a>
+                    </li>
+                  </ul>
+                </details>
               </div>
-              <ul>
-                <li>
-                  <a href="">Lien numéro 1</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 2</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 3</a>
-                </li>
-                <li>
-                  <a href="">Lien numéro 4</a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
-        <div className={styles.foot}>
+        <div className={styles.bottom}>
           <div className={styles.copyright}>
             ©2023 Bruno. Tous droits réservés.
           </div>

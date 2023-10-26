@@ -8,14 +8,11 @@
     }
   }
   .top {
-    .wrapper {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 16px;
-    }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
     .container_logo {
-      margin-bottom: 8px;
       a {
         img {
           height: 54px;
@@ -26,8 +23,6 @@
     .container_links {
       ul {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
         @container section (width >= #{$breakPoint_mobile}) {
           gap: 40px;
         }
@@ -73,6 +68,10 @@
     }
   }
   .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
     margin-top: 40px;
     padding: 8px 0;
     background-color: $colorGreyscale_5;
@@ -80,13 +79,20 @@
     }
 
     .wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
     }
-    .copyright {
+    .container_copyright {
+      display: flex;
+      span {
+        @include styleP("tiny");
+      }
+    }
+    a {
       @include styleP("tiny");
     }
+  }
+  .container_policy {
+    display: flex;
+    gap: 16px;
     a {
       @include styleP("tiny");
     }
@@ -94,44 +100,21 @@
 
   @include styleResponsive {
     .top {
-      .wrapper {
-        flex-direction: column;
-        gap: 24px;
-        .container_logo {
-          margin-bottom: 0;
-        }
-        .container_links {
-          @include styleGrid();
-          ul {
-            flex-direction: column;
-            gap: 16px;
-          }
-        }
-        .container_actions {
-          justify-content: space-between;
-          width: 100%;
-          padding: 24px 0;
-          border-bottom: 1px solid $colorGreyscale_4;
-          border-top: 1px solid $colorGreyscale_4;
-          order: 1;
-          .wrapper_responsive {
-            @include styleGrid;
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-          }
+      .container_links {
+        margin-top: 24px;
+        ul {
+          flex-direction: column;
+          gap: 16px;
         }
       }
     }
     .bottom {
+      @include styleGrid();
+      flex-wrap: wrap;
+      padding: 0;
+      gap: 24px;
       margin-top: 0;
       padding: 24px 0;
-      .wrapper {
-        @include styleGrid();
-        flex-wrap: wrap;
-        padding: 0;
-        gap: 24px;
-      }
     }
   }
 }

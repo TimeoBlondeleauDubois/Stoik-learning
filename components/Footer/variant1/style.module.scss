@@ -8,11 +8,9 @@
     }
   }
   .top {
-    .wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .container_logo {
       a {
         img {
@@ -42,57 +40,51 @@
     }
   }
   .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid $colorGreyscale_4;
-    .wrapper {
+    .container_copyright {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      span {
+        @include styleP("tiny");
+      }
     }
-    .copyright {
-      @include styleP("tiny");
-    }
-    .policy {
+    .container_policy {
       display: flex;
       gap: 16px;
       a {
         @include styleP("tiny");
       }
     }
-    .container_actions_lang {
+    .container_follow_lang {
       display: flex;
       align-items: center;
       gap: 24px;
-      .container_actions {
-        position: relative;
-        .wrapper_responsive {
-          @include styleResponsive("wider-mobile") {
-            display: flex;
-            gap: 24px;
-          }
-        }
-        .container_follow {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          .title {
+      .container_follow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        .title {
+          span {
             @include styleP("small", $font: $font_1_bold);
           }
-          .container_el {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            .el {
-              height: 14px;
-              svg {
-                height: 100%;
-                .fill_1 {
-                  fill: $colorPrimary_1;
-                }
-                .fill_2 {
-                  fill: $colorGreyscale_6;
-                }
+        }
+        .container_el {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          .el {
+            height: 14px;
+            svg {
+              height: 100%;
+              .fill_1 {
+                fill: $colorPrimary_1;
+              }
+              .fill_2 {
+                fill: $colorGreyscale_6;
               }
             }
           }
@@ -168,39 +160,35 @@
 
   @include styleResponsive {
     .top {
-      .wrapper {
-        flex-direction: column;
-        .container_links {
-          margin-top: 24px;
-          ul {
-            flex-direction: column;
-            gap: 16px;
-          }
+      flex-direction: column;
+      .container_links {
+        margin-top: 24px;
+        ul {
+          flex-direction: column;
+          gap: 16px;
         }
       }
     }
     .bottom {
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
       margin-top: 24px;
       padding-top: 24px;
-      .wrapper {
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        .container_actions_lang {
-          justify-content: space-between;
-          flex-direction: row;
-          width: 100%;
-          padding: 0 16px 24px 16px;
-          margin-bottom: 24px;
-          order: 3;
-          border-bottom: 1px solid $colorGreyscale_4;
-        }
-        .copyright {
-          order: 2;
-          padding-bottom: 24px;
-        }
-        .policy {
-          order: 1;
-        }
+      .container_copyright {
+        order: 2;
+        padding-bottom: 24px;
+      }
+      .container_policy {
+        order: 1;
+      }
+      .container_follow_lang {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        padding: 0 16px 24px 16px;
+        margin-bottom: 24px;
+        order: 3;
+        border-bottom: 1px solid $colorGreyscale_4;
       }
     }
   }

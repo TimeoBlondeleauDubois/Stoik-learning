@@ -9,7 +9,7 @@
   }
   .top {
     display: flex;
-    gap: 40px;
+    gap: calcGrid(1, 1);
     .container_title {
       display: flex;
       justify-content: space-between;
@@ -70,7 +70,7 @@
           gap: 8px;
           .container_input {
             position: relative;
-            input[type="email"] {
+            input {
               padding: 10px 10px 10px 40px;
               border-radius: 8px;
               border: 1px solid $colorGreyscale_3;
@@ -93,10 +93,10 @@
               stroke-linecap: round;
               stroke-linejoin: round;
             }
-            &:focus {
+            &.focus {
               border: 1px solid $colorGreyscale_1;
             }
-            &.disabled {
+            &.style_disabled {
               input[type="email"] {
                 pointer-events: none;
                 border: 1px solid $colorGreyscale_4;
@@ -313,6 +313,7 @@
   @include styleResponsive("tablet") {
     .top {
       .container_form {
+        width: calcGrid(3);
         form {
           .container_form_top {
             flex-direction: column;

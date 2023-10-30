@@ -1,17 +1,11 @@
-@import "@/styles/common/globals.scss";
+@import "../footer.module.scss";
 
 .footer_v5 {
-  padding: 72px 0 24px;
-
-  .wrapper {
-    @include styleResponsive("wider-mobile") {
-      @include styleGrid();
-    }
-  }
+  background-color: tan;
   .top {
     display: flex;
     gap: calcGrid(2);
-    width: 100%;
+    margin-bottom: 40px;
     .container_main {
       @include styleResponsive("wider-mobile") {
         width: calcGrid(2, 1);
@@ -19,9 +13,6 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
-      .baseline {
-        text-align: center;
-      }
       .container_logo {
         img {
           height: 55px;
@@ -36,15 +27,7 @@
         flex-direction: column;
         gap: 16px;
         .button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: min-content;
-          height: 50px;
-          padding: 0 32px;
-          border-radius: 12px;
           @include styleA("medium", $color: $colorGreyscale_6);
-          text-wrap: nowrap;
         }
         .button_primary {
           transition: 0.25s ease all;
@@ -76,7 +59,7 @@
               height: 14px;
               aspect-ratio: 1/1;
               fill: none;
-              .fill_path {
+              path {
                 fill: $colorPrimary_2;
               }
             }
@@ -100,194 +83,19 @@
       flex-direction: column;
       gap: 64px;
     }
-    .container_list {
+    .container_lists {
       flex: 1;
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      .list {
-        .container_title {
-          display: flex;
-          align-items: center;
-
-          justify-content: space-between;
-          h3 {
-            @include styleP("big", $font: $font_1_bold);
-          }
-
-          .container_arrow {
-            @include styleResponsive("wider-mobile") {
-              display: none;
-            }
-            svg {
-              fill: none;
-              .fill_path {
-                fill: $colorGreyscale_6;
-                fill-rule: evenodd;
-                clip-rule: evenodd;
-              }
-            }
-          }
-        }
-        details {
-          &[open] {
-            .container_arrow {
-              transform: rotate(180deg);
-            }
-          }
-        }
-
-        ul {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          margin-top: 24px;
-          li {
-            a {
-              @include styleP("small", $color: $colorGreyscale_2);
-              transition: color 0.25s ease;
-            }
-            @include styleHover() {
-              a {
-                color: $colorGreyscale_1;
-              }
-            }
-          }
-        }
-      }
     }
   }
-  .bottom {
-    padding: 24px 0;
+  .foot {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    @include styleResponsive("wider-mobile") {
-      margin-top: 40px;
-      border-top: 1px solid $colorGreyscale_4;
-    }
-    .copyright {
-      @include styleP("tiny", $color: $colorGreyscale_2);
-    }
-    .container_legals {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      a {
-        @include styleP("tiny", $color: $colorGreyscale_2);
-        transition: color 0.25s ease;
-        @include styleHover {
-          color: $colorGreyscale_1;
-        }
-      }
-    }
-    .container_actions {
-      position: relative;
-
-      .wrapper_responsive {
-        @include styleResponsive("wider-mobile") {
-          display: flex;
-          gap: 24px;
-        }
-      }
-      .container_follow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        .title {
-          @include styleP("small", $font: $font_1_bold);
-        }
-        .container_el {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          .el {
-            height: 14px;
-            svg {
-              height: 100%;
-              transition: opacity 0.25s ease;
-              .fill_1 {
-                fill: $colorPrimary_1;
-              }
-              .fill_2 {
-                fill: $colorGreyscale_6;
-              }
-            }
-            @include styleHover {
-              svg {
-                opacity: 0.7;
-              }
-            }
-          }
-        }
-      }
-      details {
-        position: relative;
-        summary {
-          padding: 0 12px;
-          height: 32px;
-          border-radius: 8px;
-          background-color: $colorGreyscale_5;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          &::marker {
-            content: "";
-          }
-          &::-webkit-details-marker {
-            display: none;
-          }
-          .title {
-            flex: 1;
-            @include styleP("tiny");
-          }
-          svg {
-            width: 8px;
-            stroke-width: 1px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke: $colorGreyscale_1;
-            transition: transform 0.25s ease;
-          }
-        }
-        .dropdown {
-          border-radius: 8px;
-
-          position: absolute;
-          bottom: calc(100% + 8px);
-          width: 100%;
-          background-color: $colorGreyscale_5;
-          ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            li {
-              cursor: pointer;
-
-              a {
-                display: block;
-                border-radius: 8px;
-                padding: 8px 8px;
-                @include styleP("tiny");
-                transition: background-color 0.25s ease;
-              }
-              @include styleHover {
-                a {
-                  background-color: $colorGreyscale_4;
-                }
-              }
-            }
-          }
-        }
-        &[open] summary {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
-      }
-    }
+    align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid $colorGreyscale_4;
   }
 
   @include styleResponsive("tablet") {
@@ -300,8 +108,12 @@
     .top {
       flex-direction: column;
       gap: 40px;
+      margin-bottom: 0;
       .container_main {
         padding: 0 16px;
+        .baseline {
+          text-align: center;
+        }
         ul {
           .button {
             width: 100%;
@@ -317,7 +129,12 @@
       }
       .container_lists {
         gap: 0;
-        .container_list {
+        .container_sitemap {
+          .list {
+            &:first-of-type {
+              padding-top: 24px;
+            }
+          }
           &:first-of-type {
             .list {
               &:first-of-type {
@@ -330,68 +147,17 @@
               &:first-of-type {
                 border-top: 0;
               }
-            }
-          }
-        }
-      }
-      .container_list {
-        flex-direction: column;
-        .list {
-          padding: 24px 0;
-          border-bottom: 1px solid $colorGreyscale_4;
-          .container_title {
-            cursor: pointer;
-            @include styleGrid();
-            .container_arrow {
-              transform: rotate(0deg);
-              height: 20px;
-              width: 20px;
-              border-radius: 50%;
-              background-color: $colorGreyscale_1;
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              svg {
-                width: 9px;
-                transition: transform 0.25s ease;
+              &:last-of-type {
+                border-bottom: none;
               }
             }
-          }
-          ul {
-            @include styleGrid();
           }
         }
       }
     }
-    .bottom {
+    .foot {
       flex-direction: column;
-      .copyright {
-        order: 2;
-      }
-      .container_legals {
-        order: 3;
-      }
-      .container_actions {
-        padding-bottom: 24px;
-        margin-bottom: 24px;
-        order: 1;
-        width: 100%;
-        justify-content: space-between;
-        border-bottom: 1px solid $colorGreyscale_4;
-        .wrapper_responsive {
-          @include styleGrid;
-          display: flex;
-          gap: 24px;
-          justify-content: space-between;
-        }
-      }
-      .copyright {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 24px;
-      }
+      padding-top: 0;
     }
   }
 }

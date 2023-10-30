@@ -1,18 +1,12 @@
-@import "@/styles/common/globals.scss";
+@import "../footer.module.scss";
 
 .footer_v2 {
-  padding: 72px 0 0;
-  .wrapper {
-    @include styleResponsive("wider-mobile") {
-      @include styleGrid();
-    }
-  }
   .top {
-    display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 16px;
+    margin-bottom: 40px;
     .container_logo {
+      margin-bottom: 24px;
       a {
         img {
           height: 54px;
@@ -20,101 +14,34 @@
         }
       }
     }
-    .container_links {
-      ul {
-        display: flex;
-        @container section (width >= #{$breakPoint_mobile}) {
-          gap: 40px;
-        }
-        li {
-          a {
-            @include styleP("small", $color: $colorGreyscale_2);
-            transition: color 0.25s ease;
-          }
-          @include styleHover {
-            a {
-              color: $colorGreyscale_1;
-            }
-          }
-        }
-      }
-    }
-    .container_actions {
-      .wrapper_responsive {
-        @include styleResponsive("wider-mobile") {
-          display: flex;
-          gap: 24px;
-        }
-      }
-      .container_follow {
-        .container_el {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          .el {
-            height: 14px;
-            svg {
-              height: 100%;
-              .fill_1 {
-                fill: $colorPrimary_1;
-              }
-              .fill_2 {
-                fill: $colorGreyscale_6;
-              }
-            }
-          }
-        }
-      }
+    .container_sitemap {
+      margin-bottom: 16px;
     }
   }
-  .bottom {
+  .foot {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 40px;
     padding: 8px 0;
     background-color: $colorGreyscale_5;
     @include styleResponsive("wider-mobile") {
     }
-
-    .wrapper {
-    }
-    .container_copyright {
-      display: flex;
-      span {
-        @include styleP("tiny");
-      }
-    }
-    a {
-      @include styleP("tiny");
-    }
   }
-  .container_policy {
-    display: flex;
-    gap: 16px;
-    a {
-      @include styleP("tiny");
-    }
-  }
-
   @include styleResponsive {
     .top {
-      .container_links {
-        margin-top: 24px;
-        ul {
-          flex-direction: column;
-          gap: 16px;
-        }
+      margin-bottom: 0;
+      .container_sitemap {
+        margin-bottom: 24px;
+      }
+      .container_join_us {
+        border-top: 1px solid $colorGreyscale_4;
       }
     }
-    .bottom {
-      @include styleGrid();
-      flex-wrap: wrap;
+    .foot {
+      flex-direction: column;
+      gap: 0;
       padding: 0;
-      gap: 24px;
-      margin-top: 0;
-      padding: 24px 0;
     }
   }
 }

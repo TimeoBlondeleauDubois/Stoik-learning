@@ -1,70 +1,20 @@
-@import "@/styles/common/globals.scss";
+@import "../footer.module.scss";
 
 .footer_v3 {
-  padding: 72px 0 24px;
-  .wrapper {
-    @include styleResponsive("wider-mobile") {
-      @include styleGrid();
-    }
-  }
   .top {
-    display: flex;
     gap: calcGrid(1, 1);
-    .container_title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      pointer-events: none;
-      h3 {
-        @include styleP("big", $font: $font_1_bold);
-      }
-      .container_arrow {
-        @include styleResponsive("wider-mobile") {
-          display: none;
-        }
-        svg {
-          fill: none;
-          .fill_path {
-            fill: $colorGreyscale_6;
-            fill-rule: evenodd;
-            clip-rule: evenodd;
-          }
-        }
-      }
-    }
-    .container_list {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      flex: 1;
-      .list {
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          margin-top: 24px;
-          list-style: none;
-          li {
-            a {
-              @include styleP("small", $color: $colorGreyscale_2);
-              transition: color 0.25s ease;
-            }
-            @include styleHover() {
-              a {
-                color: $colorGreyscale_1;
-              }
-            }
-          }
-        }
-      }
-    }
     .container_form {
-      width: calcGrid(4);
+      @include styleGrid(4);
+      .container_title {
+        margin-bottom: 12px;
+        h3 {
+          @include styleP("big", $font: $font_1_bold);
+        }
+      }
       form {
         display: flex;
         flex-direction: column;
         gap: 16px;
-        margin-top: 12px;
         .container_form_top {
           display: flex;
           gap: 8px;
@@ -76,6 +26,7 @@
               border: 1px solid $colorGreyscale_3;
               @include styleP("small");
               transition: 0.25s ease all;
+              background-color: $colorGreyscale_5;
               &::placeholder {
                 @include styleP("small", $color: $colorGreyscale_2);
               }
@@ -100,7 +51,6 @@
               input[type="email"] {
                 pointer-events: none;
                 border: 1px solid $colorGreyscale_4;
-                background-color: $colorGreyscale_5;
                 @include styleP("small", $color: $colorGreyscale_4);
               }
               svg {
@@ -155,12 +105,39 @@
           display: flex;
           gap: 8px;
           @include styleP("tiny", $color: $colorGreyscale_2);
-          input[type="checkbox"] {
-            width: 16px;
+          .container_input {
+            position: relative;
             height: 16px;
             aspect-ratio: 1/1;
-            border: 1px solid $colorGreyscale_4;
-            border-radius: 3px;
+            input[type="checkbox"] {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              z-index: 1;
+              border: 1px solid $colorGreyscale_4;
+              border-radius: 3px;
+              &:checked {
+                & ~ svg {
+                  opacity: 1;
+                }
+              }
+            }
+            svg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0;
+              fill: none;
+              transition: 0.5s ease all;
+              path {
+                stroke: $colorGreyscale_6;
+                stroke-width: 1.2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
+            }
           }
           .underline {
             text-decoration: underline;
@@ -169,7 +146,7 @@
       }
     }
   }
-  .bottom {
+  .foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -182,130 +159,6 @@
       img {
         width: 72px;
         height: 55px;
-      }
-    }
-    .policy {
-      display: flex;
-      gap: 16px;
-      .copyright {
-        @include styleP("tiny", $color: $colorGreyscale_2);
-      }
-      .container_legals {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        a {
-          @include styleP("tiny", $color: $colorGreyscale_2);
-          transition: color 0.25s ease;
-          @include styleHover {
-            color: $colorGreyscale_1;
-          }
-        }
-      }
-    }
-    .container_actions {
-      position: relative;
-      .wrapper_responsive {
-        @include styleResponsive("wider-mobile") {
-          display: flex;
-          gap: 24px;
-        }
-      }
-      .container_follow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        .title {
-          @include styleP("small", $font: $font_1_bold);
-        }
-        .container_el {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          .el {
-            height: 14px;
-            svg {
-              height: 100%;
-              transition: opacity 0.25s ease;
-              .fill_1 {
-                fill: $colorPrimary_1;
-              }
-              .fill_2 {
-                fill: $colorGreyscale_6;
-              }
-            }
-            @include styleHover {
-              svg {
-                opacity: 0.7;
-              }
-            }
-          }
-        }
-      }
-      details {
-        position: relative;
-        summary {
-          padding: 0 12px;
-          height: 32px;
-          border-radius: 8px;
-          background-color: $colorGreyscale_5;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          &::marker {
-            content: "";
-          }
-          &::-webkit-details-marker {
-            display: none;
-          }
-          .title {
-            flex: 1;
-            @include styleP("tiny");
-          }
-          svg {
-            width: 8px;
-            stroke-width: 1px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke: $colorGreyscale_1;
-            transition: transform 0.25s ease;
-          }
-        }
-        .dropdown {
-          border-radius: 8px;
-
-          position: absolute;
-          bottom: calc(100% + 8px);
-          width: 100%;
-          background-color: $colorGreyscale_5;
-          ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            li {
-              cursor: pointer;
-
-              a {
-                display: block;
-                border-radius: 8px;
-                padding: 8px 8px;
-                @include styleP("tiny");
-                transition: background-color 0.25s ease;
-              }
-              @include styleHover {
-                a {
-                  background-color: $colorGreyscale_4;
-                }
-              }
-            }
-          }
-        }
-        &[open] summary {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
       }
     }
   }
@@ -331,86 +184,10 @@
     .top {
       flex-direction: column;
       gap: 24px;
-      .container_title {
-        pointer-events: all;
-        cursor: pointer;
-        @include styleGrid();
-        .container_arrow {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          height: 20px;
-          width: 20px;
-          transform: rotate(0deg);
-          border-radius: 50%;
-          background-color: $colorGreyscale_1;
-          svg {
-            width: 9px;
-            transition: transform 0.25s ease;
-          }
-        }
-      }
-      .container_list {
-        flex-direction: column;
-        gap: 0;
-        .list {
-          padding: 24px 0;
-          border-bottom: 1px solid $colorGreyscale_4;
-          details {
-            &[open] {
-              .container_arrow {
-                transform: rotate(180deg);
-              }
-            }
-          }
-          &:first-of-type {
-            border-top: 1px solid $colorGreyscale_4;
-          }
-          &:last-child {
-            .container_title {
-              margin-bottom: 16px;
-            }
-          }
-          ul {
-            @include styleGrid();
-            li {
-              .button {
-                border-radius: 8px;
-              }
-            }
-          }
-          form {
-            padding: 0 16px;
-            .container_input {
-              flex-direction: column;
-              .form_mail {
-                padding: 10px 10px 10px 40px;
-                border-radius: 8px;
-                border: 1px solid $colorGreyscale_3;
-                color: $colorGreyscale_2;
-                width: auto;
-              }
-            }
-            .container_checkbox {
-              display: flex;
-              gap: 8px;
-              font-size: $paragraphTiny_textsize_desktop;
-              color: $colorGreyscale_2;
-              .underline {
-                text-decoration: underline;
-              }
-            }
-          }
-        }
-      }
       .container_form {
         width: 100%;
         padding: 0 16px;
-        border-bottom: 1px solid $colorGreyscale_4;
         form {
-          margin-top: 16px;
-          padding-bottom: 24px;
           .container_form_top {
             flex-direction: column;
             .container_input input,
@@ -421,42 +198,16 @@
         }
       }
     }
-    .bottom {
-      flex-direction: column-reverse;
-      padding: 24px 0 0;
-      .policy {
+    .foot {
+      flex-direction: column;
+      padding: 0;
+      border-top: 1px solid $colorGreyscale_4;
+      .container_logo {
+        display: flex;
         justify-content: center;
-        flex-wrap: wrap;
         width: 100%;
         padding: 24px 0;
-        border-bottom: 1px solid $colorGreyscale_4;
-        .copyright {
-          width: 100%;
-          margin-bottom: 0;
-          order: 2;
-          text-align: center;
-        }
-        .container_legals {
-          display: flex;
-          flex-wrap: wrap;
-          order: 3;
-        }
-      }
-      .container_actions {
-        justify-content: space-between;
-        width: 100%;
-        padding-bottom: 24px;
-        order: 1;
-        border-bottom: 1px solid $colorGreyscale_4;
-        .wrapper_responsive {
-          @include styleGrid;
-          display: flex;
-          justify-content: space-between;
-          gap: 24px;
-        }
-      }
-      .container_logo {
-        padding: 24px 0 0;
+        border-top: 1px solid $colorGreyscale_4;
       }
     }
   }

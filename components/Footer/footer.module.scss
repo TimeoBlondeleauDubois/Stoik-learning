@@ -33,9 +33,9 @@
         gap: 40px;
       }
       li {
-        a {
+        a:not([class]) {
           @include styleP("small", $color: $colorGreyscale_2);
-          transition: color 0.25s ease;
+          transition: all 0.5s ease;
         }
         @include styleHover {
           a {
@@ -66,7 +66,7 @@
           }
           svg {
             fill: none;
-            .fill_path {
+            path {
               fill: $colorGreyscale_6;
               fill-rule: evenodd;
               clip-rule: evenodd;
@@ -79,7 +79,7 @@
         flex-direction: column;
         gap: 16px;
         li {
-          a {
+          a:not([class]) {
             @include styleP("small", $color: $colorGreyscale_2);
             transition: color 0.25s ease;
           }
@@ -145,11 +145,12 @@
           @include styleP("tiny");
         }
         svg {
-          width: 8px;
-          stroke-width: 1px;
+          width: 10px;
+          height: 6px;
           stroke-linecap: round;
           stroke-linejoin: round;
           stroke: $colorGreyscale_1;
+          fill: none;
           transition: transform 0.25s ease;
         }
       }
@@ -197,7 +198,7 @@
     padding: 0 32px;
     border-radius: 8px;
     text-wrap: nowrap;
-    transition: 2.5s ease all;
+    transition: 0.5s ease all;
     span {
       @include styleA("medium", $color: $colorGreyscale_6);
     }

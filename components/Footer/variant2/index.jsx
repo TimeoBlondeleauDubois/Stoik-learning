@@ -15,19 +15,29 @@ const FooterVariant2 = () => {
         <div className={styles.container_sitemap}>
           <ul>
             <li>
-              <a href="">Lien numéro 1</a>
+              <a href="">
+                <span>Lien numéro 1</span>
+              </a>
             </li>
             <li>
-              <a href="">Lien numéro 2</a>
+              <a href="">
+                <span>Lien numéro 2</span>
+              </a>
             </li>
             <li>
-              <a href="">Lien numéro 3</a>
+              <a href="">
+                <span>Lien numéro 3</span>
+              </a>
             </li>
             <li>
-              <a href="">Lien numéro 4</a>
+              <a href="">
+                <span>Lien numéro 4</span>
+              </a>
             </li>
             <li>
-              <a href="">Lien numéro 5</a>
+              <a href="">
+                <span>Lien numéro 5</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -54,16 +64,6 @@ const FooterVariant2 = () => {
                       d="M4.40303 13.326C9.68629 13.326 12.5755 8.94747 12.5755 5.15053C12.5755 5.02619 12.573 4.90241 12.5674 4.77914C13.1296 4.37221 13.6147 3.86836 14.0002 3.29122C13.4855 3.52011 12.9317 3.67417 12.3507 3.74363C12.9437 3.38791 13.399 2.82515 13.6138 2.15435C13.0499 2.48896 12.4331 2.72483 11.7898 2.85182C11.2657 2.2933 10.5195 1.94398 9.6932 1.94398C8.10699 1.94398 6.8207 3.23078 6.8207 4.81695C6.8207 5.04246 6.84594 5.26174 6.89522 5.47213C4.50797 5.35197 2.39112 4.20858 0.97442 2.47001C0.719258 2.90851 0.585047 3.40688 0.585493 3.91422C0.585493 4.91111 1.09257 5.79114 1.8637 6.30601C1.40757 6.29207 0.961442 6.16882 0.562843 5.94662C0.562416 5.95869 0.562416 5.97044 0.562416 5.98333C0.562416 7.37487 1.55249 8.53672 2.86678 8.79999C2.61994 8.86724 2.36523 8.90124 2.10939 8.90109C1.92463 8.90109 1.74456 8.8829 1.56956 8.8493C1.93524 9.99098 2.9956 10.8218 4.25278 10.845C3.26968 11.6158 2.03128 12.0749 0.685314 12.0749C0.456349 12.0751 0.22757 12.0618 0.000167847 12.0351C1.27138 12.8502 2.78082 13.3258 4.40317 13.3258"
                     />
                   </g>
-                  <defs>
-                    <clipPath id="clip0_2409_15610">
-                      <rect
-                        width="14"
-                        height="14"
-                        className={styles.fill_2}
-                        transform="translate(0.000167847 0.943985)"
-                      />
-                    </clipPath>
-                  </defs>
                 </svg>
               </a>
               <a href="" className={styles.sn}>
@@ -78,16 +78,6 @@ const FooterVariant2 = () => {
                       className={styles.fill_1}
                     />
                   </g>
-                  <defs>
-                    <clipPath id="clip0_2409_15607">
-                      <rect
-                        width="14.0001"
-                        height="14"
-                        className={styles.fill_2}
-                        transform="translate(8.39233e-05 0.943985)"
-                      />
-                    </clipPath>
-                  </defs>
                 </svg>
               </a>
             </div>
@@ -99,8 +89,12 @@ const FooterVariant2 = () => {
           <span>©2023 Bruno.Tous droits réservés.</span>
         </div>
         <div className={styles.container_links}>
-          <a href="">Mentions Légales</a>
-          <a href="">Made by Bruno</a>
+          <a href="">
+            <span>Mentions Légales</span>
+          </a>
+          <a href="">
+            <span>Made by Bruno</span>
+          </a>
         </div>
       </div>
     </footer>

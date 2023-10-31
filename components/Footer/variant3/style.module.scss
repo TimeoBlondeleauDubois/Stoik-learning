@@ -165,6 +165,7 @@
 
   @include styleResponsive("tablet") {
     .top {
+      gap: calcGrid(1, 0);
       .container_form {
         width: calcGrid(3);
         form {

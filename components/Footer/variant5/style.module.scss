@@ -1,7 +1,6 @@
 @import "../footer.module.scss";
 
 .footer_v5 {
-  background-color: tan;
   .top {
     display: flex;
     gap: calcGrid(2);
@@ -26,23 +25,23 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        .button {
-          @include styleA("medium", $color: $colorGreyscale_6);
-        }
-        .button_primary {
-          transition: 0.25s ease all;
-          background-color: $colorPrimary_2;
-          &:hover {
-            background-color: $colorPrimary_1;
-          }
-        }
-        .button_secondary {
-          background-color: $colorPrimary_1;
-          transition: 0.25s ease all;
-          &:hover {
-            background-color: $colorPrimary_2;
-          }
-        }
+        // .button {
+        //   @include styleA("medium", $color: $colorGreyscale_6);
+        // }
+        // .button_primary {
+        //   transition: 0.25s ease all;
+        //   background-color: $colorPrimary_2;
+        //   &:hover {
+        //     background-color: $colorPrimary_1;
+        //   }
+        // }
+        // .button_secondary {
+        //   background-color: $colorPrimary_1;
+        //   transition: 0.25s ease all;
+        //   &:hover {
+        //     background-color: $colorPrimary_2;
+        //   }
+        // }
       }
       .container_notes {
         display: flex;

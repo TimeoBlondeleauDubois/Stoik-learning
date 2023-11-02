@@ -1,0 +1,137 @@
+@import "@/styles/common/globals.scss";
+
+.container_field {
+  @include styleP("medium", $font: $font_1_bold);
+  display: flex;
+  flex-direction: column;
+  label {
+    @include styleP("small", $font: $font_1_bold);
+    margin-bottom: 4px;
+  }
+  .help_text {
+    @include styleP("tiny", $color: $colorGreyscale_3);
+    margin-top: 8px;
+  }
+  &.style_focus {
+    input {
+      border: 1px solid $colorGreyscale_1;
+    }
+  }
+  &.style_disabled {
+    input {
+      pointer-events: none;
+      background-color: $colorGreyscale_5;
+      border: 1px solid $colorGreyscale_4;
+      @include styleP("small", $color: $colorGreyscale_4);
+    }
+    svg {
+      stroke: $colorGreyscale_4;
+    }
+  }
+  &.style_valid {
+    input {
+      border: 1px solid $colorSuccess;
+      @include styleP("small", $color: $colorGreyscale_3);
+      @include styleP("small", $color: $colorSuccess);
+    }
+    svg {
+      stroke: $colorSuccess;
+    }
+  }
+  &.style_error {
+    input {
+      border: 1px solid $colorError;
+      @include styleP("small", $color: $colorGreyscale_3);
+      @include styleP("small", $color: $colorError);
+    }
+    svg {
+      stroke: $colorError;
+    }
+  }
+}
+.container_input {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    border-radius: 8px;
+    background-color: $colorGreyscale_6;
+    border: 1px solid $colorGreyscale_4;
+    @include styleP("small");
+    transition: 0.25s ease all;
+    &::placeholder {
+      @include styleP("small", $color: $colorGreyscale_3);
+    }
+    &[type="email"] {
+      padding-left: 36px;
+    }
+  }
+  .icon_email {
+    left: 12px;
+    aspect-ratio: 1/1;
+    fill: none;
+    path {
+      stroke: $colorGreyscale_1;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+  .icon_password {
+    right: 12px;
+    aspect-ratio: 1/1;
+    fill: none;
+    path {
+      stroke: $colorGreyscale_1;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+  }
+}
+.container_search {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 12px 0 40px;
+    border-radius: 18px;
+    background-color: $colorGreyscale_6;
+    border: 1px solid $colorGreyscale_4;
+    @include styleP("small");
+    transition: 0.25s ease all;
+    &::placeholder {
+      @include styleP("small", $color: $colorGreyscale_3);
+    }
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    left: 16px;
+    aspect-ratio: 1/1;
+    fill: none;
+    path {
+      stroke: $colorGreyscale_1;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+}

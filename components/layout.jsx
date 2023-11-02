@@ -3,6 +3,9 @@ import Header from "./Header";
 import DevTools from "./DevTools";
 import { useEffect, useState } from "react";
 
+import { Button } from "./Button";
+import { Input } from "./Form";
+
 export default function Layout({ children, header, footer }) {
   const [isDevTools, setIsDevTools] = useState(false);
 
@@ -44,11 +47,29 @@ export default function Layout({ children, header, footer }) {
       <Header header={header} />
       <main>{children}</main>
       {/* <Footer variation={'default'} footer={footer} /> */}
-      <Footer variation={"variant1"} footer={footer} />
-      <Footer variation={"variant2"} footer={footer} />
-      <Footer variation={"variant3"} footer={footer} />
-      <Footer variation={"variant4"} footer={footer} />
-      <Footer variation={"variant5"} footer={footer} />
+      {/* <Footer variation={"variant1"} footer={footer} /> */}
+      {/* <Footer variation={"variant2"} footer={footer} /> */}
+      {/* <Footer variation={"variant3"} footer={footer} /> */}
+      {/* <Footer variation={"variant4"} footer={footer} /> */}
+      {/* <Footer variation={"variant5"} footer={footer} /> */}
+      <Input
+        label={"This is a label !"}
+        type={"search"}
+        id={"unique-name"}
+        leftIcon={""}
+        rightIcon={""}
+        placeholder={"Type something here"}
+        helpText={"A little text to help you"}
+        state={"Little text to help you"}
+      />
+      <Button
+        // state={"load"}
+        size={"small"}
+        color={"primary"}
+        width={"full"}
+        buttonText={"Button text"}
+        rightIcon
+      />
     </>
   );
 }

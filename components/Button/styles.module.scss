@@ -1,0 +1,104 @@
+@import "@/styles/common/globals.scss";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  .arrow {
+    aspect-ratio: 1/1;
+    fill: none;
+    .fill1 {
+      stroke: white;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fill2 {
+      stroke: white;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+}
+// Size
+.big {
+  height: 60px;
+  padding: 0 40px;
+  border-radius: 16px;
+  @include styleA("big", $color: $colorGreyscale_6);
+  .arrow {
+    width: 20px;
+  }
+}
+.medium {
+  height: 50px;
+  padding: 0 32px;
+  border-radius: 12px;
+  @include styleA("medium", $color: $colorGreyscale_6);
+  .arrow {
+    width: 16px;
+  }
+}
+.small {
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 8px;
+  @include styleA("small", $color: $colorGreyscale_6);
+  .arrow {
+    width: 12px;
+  }
+}
+// Width
+.default_width {
+  width: auto;
+}
+.full_width {
+  width: 100%;
+}
+// Color
+.primary {
+  background-color: $colorPrimary_2;
+  &:hover {
+    background-color: $colorPrimary_1;
+  }
+}
+.secondary {
+  background-color: $colorPrimary_1;
+  &:hover {
+    background-color: $colorPrimary_2;
+  }
+}
+.tertiary {
+  background-color: $colorGreyscale_6;
+  border: 2.5px solid $colorGreyscale_1;
+  color: $colorGreyscale_1;
+  &:hover {
+    background-color: $colorPrimary_1;
+    color: $colorGreyscale_6;
+  }
+}
+// State
+.style_disable {
+  background-color: $colorGreyscale_1;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.style_valid {
+  background-color: $colorSuccess;
+}
+.style_error {
+  background-color: $colorError;
+}
+.style_load {
+  background-color: $colorPrimary_2;
+  span {
+    display: none;
+  }
+}
+// Outline
+.outline {
+  border-radius: 2.5px solid $colorGreyscale_1;
+}

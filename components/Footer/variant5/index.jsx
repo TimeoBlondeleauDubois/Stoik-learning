@@ -20,7 +20,7 @@ const FooterVariant5 = () => {
   return (
     <footer className={`${styles.footer} ${styles.footer_v5}`}>
       <div className={styles.wrapper}>
-        <div className={styles.top}>
+        <div className={styles.head}>
           <div className={styles.container_main}>
             <div className={styles.container_logo}>
               <a href="">

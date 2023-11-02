@@ -1,7 +1,7 @@
 @import "../footer.module.scss";
 
 .footer_v3 {
-  .top {
+  .head {
     gap: calcGrid(1, 1);
     .container_form {
       @include styleGrid(4);
@@ -164,7 +164,7 @@
   }
 
   @include styleResponsive("tablet") {
-    .top {
+    .head {
       gap: calcGrid(1, 0);
       .container_form {
         width: calcGrid(3);
@@ -182,7 +182,7 @@
   }
 
   @include styleResponsive {
-    .top {
+    .head {
       flex-direction: column;
       gap: 24px;
       .container_form {

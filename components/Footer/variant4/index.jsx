@@ -20,7 +20,7 @@ const FooterVariant4 = () => {
   return (
     <footer className={`${styles.footer} ${styles.footer_v4}`}>
       <div className={styles.wrapper}>
-        <div className={styles.top}>
+        <div className={styles.head}>
           <div className={styles.container_sitemap}>
             <div className={styles.list}>
               <details open={isDesktop}>

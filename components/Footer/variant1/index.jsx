@@ -4,7 +4,7 @@ const FooterVariant1 = () => {
   return (
     <footer className={`${styles.footer} ${styles.footer_v1}`}>
       <div className={styles.wrapper}>
-        <div className={styles.top}>
+        <div className={styles.head}>
           <div className={styles.container_logo}>
             <a href="">
               <img

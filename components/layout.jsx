@@ -46,13 +46,13 @@ export default function Layout({ children, header, footer }) {
       {/* <SEO title={title} description={description} image={image} /> */}
       <Header header={header} />
       <main>{children}</main>
-      {/* <Footer variation={'default'} footer={footer} /> */}
-      {/* <Footer variation={"variant1"} footer={footer} /> */}
-      {/* <Footer variation={"variant2"} footer={footer} /> */}
-      {/* <Footer variation={"variant3"} footer={footer} /> */}
-      {/* <Footer variation={"variant4"} footer={footer} /> */}
-      {/* <Footer variation={"variant5"} footer={footer} /> */}
-      <Input
+      <Footer variation={"default"} footer={footer} />
+      <Footer variation={"variant1"} footer={footer} />
+      <Footer variation={"variant2"} footer={footer} />
+      <Footer variation={"variant3"} footer={footer} />
+      <Footer variation={"variant4"} footer={footer} />
+      <Footer variation={"variant5"} footer={footer} />
+      {/* <Input
         label={"This is a label !"}
         type={"search"}
         id={"unique-name"}
@@ -61,15 +61,15 @@ export default function Layout({ children, header, footer }) {
         placeholder={"Type something here"}
         helpText={"A little text to help you"}
         state={"Little text to help you"}
-      />
-      <Button
+      /> */}
+      {/* <Button
         // state={"load"}
         size={"small"}
         color={"primary"}
         width={"full"}
         buttonText={"Button text"}
         rightIcon
-      />
+      /> */}
     </>
   );
 }

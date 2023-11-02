@@ -1,62 +1,15 @@
-@import '@/styles/common/globals.scss';
+@import "../footer.module.scss";
 
 .footer_default {
-  padding: 40px 0 24px;
-
-  .wrapper {
-    @include styleResponsive('wider-mobile') {
-      @include styleGrid();
-    }
-  }
-  .container {
-    display: flex;
-    width: 100%;
+  .head {
     .container_logo {
-      @include styleResponsive('wider-mobile') {
-        width: calcGrid(2, 1);
-      }
-      img {
-        width: 72px;
-        height: 55px;
-      }
-    }
-    .container_list {
-      flex: 1;
       display: flex;
-      justify-content: space-between;
-      .list {
-        .container_title {
-          display: flex;
-          align-items: center;
-          margin-bottom: 24px;
-          justify-content: space-between;
-
-          h3 {
-            @include styleP('big', $font: $font_1_bold);
-          }
-
-          .container_arrow {
-            @include styleResponsive('wider-mobile') {
-              display: none;
-            }
-          }
-        }
-        ul {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          li {
-            a {
-              @include styleP('small', $color: $colorGreyscale_2);
-              transition: color 0.25s ease;
-            }
-            @include styleHover() {
-              a {
-                color: $colorGreyscale_1;
-              }
-            }
-          }
+      align-items: center;
+      width: calcGrid(2);
+      a {
+        img {
+          height: 54px;
+          width: 71px;
         }
       }
     }
@@ -66,198 +19,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include styleResponsive('wider-mobile') {
+    @include styleResponsive("wider-mobile") {
       margin-top: 40px;
       border-top: 1px solid $colorGreyscale_4;
-    }
-    .copyright {
-      @include styleP('tiny', $color: $colorGreyscale_2);
-    }
-    .container_legals {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      a {
-        @include styleP('tiny', $color: $colorGreyscale_2);
-        transition: color 0.25s ease;
-        @include styleHover {
-          color: $colorGreyscale_1;
-        }
-      }
-    }
-    .container_actions {
-      position: relative;
-
-      .wrapper_responsive {
-        @include styleResponsive('wider-mobile') {
-          display: flex;
-          gap: 24px;
-        }
-      }
-      .container_follow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        .title {
-          @include styleP('small', $font: $font_1_bold);
-        }
-        .container_el {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          .el {
-            height: 14px;
-            svg {
-              height: 100%;
-              transition: opacity 0.25s ease;
-              .fill_1 {
-                fill: $colorPrimary_1;
-              }
-              .fill_2 {
-                fill: $colorGreyscale_6;
-              }
-            }
-            @include styleHover {
-              svg {
-                opacity: 0.7;
-              }
-            }
-          }
-        }
-      }
-      details {
-        position: relative;
-        summary {
-          padding: 0 12px;
-          height: 32px;
-          border-radius: 8px;
-          background-color: $colorGreyscale_5;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          &::marker {
-            content: '';
-          }
-          &::-webkit-details-marker {
-            display: none;
-          }
-          .title {
-            flex: 1;
-            @include styleP('tiny');
-          }
-          svg {
-            width: 8px;
-            stroke-width: 1px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke: $colorGreyscale_1;
-            transition: transform 0.25s ease;
-          }
-        }
-        .dropdown {
-          border-radius: 8px;
-
-          position: absolute;
-          bottom: calc(100% + 8px);
-          width: 100%;
-          background-color: $colorGreyscale_5;
-          ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            li {
-              cursor: pointer;
-
-              a {
-                display: block;
-                border-radius: 8px;
-                padding: 8px 8px;
-                @include styleP('tiny');
-                transition: background-color 0.25s ease;
-              }
-              @include styleHover {
-                a {
-                  background-color: $colorGreyscale_4;
-                }
-              }
-            }
-          }
-        }
-        &[open] summary {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
-      }
     }
   }
 
   @include styleResponsive {
-    .container {
+    .head {
       flex-direction: column;
       .container_logo {
-        display: flex;
         justify-content: center;
-      }
-      .container_list {
-        flex-direction: column;
-        .list {
-          padding: 24px 0;
-          border-bottom: 1px solid $colorGreyscale_4;
-          .container_title {
-            cursor: pointer;
-            @include styleGrid();
-            .container_arrow {
-              transform: rotate(0deg);
-              height: 20px;
-              width: 20px;
-              border-radius: 50%;
-              background-color: $colorGreyscale_1;
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              svg {
-                width: 9px;
-                transition: transform 0.25s ease;
-              }
-            }
-          }
-          ul {
-            @include styleGrid();
+        width: 100%;
+        margin-bottom: 24px;
+        a {
+          img {
+            height: 54px;
+            width: 71px;
           }
         }
       }
     }
     .foot {
       flex-direction: column;
-      .copyright {
-        order: 2;
-      }
-      .container_legals {
-        order: 3;
-      }
-      .container_actions {
-        padding-bottom: 24px;
-        margin-bottom: 24px;
-        order: 1;
-        width: 100%;
-        justify-content: space-between;
-        border-bottom: 1px solid $colorGreyscale_4;
-        .wrapper_responsive {
-          @include styleGrid;
-          display: flex;
-          gap: 24px;
-          justify-content: space-between;
-        }
-      }
-      .copyright {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 24px;
-      }
     }
   }
 }

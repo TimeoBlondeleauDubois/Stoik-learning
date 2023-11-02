@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 const FooterVariant2 = () => {
   return (
     <footer className={`${styles.footer} ${styles.footer_v2}`}>
-      <div className={styles.top}>
+      <div className={styles.head}>
         <div className={styles.container_logo}>
           <a href="">
             <img

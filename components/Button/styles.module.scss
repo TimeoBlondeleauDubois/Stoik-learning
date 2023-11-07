@@ -1,104 +1,247 @@
 @import "@/styles/common/globals.scss";
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.25s ease;
-  .arrow {
+@keyframes animButton1 {
+  0% {
+    transform: translate3d(calc(-25% + 1rem), 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-50% + 1rem), 0, 0);
+  }
+}
+
+@keyframes animload {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.btn_wrppr {
+  cursor: pointer;
+  width: fit-content;
+  &.full_width {
+    width: auto;
+  }
+  .btn {
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+  }
+  .container {
+    display: inline-flex;
+    align-items: center;
+  }
+  .btnicn svg {
     aspect-ratio: 1/1;
+    transition: all 0.25s ease;
+    stroke: $colorGreyscale_6;
     fill: none;
-    .fill1 {
-      stroke: white;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .fill2 {
-      stroke: white;
-      stroke-width: 1.8;
+    path {
       stroke-linecap: round;
       stroke-linejoin: round;
     }
   }
+  .btnload svg {
+    aspect-ratio: 1/1;
+    fill: none;
+    animation: animload 2s linear infinite;
+    ellipse {
+      opacity: 0.3;
+      fill: $colorGreyscale_6;
+    }
+    path {
+      stroke: $colorGreyscale_6;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+  }
 }
-// Size
-.big {
+
+// Sizes
+.size_big {
   height: 60px;
   padding: 0 40px;
   border-radius: 16px;
-  @include styleA("big", $color: $colorGreyscale_6);
-  .arrow {
+  .container {
+    gap: 12px;
+  }
+  .btntxt {
+    @include styleA("big", $color: $colorGreyscale_6);
+  }
+  .btnicn svg,
+  .btnload svg {
     width: 20px;
   }
 }
-.medium {
+.size_medium {
   height: 50px;
   padding: 0 32px;
   border-radius: 12px;
-  @include styleA("medium", $color: $colorGreyscale_6);
-  .arrow {
+  .container {
+    gap: 8px;
+  }
+  .btntxt {
+    @include styleA("medium", $color: $colorGreyscale_6);
+  }
+  .btnicn svg,
+  .btnload svg {
     width: 16px;
   }
 }
-.small {
+.size_small {
   height: 40px;
   padding: 0 24px;
   border-radius: 8px;
-  @include styleA("small", $color: $colorGreyscale_6);
-  .arrow {
+  .container {
+    gap: 8px;
+  }
+  .btntxt {
+    @include styleA("small", $color: $colorGreyscale_6);
+  }
+  .btnicn svg,
+  .btnload svg {
     width: 12px;
   }
 }
-// Width
-.default_width {
-  width: auto;
-}
-.full_width {
-  width: 100%;
-}
-// Color
-.primary {
-  background-color: $colorPrimary_2;
-  &:hover {
-    background-color: $colorPrimary_1;
-  }
-}
-.secondary {
-  background-color: $colorPrimary_1;
-  &:hover {
+
+// States
+.state_default {
+  // Styles
+  .style_1 {
     background-color: $colorPrimary_2;
+    @include styleHover() {
+      background-color: $colorPrimary_1;
+      .btnicn svg {
+        transform: translateX(4px);
+      }
+    }
   }
-}
-.tertiary {
-  background-color: $colorGreyscale_6;
-  border: 2.5px solid $colorGreyscale_1;
-  color: $colorGreyscale_1;
-  &:hover {
+  .style_2 {
     background-color: $colorPrimary_1;
-    color: $colorGreyscale_6;
+    @include styleHover() {
+      background-color: $colorPrimary_2;
+      .btnicn svg {
+        transform: translateX(4px);
+      }
+    }
   }
 }
-// State
-.style_disable {
-  background-color: $colorGreyscale_1;
-  opacity: 0.2;
-  pointer-events: none;
-}
-.style_valid {
-  background-color: $colorSuccess;
-}
-.style_error {
-  background-color: $colorError;
-}
-.style_load {
-  background-color: $colorPrimary_2;
-  span {
-    display: none;
+.state_disable {
+  .btn {
+    background-color: $colorGreyscale_1;
+    opacity: 0.2;
+    pointer-events: none;
+    cursor: default;
   }
 }
-// Outline
-.outline {
-  border-radius: 2.5px solid $colorGreyscale_1;
+.state_valid {
+  .btn {
+    background-color: $colorSuccess;
+    svg {
+      width: 20px;
+      aspect-ratio: 1/1;
+      fill: none;
+      path {
+        stroke: $colorGreyscale_6;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    }
+  }
+}
+.state_error {
+  .btn {
+    background-color: $colorError;
+    svg {
+      width: 20px;
+      aspect-ratio: 1/1;
+      fill: none;
+      path {
+        stroke: $colorGreyscale_6;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    }
+  }
+}
+// Mode {
+.mode_dark {
+  &.state_disable {
+    .btn {
+      background-color: $colorGreyscale_6;
+      .btntxt {
+        color: $colorGreyscale_1;
+      }
+    }
+  }
+  .style_1 {
+    @include styleHover() {
+      background-color: $colorGreyscale_6;
+      .btntxt {
+        color: $colorGreyscale_1;
+      }
+      .btnicn svg {
+        stroke: $colorGreyscale_1;
+      }
+    }
+  }
+  .style_2 {
+    background-color: $colorGreyscale_6;
+    .btntxt {
+      color: $colorGreyscale_1;
+    }
+    .btnicn svg {
+      stroke: $colorGreyscale_1;
+    }
+    .btnload svg {
+      ellipse {
+        fill: $colorGreyscale_1;
+      }
+      path {
+        stroke: $colorGreyscale_1;
+      }
+    }
+    @include styleHover() {
+      .btntxt {
+        color: $colorGreyscale_6;
+      }
+      .btnicn svg {
+        stroke: $colorGreyscale_6;
+      }
+    }
+  }
+
+  &.state_error {
+    .btn {
+      background-color: $colorGreyscale_6;
+      .btntxt {
+        color: $colorGreyscale_1;
+      }
+      svg {
+        path {
+          stroke: $colorError;
+        }
+      }
+    }
+  }
+  &.state_valid {
+    .btn {
+      background-color: $colorGreyscale_6;
+      .btntxt {
+        color: $colorGreyscale_1;
+      }
+      svg {
+        path {
+          stroke: $colorSuccess;
+        }
+      }
+    }
+  }
 }

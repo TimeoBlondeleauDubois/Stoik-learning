@@ -1,16 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 
-export const Input = ({
-  type,
-  id,
-  state,
-  leftIcon,
-  rightIcon,
-  label,
-  placeholder,
-  helpText,
-}) => {
+export const Input = ({ type, id, label, placeholder, helpText }) => {
   const fieldContainer = useRef();
   const focusClass = styles.style_focus;
 

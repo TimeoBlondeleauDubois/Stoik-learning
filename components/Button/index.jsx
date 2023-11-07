@@ -22,7 +22,7 @@ export const Button = ({
   anm = anm || 1;
   stt = stt || "def";
   load = false;
-  bgc = bgc || "#f95b17";
+  bgc = bgc || "";
   drk = false;
   wdth = wdth || false;
 
@@ -84,6 +84,14 @@ export const Button = ({
           </div>
         </a>
       </div>
+      <style jsx>
+        {`
+          a,
+          button {
+            background-color: ${bgc} !important;
+          }
+        `}
+      </style>
     </>
   );
 };

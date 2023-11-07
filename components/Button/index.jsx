@@ -14,6 +14,7 @@ export const Button = ({
   bgc,
   drk,
   wdth,
+  isBtn,
 }) => {
   // Default values
   sz = sz || "big";
@@ -25,6 +26,7 @@ export const Button = ({
   bgc = bgc || "";
   drk = false;
   wdth = wdth || false;
+  isBtn = isBtn || false;
 
   // Change icon with the state
   let Icon;
@@ -51,6 +53,10 @@ export const Button = ({
     stt = "default";
   }
 
+  // Add Tag A or BUTTON
+  let CustomBtn;
+  isBtn ? (CustomBtn = `button`) : (CustomBtn = `a`);
+
   return (
     <>
       <div
@@ -61,7 +67,7 @@ export const Button = ({
           ${wdth && styles.full_width}
         `}
       >
-        <a
+        <CustomBtn
           className={`
             ${styles.btn}
             ${styles[`size_${sz}`]}
@@ -82,7 +88,7 @@ export const Button = ({
               </>
             )}
           </div>
-        </a>
+        </CustomBtn>
       </div>
       <style jsx>
         {`

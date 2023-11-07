@@ -25,7 +25,7 @@
   cursor: pointer;
   width: fit-content;
   &.full_width {
-    width: auto;
+    width: 100%;
   }
   .btn {
     transition: all 0.25s ease;
@@ -37,14 +37,8 @@
     align-items: center;
   }
   .btnicn svg {
-    aspect-ratio: 1/1;
     transition: all 0.25s ease;
     stroke: $colorGreyscale_6;
-    fill: none;
-    path {
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
   }
   .btnload svg {
     aspect-ratio: 1/1;
@@ -60,6 +54,19 @@
       stroke-linecap: round;
     }
   }
+  // Icons
+  svg {
+    aspect-ratio: 1/1;
+    fill: none;
+    path {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    ellipse {
+      opacity: 0.3;
+      fill: $colorGreyscale_6;
+    }
+  }
 }
 
 // Sizes
@@ -73,8 +80,7 @@
   .btntxt {
     @include styleA("big", $color: $colorGreyscale_6);
   }
-  .btnicn svg,
-  .btnload svg {
+  svg {
     width: 20px;
   }
 }
@@ -88,8 +94,7 @@
   .btntxt {
     @include styleA("medium", $color: $colorGreyscale_6);
   }
-  .btnicn svg,
-  .btnload svg {
+  svg {
     width: 16px;
   }
 }
@@ -103,8 +108,7 @@
   .btntxt {
     @include styleA("small", $color: $colorGreyscale_6);
   }
-  .btnicn svg,
-  .btnload svg {
+  svg {
     width: 12px;
   }
 }
@@ -143,14 +147,13 @@
   .btn {
     background-color: $colorSuccess;
     svg {
-      width: 20px;
-      aspect-ratio: 1/1;
-      fill: none;
       path {
         stroke: $colorGreyscale_6;
+      }
+    }
+    .stticn {
+      path {
         stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
       }
     }
   }
@@ -159,18 +162,41 @@
   .btn {
     background-color: $colorError;
     svg {
-      width: 20px;
-      aspect-ratio: 1/1;
-      fill: none;
       path {
         stroke: $colorGreyscale_6;
+      }
+    }
+    .stticn {
+      path {
         stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
       }
     }
   }
 }
+.state_load {
+  cursor: default;
+  .style_1 {
+    background-color: $colorPrimary_2;
+  }
+  .style_2 {
+    background-color: $colorPrimary_1;
+  }
+  .stticn svg {
+    aspect-ratio: 1/1;
+    fill: none;
+    animation: animload 2s linear infinite;
+    ellipse {
+      opacity: 0.3;
+      fill: $colorGreyscale_6;
+    }
+    path {
+      stroke: $colorGreyscale_6;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+  }
+}
+
 // Mode {
 .mode_dark {
   &.state_disable {

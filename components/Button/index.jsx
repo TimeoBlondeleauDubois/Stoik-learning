@@ -1,56 +1,49 @@
 import { ArrowCTA, Load, Valid, Error } from "../../assets/icons";
+
 import styles from "./styles.module.scss";
 
-// pas de valeur de default & override bacjground-color & border-color
 export const Button = ({
+  isBtn,
+  state,
+  stl,
+  sz,
   txt,
   lnk,
-  sz,
-  stl,
   icn,
-  anm,
-  stt,
-  load,
-  bgc,
   drk,
   wdth,
-  isBtn,
+  bgc,
 }) => {
   // Default values
   sz = sz || "big";
-  stl = stl || "1";
+  stl = stl || 1;
   icn = icn || false;
-  anm = anm || 1;
-  stt = stt || "def";
-  load = false;
+  state = state || "default";
   bgc = bgc || "";
-  drk = false;
+  drk = drk || false;
   wdth = wdth || false;
   isBtn = isBtn || false;
 
   // Change icon with the state
-  let Icon;
-  switch (stt) {
+  let StateIcon;
+  switch (state) {
     case "disable":
       icn = false;
       break;
     case "valid":
-      icn = true;
-      Icon = Valid;
+      StateIcon = Valid;
       break;
     case "error":
-      icn = true;
-      Icon = Error;
+      StateIcon = Error;
+      break;
+    case "load":
+      icn = false;
+      StateIcon = Load;
       break;
     default:
-      Icon = ArrowCTA;
-      stt = "default";
+      StateIcon = null;
+      state = "default";
       break;
-  }
-
-  // Add default style on load state
-  if (load) {
-    stt = "default";
   }
 
   // Add Tag A or BUTTON
@@ -60,33 +53,53 @@ export const Button = ({
   return (
     <>
       <div
-        className={`
-          ${styles.btn_wrppr}
-          ${stt ? styles[`state_${stt}`] : ""}
-          ${drk && styles.mode_dark}
-          ${wdth && styles.full_width}
-        `}
+        className={`${styles.btn_wrppr} ${
+          state ? styles[`state_${state}`] : ""
+        }${drk ? " " + styles.mode_dark : ""}${
+          wdth ? " " + styles.full_width : ""
+        }`}
       >
         <CustomBtn
           className={`
             ${styles.btn}
             ${styles[`size_${sz}`]}
             ${styles[`style_${stl}`]}
-            ${anm ? styles[`anim_${anm}`] : ""}
           `}
           href={lnk}
         >
           <div className={styles.container}>
-            {load ? (
+            <>
+              {StateIcon && (
+                <span className={styles.stticn}>
+                  <StateIcon />
+                </span>
+              )}
+              {state != "load" && <span className={styles.btntxt}>{txt}</span>}
+              {icn && (
+                <span className={styles.btnicn}>
+                  <ArrowCTA />
+                </span>
+              )}
+            </>
+            {/* {load ? (
               <span className={styles.btnload}>
                 <Load />
               </span>
             ) : (
               <>
+                {StateIcon && (
+                  <span>
+                    <StateIcon />
+                  </span>
+                )}
                 <span className={styles.btntxt}>{txt}</span>
-                {icn && <span className={styles.btnicn}>{<Icon />}</span>}
+                {icn && (
+                  <span className={styles.btnicn}>
+                    <ButtonIcon />
+                  </span>
+                )}
               </>
-            )}
+            )} */}
           </div>
         </CustomBtn>
       </div>

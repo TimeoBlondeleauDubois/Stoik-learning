@@ -1,4 +1,4 @@
-import { createClient } from 'prismicio.js'
+import { createClient } from '../src/prismicio'
 
 export class ApiService {
   static #instance

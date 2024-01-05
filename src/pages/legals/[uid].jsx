@@ -15,6 +15,7 @@ const Legals = ({ header, footer, page }) => {
         description={data.meta_description}
         image={data.meta_image}
       />
+      <h1>LEGALS</h1>
     </Layout>
   )
 }

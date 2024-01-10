@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "bruno": "node scripts/initPageFolder.js && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "init-slice-folder": "node scripts/initSliceFolder.js"
   },
   "dependencies": {
     "@prismicio/client": "7.3.1",

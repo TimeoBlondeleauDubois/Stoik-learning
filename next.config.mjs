@@ -6,7 +6,7 @@ const nextConfig = async () => {
   const repository = await client.getRepository()
 
   const locales = repository.languages.map((lang) => lang.id)
-  const defaultLocale = locales[0]
+  const defaultLocale = 'fr-fr'
 
   return {
     reactStrictMode: true,
@@ -19,19 +19,18 @@ const nextConfig = async () => {
         'header',
         'footer',
         'p404',
+        'redirect',
       ] /* FOR EXCLUDE ALL NOT PAGES */
       const allDocument = await Promise.all(
         locales.map((lang) => client.dangerouslyGetAll({ lang }))
-        /* TODO après recherche getAllByTag si on valide l'utilisation des tags | Ex: tag : 'page' | moins lourds, mieux en perf, plus besoin d'exclude | tag autre possible comme 'rewrite', pour plus de conprehension */
       )
 
       return locales.flatMap((lang, i) => {
-        const langPath = lang === locales[0] ? '/' : `/${lang}/`
         return allDocument[i]
           .filter((page) => !excludes.includes(page.type))
           .map((page) => {
             const source =
-              page.type === 'home' ? `${langPath}` : `${langPath}${page.uid}`
+              page.type === 'home' ? `/` : `/${page.uid}`
             const destination =
               page.type === 'home' ? '/' : `/${page.type}/${page.uid}`
             return {
@@ -39,6 +38,20 @@ const nextConfig = async () => {
               destination: destination,
             }
           })
+      })
+    },
+    async redirects() {
+      const allRedirect = await client.getAllByType('redirect', { lang: '*' })
+
+      return allRedirect.flatMap((page) => {
+        const { data } = page
+        return data.redirect.map((r) => {
+          return {
+            source: r.source,
+            destination: r.destination,
+            statusCode: 301,
+          }
+        })
       })
     },
   }

@@ -1,0 +1,33 @@
+{
+  "id": "redirect",
+  "label": "Redirect",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "redirect": {
+        "type": "Group",
+        "config": {
+          "label": "Redirect",
+          "fields": {
+            "source": {
+              "type": "Text",
+              "config": {
+                "label": "Source",
+                "placeholder": "/lang/page"
+              }
+            },
+            "destination": {
+              "type": "Text",
+              "config": {
+                "label": "Destination",
+                "placeholder": "/lang/page"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

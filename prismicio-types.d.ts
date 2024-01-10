@@ -204,12 +204,70 @@ interface P404DocumentData {
 export type P404Document<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<P404DocumentData>, "p404", Lang>;
 
+/**
+ * Item in *Redirect → Redirect*
+ */
+export interface RedirectDocumentDataRedirectItem {
+  /**
+   * Source field in *Redirect → Redirect*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: /lang/page
+   * - **API ID Path**: redirect.redirect[].source
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  source: prismic.KeyTextField;
+
+  /**
+   * Destination field in *Redirect → Redirect*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: /lang/page
+   * - **API ID Path**: redirect.redirect[].destination
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  destination: prismic.KeyTextField;
+}
+
+/**
+ * Content for Redirect documents
+ */
+interface RedirectDocumentData {
+  /**
+   * Redirect field in *Redirect*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: redirect.redirect[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  redirect: prismic.GroupField<Simplify<RedirectDocumentDataRedirectItem>>;
+}
+
+/**
+ * Redirect document from Prismic
+ *
+ * - **API ID**: `redirect`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RedirectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<RedirectDocumentData>,
+    "redirect",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomeDocument
   | LegalsDocument
-  | P404Document;
+  | P404Document
+  | RedirectDocument;
 
 /**
  * Default variation for Init Slice
@@ -260,6 +318,9 @@ declare module "@prismicio/client" {
       P404Document,
       P404DocumentData,
       P404DocumentDataSlicesSlice,
+      RedirectDocument,
+      RedirectDocumentData,
+      RedirectDocumentDataRedirectItem,
       AllDocumentTypes,
       InitSlice,
       InitSliceVariation,

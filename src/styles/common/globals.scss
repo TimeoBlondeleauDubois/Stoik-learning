@@ -120,58 +120,34 @@ $grid_mobile: calc(100% - (#{$gap_mobile} * 2)); // GRID MOBILE
   );
 }
 
-$breakPoint_tablet: calc(calcGrid() + (#{$gap_tablet} * 2));
+$breakPoint_tablet: calcGrid();
 $breakPoint_mobile: 700px;
 
 // MIXIN RESPONSIVE
 @mixin styleResponsive($size: "mobile") {
   // BASIC SIZE
   @if $size == "desktop" {
-    @supports (container-type: inline-size) {
-      @container section (width > #{$breakPoint_tablet}) {
-        @content;
-      }
-    }
-    @supports not (container-type: inline-size) {
-      @media (width > #{$breakPoint_tablet}) {
-        @content;
-      }
+    @media (width > #{$breakPoint_tablet}) {
+      @content;
     }
   } @else if $size == "tablet" {
-    @supports (container-type: inline-size) {
-      @container section (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
-        @content;
-      }
-    }
-    @supports not (container-type: inline-size) {
-      @media (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
-        @content;
-      }
+    @media (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
+      @content;
     }
   } @else if $size == "mobile" {
-    @supports (container-type: inline-size) {
-      @container section (width < #{$breakPoint_mobile}) {
-        @content;
-      }
-    }
-    @supports not (container-type: inline-size) {
-      @media (width <= #{$breakPoint_mobile}) {
-        @content;
-      }
+    @media (width <= #{$breakPoint_mobile}) {
+      @content;
     }
   }
 
   // SPECIFIC SIZE
   @if $size == "wider-mobile" {
-    @supports (container-type: inline-size) {
-      @container section (width > #{$breakPoint_mobile}) {
-        @content;
-      }
+    @media (width >= #{$breakPoint_mobile}) {
+      @content;
     }
-    @supports not (container-type: inline-size) {
-      @media (width >= #{$breakPoint_mobile}) {
-        @content;
-      }
+  } @else if $size == "smaller-desktop" {
+    @media (width <= #{$breakPoint_tablet}) {
+      @content;
     }
   }
 }
@@ -194,20 +170,6 @@ $breakPoint_mobile: 700px;
   }
 }
 
-// MIXIN CONTAINER QUERIES
-@mixin containerInit($containerName: section, $containerType: inline-size) {
-  container-type: #{$containerType};
-  container-name: #{$containerName};
-}
-
-section,
-header,
-footer {
-  &:not(.customContainer) {
-    @include containerInit();
-  }
-}
-
 /*=====  End of GRID  ======*/
 
 /*===============================
@@ -225,16 +187,6 @@ footer {
 }
 
 @media (width <= $breakPoint_mobile) {
-}
-
-// CONTAINER QUERIES
-@container section (width > #{$breakPoint_tablet}) {
-}
-
-@container section (#{$breakPoint_mobile} <= width <= #{$breakPoint_tablet}) {
-}
-
-@container section (width <= #{$breakPoint_mobile}) {
 }
 
 /*=====  End of QUERIES  ======*/

@@ -1,7 +1,6 @@
 @import '@/styles/common/globals.scss';
 
 .devTools {
-  @include containerInit;
   position: fixed;
   top: 0;
   left: 0;

@@ -28,6 +28,7 @@ export async function getServerSideProps({ res }) {
     'header',
     'footer',
     'p404',
+    'redirect',
   ] /* FOR EXCLUDE ALL NOT PAGES */
 
   const client = prismic.createClient(slicemachineConfig.repositoryName)

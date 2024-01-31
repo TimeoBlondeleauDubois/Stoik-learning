@@ -131,19 +131,19 @@ export async function getStaticPaths() {
   /*  UPDATE TYPE SERVICE  */
   /*************************/
 
-  const pageService = path.join(__dirname, `../services/page.service.jsx`)
+  const pageService = path.join(__dirname, `../services/page.service.ts`)
 
   const pageServiceContent = fs.readFileSync(pageService, 'utf-8')
 
   const pageServiceContentNew =
     pageServiceContent.slice(0, -2) +
     `
-  async get${pageName}(uid) {
-    return this.apiService.getPageByUID('${pageType}', uid, { lang: this.lang })
+  async get${pageName}(uid: string): Promise<AllDocumentTypes> {
+    return this.apiService.getPageByUID('${pageType}', uid, this.lang)
   }
 
-  async getAll${pageName}() {
-    return this.apiService.getAllDocumentTypes('${pageType}', { lang: this.lang })
+  async getAll${pageName}(): Promise<AllDocumentTypes[]> {
+    return this.apiService.getAllDocumentTypes('${pageType}', this.lang)
   }
 
 }

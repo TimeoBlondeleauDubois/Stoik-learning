@@ -16,5 +16,28 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variant1",
+		"primary": {
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi fugiat elit esse in non labore consequat sit consequat magna aute. Duis cupidatat ad ea incididunt ea sunt proident elit esse eiusmod occaecat. Sint laboris ex laboris proident elit in deserunt fugiat consequat."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -23,6 +23,26 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "variant1",
+      "name": "Variant 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

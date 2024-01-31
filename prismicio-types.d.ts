@@ -340,9 +340,37 @@ export type BrunoTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *BrunoText → Primary*
+ */
+export interface BrunoTextSliceVariant1Primary {
+  /**
+   * Text field in *BrunoText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bruno_text.primary.txt
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  txt: prismic.RichTextField;
+}
+
+/**
+ * Variant 1 variation for BrunoText Slice
+ *
+ * - **API ID**: `variant1`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrunoTextSliceVariant1 = prismic.SharedSliceVariation<
+  "variant1",
+  Simplify<BrunoTextSliceVariant1Primary>,
+  never
+>;
+
+/**
  * Slice variation for *BrunoText*
  */
-type BrunoTextSliceVariation = BrunoTextSliceDefault;
+type BrunoTextSliceVariation = BrunoTextSliceDefault | BrunoTextSliceVariant1;
 
 /**
  * BrunoText Shared Slice
@@ -433,8 +461,10 @@ declare module "@prismicio/client" {
       TextSliceDefault,
       BrunoTextSlice,
       BrunoTextSliceDefaultPrimary,
+      BrunoTextSliceVariant1Primary,
       BrunoTextSliceVariation,
       BrunoTextSliceDefault,
+      BrunoTextSliceVariant1,
       HeroHomeSlice,
       HeroHomeSliceDefaultPrimary,
       HeroHomeSliceVariation,

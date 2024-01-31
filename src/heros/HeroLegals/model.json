@@ -1,8 +1,8 @@
 {
-  "id": "bruno_text",
+  "id": "hero_legals",
   "type": "SharedSlice",
-  "name": "BrunoText",
-  "description": "BrunoText",
+  "name": "HeroLegals",
+  "description": "HeroLegals",
   "variations": [
     {
       "id": "default",
@@ -12,13 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "txt": {
+        "title": {
           "type": "StructuredText",
           "config": {
-            "label": "Text",
+            "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,o-list-item,list-item,strong,heading3,heading4,hyperlink"
+            "single": "heading1"
           }
         }
       },

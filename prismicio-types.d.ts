@@ -82,7 +82,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type LegalsDocumentDataSlicesSlice = never;
+type LegalsDocumentDataSlicesSlice = HeroLegalsSlice | BrunoTextSlice;
 
 /**
  * Content for Legals documents
@@ -340,37 +340,9 @@ export type BrunoTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *BrunoText → Primary*
- */
-export interface BrunoTextSliceVariant1Primary {
-  /**
-   * Text field in *BrunoText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: bruno_text.primary.txt
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  txt: prismic.RichTextField;
-}
-
-/**
- * Variant 1 variation for BrunoText Slice
- *
- * - **API ID**: `variant1`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BrunoTextSliceVariant1 = prismic.SharedSliceVariation<
-  "variant1",
-  Simplify<BrunoTextSliceVariant1Primary>,
-  never
->;
-
-/**
  * Slice variation for *BrunoText*
  */
-type BrunoTextSliceVariation = BrunoTextSliceDefault | BrunoTextSliceVariant1;
+type BrunoTextSliceVariation = BrunoTextSliceDefault;
 
 /**
  * BrunoText Shared Slice
@@ -429,6 +401,51 @@ export type HeroHomeSlice = prismic.SharedSlice<
   HeroHomeSliceVariation
 >;
 
+/**
+ * Primary content in *HeroLegals → Primary*
+ */
+export interface HeroLegalsSliceDefaultPrimary {
+  /**
+   * Title field in *HeroLegals → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_legals.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Default variation for HeroLegals Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroLegalsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroLegalsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroLegals*
+ */
+type HeroLegalsSliceVariation = HeroLegalsSliceDefault;
+
+/**
+ * HeroLegals Shared Slice
+ *
+ * - **API ID**: `hero_legals`
+ * - **Description**: HeroLegals
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroLegalsSlice = prismic.SharedSlice<
+  "hero_legals",
+  HeroLegalsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -461,14 +478,16 @@ declare module "@prismicio/client" {
       TextSliceDefault,
       BrunoTextSlice,
       BrunoTextSliceDefaultPrimary,
-      BrunoTextSliceVariant1Primary,
       BrunoTextSliceVariation,
       BrunoTextSliceDefault,
-      BrunoTextSliceVariant1,
       HeroHomeSlice,
       HeroHomeSliceDefaultPrimary,
       HeroHomeSliceVariation,
       HeroHomeSliceDefault,
+      HeroLegalsSlice,
+      HeroLegalsSliceDefaultPrimary,
+      HeroLegalsSliceVariation,
+      HeroLegalsSliceDefault,
     };
   }
 }

@@ -3,13 +3,13 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"txt": {
+			"title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "paragraph",
+						"type": "heading1",
 						"content": {
-							"text": "Magna tempor amet incididunt ex consectetur consequat. Velit nostrud tempor sit eu amet."
+							"text": "Yesterday"
 						}
 					}
 				]

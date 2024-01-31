@@ -16,7 +16,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero_legals": {
+              "type": "SharedSlice"
+            },
+            "bruno_text": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

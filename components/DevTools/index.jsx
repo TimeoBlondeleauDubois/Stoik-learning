@@ -123,9 +123,9 @@ export default function DevTools() {
               </div>
               <div
                 className={`${styles.tool} ${
-                  isWindowSizes ? styles.style_active : ''
+                  isScrollPosition ? styles.style_active : ''
                 }`}
-                onClick={() => setIsWindowSizes(!isWindowSizes)}
+                onClick={() => setIsScrollPosition(!isScrollPosition)}
               >
                 <svg
                   fill="#000000"
@@ -167,9 +167,9 @@ export default function DevTools() {
               </div>
               <div
                 className={`${styles.tool} ${
-                  isScrollPosition ? styles.style_active : ''
+                  isWindowSizes ? styles.style_active : ''
                 }`}
-                onClick={() => setIsScrollPosition(!isScrollPosition)}
+                onClick={() => setIsWindowSizes(!isWindowSizes)}
               >
                 <svg
                   viewBox="0 0 24 24"

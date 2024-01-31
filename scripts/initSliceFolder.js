@@ -1,61 +1,51 @@
-/*****************/
-/*  CHECK ERROR  */
-/*****************/
-
 const fs = require('fs')
 const path = require('path')
 
-const sliceName = process.argv[2]
-
-const sliceFolder = process.argv[3]
-
-if (!sliceName) {
-  console.error('Veuillez fournir un nom de slice.')
-  process.exit(1)
-}
-
-if (!sliceFolder) {
-  console.error('Veuillez fournir un nom de dossier.')
-  process.exit(1)
-}
-
-const slicePathName = path.join(__dirname, `../src/slices/${sliceName}`)
-
-if (!fs.existsSync(slicePathName)) {
-  console.error(`Le dossier "${sliceName}" n'existe pas.`)
-  process.exit(1)
-}
-
-const slicePathFolder = path.join(
+const slicemachineConfigPath = path.join(
   __dirname,
-  `../src/slices/${sliceName}/${sliceFolder}`
+  `../slicemachine.config.json`
 )
 
-if (fs.existsSync(slicePathFolder)) {
-  console.error(`Le dossier "${sliceFolder}" existe déjà.`)
-  process.exit(1)
-}
+const slicemachineConfigFile = JSON.parse(
+  fs.readFileSync(slicemachineConfigPath, 'utf-8')
+)
 
-/**************************/
-/*  CREATE FOLDER & FILE  */
-/**************************/
+slicemachineConfigFile.libraries.map((library) => {
+  const libraryPath = path.join(__dirname, `../${library}`)
+  const libraryFolders = fs.readdirSync(libraryPath)
+  libraryFolders
+    .filter((file) => fs.statSync(path.join(libraryPath, file)).isDirectory())
+    .map((sliceName) => {
+      const SliceMocksPath = path.join(
+        __dirname,
+        `../${library}/${sliceName}/mocks.json`
+      )
+      const mocks = JSON.parse(fs.readFileSync(SliceMocksPath, 'utf-8'))
+      mocks.map((variant) => {
+        const sliceVariation = variant.variation
+        const SliceVariantPath = path.join(
+          __dirname,
+          `../${library}/${sliceName}/${sliceVariation}`
+        )
 
-fs.mkdirSync(slicePathFolder)
+        if (fs.existsSync(SliceVariantPath)) return
 
-const indexContent = `import styles from './styles.module.scss'
+        fs.mkdirSync(SliceVariantPath)
+
+        const indexContent = `import styles from './styles.module.scss'
 
 const ${sliceName}${
-  sliceFolder.charAt(0).toUpperCase() + sliceFolder.slice(1)
-} = ({ slice }) => {
+          sliceVariation.charAt(0).toUpperCase() + sliceVariation.slice(1)
+        } = ({ slice }) => {
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={styles.section_${sliceName.toLowerCase()}_${sliceFolder.toLowerCase()}}
+      className={styles.section_${sliceName.toLowerCase()}_${sliceVariation.toLowerCase()}}
     >
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          ${sliceName.toUpperCase()} ${sliceFolder.toUpperCase()}
+          ${sliceName.toUpperCase()} ${sliceVariation.toUpperCase()}
         </div>
       </div>
     </section>
@@ -63,13 +53,14 @@ const ${sliceName}${
 }
 
 export default ${sliceName}${
-  sliceFolder.charAt(0).toUpperCase() + sliceFolder.slice(1)
-}`
-fs.writeFileSync(path.join(slicePathFolder, 'index.jsx'), indexContent)
+          sliceVariation.charAt(0).toUpperCase() + sliceVariation.slice(1)
+        }`
 
-const stylesContent = `@import "@/styles/common/globals.scss";
+        fs.writeFileSync(path.join(SliceVariantPath, 'index.jsx'), indexContent)
 
-.section_${sliceName.toLowerCase()}_${sliceFolder.toLowerCase()} {
+        const stylesContent = `@import "@/styles/common/globals.scss";
+
+.section_${sliceName.toLowerCase()}_${sliceVariation.toLowerCase()} {
   .wrapper {
     @include styleGrid();
   }
@@ -78,34 +69,32 @@ const stylesContent = `@import "@/styles/common/globals.scss";
   }
 }
 `
-fs.writeFileSync(
-  path.join(slicePathFolder, 'styles.module.scss'),
-  stylesContent
-)
+        fs.writeFileSync(
+          path.join(SliceVariantPath, 'styles.module.scss'),
+          stylesContent
+        )
 
-console.log(
-  `Dossier "${sliceFolder}" créé avec succès dans la slice ${sliceName}.`
-)
+        console.log(
+          `Dossier "${sliceVariation}" créé avec succès dans la slice ${sliceName}.`
+        )
+      })
 
-/****************************/
-/*  UPDATE INDEX.JS SWITCH  */
-/****************************/
+      const SlicePath = path.join(__dirname, `../${library}/${sliceName}`)
 
-const sliceNameFiles = fs.readdirSync(slicePathName)
+      const sliceNameFiles = fs.readdirSync(SlicePath)
+      const allFolders = sliceNameFiles
+        .filter((file) => fs.statSync(path.join(SlicePath, file)).isDirectory())
+        .map((folder) => folder)
 
-const allFolders = sliceNameFiles
-  .filter((file) => fs.statSync(path.join(slicePathName, file)).isDirectory())
-  .map((folder) => folder)
+      const switchContent = `${allFolders
+        .map(
+          (f) =>
+            `import ${sliceName}${
+              f.charAt(0).toUpperCase() + f.slice(1)
+            } from './${f.toLowerCase()}'`
+        )
+        .join('\n')}
 
-const switchContent = `${allFolders
-  .map(
-    (f) =>
-      `import ${sliceName}${
-        f.charAt(0).toUpperCase() + f.slice(1)
-      } from './${f.toLowerCase()}'`
-  )
-  .join('\n')}
-  
 const ${sliceName} = ({ slice }) => {
   switch (slice.variation) {
     ${allFolders
@@ -121,13 +110,15 @@ const ${sliceName} = ({ slice }) => {
       return null
   }
 }
-
+    
 export default ${sliceName}`
 
-const switchPathIndexJS = path.join(slicePathName, 'index.js')
-if (fs.existsSync(switchPathIndexJS)) {
-  fs.unlinkSync(switchPathIndexJS)
-}
+      const switchPathIndexJS = path.join(SlicePath, 'index.js')
+      if (fs.existsSync(switchPathIndexJS)) {
+        fs.unlinkSync(switchPathIndexJS)
+      }
 
-const switchPathIndexJSX = path.join(slicePathName, 'index.jsx')
-fs.writeFileSync(switchPathIndexJSX, switchContent)
+      const switchPathIndexJSX = path.join(SlicePath, 'index.jsx')
+      fs.writeFileSync(switchPathIndexJSX, switchContent)
+    })
+})

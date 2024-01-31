@@ -22,6 +22,6 @@ export class PageService {
   }
 
   async getAllLegals(): Promise<AllDocumentTypes[]> {
-    return this.apiService.getAllDocumentTypes('legals', this.lang)
+    return await this.apiService.getAllDocumentTypes('legals', this.lang)
   }
 }

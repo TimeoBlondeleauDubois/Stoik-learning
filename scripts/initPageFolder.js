@@ -139,11 +139,11 @@ export async function getStaticPaths() {
     pageServiceContent.slice(0, -2) +
     `
   async get${pageName}(uid: string): Promise<AllDocumentTypes> {
-    return this.apiService.getPageByUID('${pageType}', uid, this.lang)
+    return await this.apiService.getPageByUID('${pageType}', uid, this.lang)
   }
 
   async getAll${pageName}(): Promise<AllDocumentTypes[]> {
-    return this.apiService.getAllDocumentTypes('${pageType}', this.lang)
+    return await this.apiService.getAllDocumentTypes('${pageType}', this.lang)
   }
 
 }

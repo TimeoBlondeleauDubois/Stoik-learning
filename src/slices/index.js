@@ -3,5 +3,5 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  init: dynamic(() => import("./Init")),
+  text: dynamic(() => import("./Text")),
 };

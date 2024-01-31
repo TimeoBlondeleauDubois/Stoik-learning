@@ -270,31 +270,136 @@ export type AllDocumentTypes =
   | RedirectDocument;
 
 /**
- * Default variation for Init Slice
+ * Primary content in *Text → Primary*
+ */
+export interface TextSliceDefaultPrimary {
+  /**
+   * Text field in *Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.primary.txt
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  txt: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Text Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type InitSliceDefault = prismic.SharedSliceVariation<
+export type TextSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<TextSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *Init*
+ * Slice variation for *Text*
  */
-type InitSliceVariation = InitSliceDefault;
+type TextSliceVariation = TextSliceDefault;
 
 /**
- * Init Shared Slice
+ * Text Shared Slice
  *
- * - **API ID**: `init`
- * - **Description**: Init
+ * - **API ID**: `text`
+ * - **Description**: Text
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type InitSlice = prismic.SharedSlice<"init", InitSliceVariation>;
+export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
+
+/**
+ * Primary content in *BrunoText → Primary*
+ */
+export interface BrunoTextSliceDefaultPrimary {
+  /**
+   * Text field in *BrunoText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bruno_text.primary.txt
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  txt: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BrunoText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrunoTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BrunoTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BrunoText*
+ */
+type BrunoTextSliceVariation = BrunoTextSliceDefault;
+
+/**
+ * BrunoText Shared Slice
+ *
+ * - **API ID**: `bruno_text`
+ * - **Description**: BrunoText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrunoTextSlice = prismic.SharedSlice<
+  "bruno_text",
+  BrunoTextSliceVariation
+>;
+
+/**
+ * Primary content in *HeroHome → Primary*
+ */
+export interface HeroHomeSliceDefaultPrimary {
+  /**
+   * Title field in *HeroHome → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_home.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeroHome Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroHomeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroHomeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroHome*
+ */
+type HeroHomeSliceVariation = HeroHomeSliceDefault;
+
+/**
+ * HeroHome Shared Slice
+ *
+ * - **API ID**: `hero_home`
+ * - **Description**: HeroHome
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroHomeSlice = prismic.SharedSlice<
+  "hero_home",
+  HeroHomeSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -322,9 +427,18 @@ declare module "@prismicio/client" {
       RedirectDocumentData,
       RedirectDocumentDataRedirectItem,
       AllDocumentTypes,
-      InitSlice,
-      InitSliceVariation,
-      InitSliceDefault,
+      TextSlice,
+      TextSliceDefaultPrimary,
+      TextSliceVariation,
+      TextSliceDefault,
+      BrunoTextSlice,
+      BrunoTextSliceDefaultPrimary,
+      BrunoTextSliceVariation,
+      BrunoTextSliceDefault,
+      HeroHomeSlice,
+      HeroHomeSliceDefaultPrimary,
+      HeroHomeSliceVariation,
+      HeroHomeSliceDefault,
     };
   }
 }

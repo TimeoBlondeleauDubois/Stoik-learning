@@ -73,7 +73,7 @@ const ${pageName} = ({ page, header }) => {
           </div>
         </div>
       </section>
-      <SliceZone slices={data.slices3} components={components} />
+      <SliceZone slices={data.slices} components={components} />
     </Layout>
   )
 }

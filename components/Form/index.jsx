@@ -1,13 +1,13 @@
-import { useRef } from "react";
-import styles from "./styles.module.scss";
+import { useRef } from 'react'
+import styles from './styles.module.scss'
 
 export const Input = ({ type, id, label, placeholder, helpText }) => {
-  const fieldContainer = useRef();
-  const focusClass = styles.style_focus;
+  const fieldContainer = useRef()
+  const focusClass = styles.style_focus
 
   // N'assigne pas le type sur l'input au chargement
   switch (type) {
-    case "text":
+    case 'text':
       return (
         <>
           <div ref={fieldContainer} className={`${styles.container_field}`}>
@@ -27,8 +27,8 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
-    case "email":
+      )
+    case 'email':
       return (
         <>
           <div ref={fieldContainer} className={`${styles.container_field}`}>
@@ -62,8 +62,8 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
-    case "number":
+      )
+    case 'number':
       return (
         <>
           <div ref={fieldContainer} className={`${styles.container_field}`}>
@@ -83,8 +83,8 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
-    case "password":
+      )
+    case 'password':
       return (
         <>
           <div ref={fieldContainer} className={`${styles.container_field}`}>
@@ -118,8 +118,8 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
-    case "search":
+      )
+    case 'search':
       return (
         <>
           <div ref={fieldContainer} className={`${styles.container_field}`}>
@@ -136,16 +136,16 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
                   <path
                     d="M7.10509 12.4323C10.0472 12.4323 12.4323 10.0472 12.4323 7.10509C12.4323 4.16292 10.0472 1.77783 7.10509 1.77783C4.16292 1.77783 1.77783 4.16292 1.77783 7.10509C1.77783 10.0472 4.16292 12.4323 7.10509 12.4323Z"
                     stroke="#101010"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M10.873 10.8726L14.2227 14.2222"
                     stroke="#101010"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </g>
               </svg>
@@ -163,7 +163,7 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
+      )
     default:
       return (
         <>
@@ -184,7 +184,7 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
             {helpText && <p className={styles.help_text}>{helpText}</p>}
           </div>
         </>
-      );
+      )
   }
 
   // return (
@@ -207,4 +207,4 @@ export const Input = ({ type, id, label, placeholder, helpText }) => {
   //     </div>
   //   </>
   // );
-};
+}

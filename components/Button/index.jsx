@@ -1,116 +1,90 @@
-import { ArrowCTA, Load, Valid, Error } from "../../assets/icons";
+import ArrowCTA from '@/assets/icons/ArrowCTA'
+import Load from '@/assets/icons/Load'
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-export const Button = ({
-  isBtn,
-  state,
-  stl,
-  sz,
-  txt,
-  lnk,
-  icn,
-  drk,
-  wdth,
-  bgc,
-}) => {
-  // Default values
-  sz = sz || "big";
-  stl = stl || 1;
-  icn = icn || false;
-  state = state || "default";
-  bgc = bgc || "";
-  drk = drk || false;
-  wdth = wdth || false;
-  isBtn = isBtn || false;
-
-  // Change icon with the state
-  let StateIcon;
-  switch (state) {
-    case "disable":
-      icn = false;
-      break;
-    case "valid":
-      StateIcon = Valid;
-      break;
-    case "error":
-      StateIcon = Error;
-      break;
-    case "load":
-      icn = false;
-      StateIcon = Load;
-      break;
-    default:
-      StateIcon = null;
-      state = "default";
-      break;
-  }
-
-  // Add Tag A or BUTTON
-  let CustomBtn;
-  isBtn ? (CustomBtn = `button`) : (CustomBtn = `a`);
-
+const Encapsulation = ({ clssNm, nClck, lnk, children }) => {
   return (
     <>
-      <div
-        className={`${styles.btn_wrppr} ${
-          state ? styles[`state_${state}`] : ""
-        }${drk ? " " + styles.mode_dark : ""}${
-          wdth ? " " + styles.full_width : ""
-        }`}
-      >
-        <CustomBtn
-          className={`
-            ${styles.btn}
-            ${styles[`size_${sz}`]}
-            ${styles[`style_${stl}`]}
-          `}
-          href={lnk}
-        >
-          <div className={styles.container}>
-            <>
-              {StateIcon && (
-                <span className={styles.stticn}>
-                  <StateIcon />
-                </span>
-              )}
-              {state != "load" && <span className={styles.btntxt}>{txt}</span>}
-              {icn && (
-                <span className={styles.btnicn}>
-                  <ArrowCTA />
-                </span>
-              )}
-            </>
-            {/* {load ? (
-              <span className={styles.btnload}>
-                <Load />
-              </span>
-            ) : (
-              <>
-                {StateIcon && (
-                  <span>
-                    <StateIcon />
-                  </span>
-                )}
-                <span className={styles.btntxt}>{txt}</span>
-                {icn && (
-                  <span className={styles.btnicn}>
-                    <ButtonIcon />
-                  </span>
-                )}
-              </>
-            )} */}
-          </div>
-        </CustomBtn>
-      </div>
-      <style jsx>
-        {`
-          a,
-          button {
-            background-color: ${bgc} !important;
-          }
-        `}
-      </style>
+      {!lnk && (
+        <div className={clssNm} onClick={() => nClck()}>
+          {children}
+        </div>
+      )}
+      {lnk && (
+        <PrismicNextLink className={clssNm} field={lnk}>
+          {children}
+        </PrismicNextLink>
+      )}
     </>
-  );
-};
+  )
+}
+
+export const Button = ({
+  txt,
+  lnk,
+  sz,
+  stl,
+  chck,
+  arrw,
+  anm,
+  fllwdth,
+  fnctnClck,
+  stts,
+}) => {
+  sz = sz || 'big'
+  stl = stl || 1
+  chck = chck || false
+  arrw = arrw || true
+  fllwdth = fllwdth || false
+  anm = anm || null
+  stts = stts || null
+
+  lnk = lnk && lnk.link_type === 'Any' ? false : lnk
+
+  const handleClick = () => {
+    if (fnctnClck) fnctnClck()
+  }
+
+  const arwB = anm === '4' || anm === '5' ? true : false
+
+  return (
+    <Encapsulation
+      clssNm={`${styles.btn} ${styles[`size_${sz}`]} ${
+        styles[`style_${stl}`]
+      } ${fllwdth ? styles.fullwidth : ''} ${
+        anm ? styles[`anim_${anm}`] : ''
+      } ${stts ? styles[`style_${stts}`] : ''}`}
+      nClck={handleClick}
+      lnk={lnk}
+    >
+      <div className={styles.container}>
+        {arwB && (
+          <span className={styles.btnicn}>
+            <ArrowCTA content={styles.content} />
+          </span>
+        )}
+        <span className={styles.btntxt}>{txt}</span>
+        {arrw && (
+          <span className={styles.btnicn}>
+            <ArrowCTA content={styles.content} />
+          </span>
+        )}
+      </div>
+      {anm && anm === '1' && (
+        <div className={styles.btnanm} aria-hidden="true">
+          <div className={`${styles.btntxt} ${styles.btnanm_el}`}>
+            {[...Array(4)].map((_, i) => (
+              <span key={i}>{txt}</span>
+            ))}
+          </div>
+        </div>
+      )}
+      {stts === 'load' && (
+        <div className={styles.container_load}>
+          <Load />
+        </div>
+      )}
+    </Encapsulation>
+  )
+}

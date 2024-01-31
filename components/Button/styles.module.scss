@@ -1,5 +1,10 @@
-@import "@/styles/common/globals.scss";
+@import '@/styles/common/globals.scss';
 
+/* REMOVE AND CREATE YOUR STYLE */
+$style1color: black;
+$style1colorHover: white;
+
+/* KEYFRAMES */
 @keyframes animButton1 {
   0% {
     transform: translate3d(calc(-25% + 1rem), 0, 0);
@@ -8,8 +13,7 @@
     transform: translate3d(calc(-50% + 1rem), 0, 0);
   }
 }
-
-@keyframes animload {
+@keyframes animLoader {
   0% {
     transform: rotateZ(0deg);
   }
@@ -21,253 +25,411 @@
   }
 }
 
-.btn_wrppr {
+.btn {
   cursor: pointer;
+  position: relative;
+  display: block;
+  z-index: 1;
   width: fit-content;
-  &.full_width {
-    width: 100%;
-  }
-  .btn {
-    transition: all 0.25s ease;
-    display: flex;
-    align-items: center;
-  }
+  text-decoration: none;
+  border-radius: 20px;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  /* INIT */
   .container {
+    position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
-  }
-  .btnicn svg {
-    transition: all 0.25s ease;
-    stroke: $colorGreyscale_6;
-  }
-  .btnload svg {
-    aspect-ratio: 1/1;
-    fill: none;
-    animation: animload 2s linear infinite;
-    ellipse {
-      opacity: 0.3;
-      fill: $colorGreyscale_6;
-    }
-    path {
-      stroke: $colorGreyscale_6;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-    }
-  }
-  // Icons
-  svg {
-    aspect-ratio: 1/1;
-    fill: none;
-    path {
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    ellipse {
-      opacity: 0.3;
-      fill: $colorGreyscale_6;
-    }
-  }
-}
-
-// Sizes
-.size_big {
-  height: 60px;
-  padding: 0 40px;
-  border-radius: 16px;
-  .container {
-    gap: 12px;
-  }
-  .btntxt {
-    @include styleA("big", $color: $colorGreyscale_6);
-  }
-  svg {
-    width: 20px;
-  }
-}
-.size_medium {
-  height: 50px;
-  padding: 0 32px;
-  border-radius: 12px;
-  .container {
+    height: 100%;
     gap: 8px;
   }
   .btntxt {
-    @include styleA("medium", $color: $colorGreyscale_6);
+    transition: color 0.25s ease;
   }
-  svg {
-    width: 16px;
-  }
-}
-.size_small {
-  height: 40px;
-  padding: 0 24px;
-  border-radius: 8px;
-  .container {
-    gap: 8px;
-  }
-  .btntxt {
-    @include styleA("small", $color: $colorGreyscale_6);
-  }
-  svg {
-    width: 12px;
-  }
-}
-
-// States
-.state_default {
-  // Styles
-  .style_1 {
-    background-color: $colorPrimary_2;
-    @include styleHover() {
-      background-color: $colorPrimary_1;
-      .btnicn svg {
-        transform: translateX(4px);
-      }
-    }
-  }
-  .style_2 {
-    background-color: $colorPrimary_1;
-    @include styleHover() {
-      background-color: $colorPrimary_2;
-      .btnicn svg {
-        transform: translateX(4px);
-      }
-    }
-  }
-}
-.state_disable {
-  .btn {
-    background-color: $colorGreyscale_1;
-    opacity: 0.2;
-    pointer-events: none;
-    cursor: default;
-  }
-}
-.state_valid {
-  .btn {
-    background-color: $colorSuccess;
+  .btnicn {
+    position: relative;
+    transition: transform 0.25s ease;
     svg {
-      path {
-        stroke: $colorGreyscale_6;
-      }
-    }
-    .stticn {
-      path {
-        stroke-width: 1.8;
-      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
-}
-.state_error {
-  .btn {
-    background-color: $colorError;
-    svg {
-      path {
-        stroke: $colorGreyscale_6;
-      }
-    }
-    .stticn {
-      path {
-        stroke-width: 1.8;
-      }
-    }
-  }
-}
-.state_load {
-  cursor: default;
-  .style_1 {
-    background-color: $colorPrimary_2;
-  }
-  .style_2 {
-    background-color: $colorPrimary_1;
-  }
-  .stticn svg {
-    aspect-ratio: 1/1;
-    fill: none;
-    animation: animload 2s linear infinite;
-    ellipse {
-      opacity: 0.3;
-      fill: $colorGreyscale_6;
-    }
-    path {
-      stroke: $colorGreyscale_6;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-    }
-  }
-}
 
-// Mode {
-.mode_dark {
-  &.state_disable {
-    .btn {
-      background-color: $colorGreyscale_6;
-      .btntxt {
-        color: $colorGreyscale_1;
-      }
-    }
+  /* SIZE */
+  &.fullwidth {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
-  .style_1 {
-    @include styleHover() {
-      background-color: $colorGreyscale_6;
-      .btntxt {
-        color: $colorGreyscale_1;
-      }
-      .btnicn svg {
-        stroke: $colorGreyscale_1;
-      }
-    }
-  }
-  .style_2 {
-    background-color: $colorGreyscale_6;
+  &.size_big {
+    padding: 0 32px;
+    height: 45px;
     .btntxt {
-      color: $colorGreyscale_1;
+      @include styleP('normal');
     }
-    .btnicn svg {
-      stroke: $colorGreyscale_1;
+    .btnicn {
+      width: 10px;
+      height: 11px;
     }
-    .btnload svg {
-      ellipse {
-        fill: $colorGreyscale_1;
-      }
-      path {
-        stroke: $colorGreyscale_1;
+    .container_load svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &.size_medium {
+    padding: 0 24px;
+    height: 40px;
+    .btntxt {
+      @include styleP('normal');
+    }
+    .btnicn {
+      width: 10px;
+      height: 11px;
+    }
+    .container_load svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &.size_small {
+    padding: 0 16px;
+    height: 30px;
+    .btntxt {
+      @include styleP('medium');
+    }
+    .btnicn {
+      width: 10px;
+      height: 11px;
+    }
+    .container_load svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  /* STYLE */
+  &.style_1 {
+    background-color: transparent;
+    border: 1px solid $style1color;
+    .btntxt {
+      color: $style1color;
+    }
+    .btnicn {
+      svg {
+        stroke: $style1color;
       }
     }
     @include styleHover() {
+      background-color: $style1color;
       .btntxt {
-        color: $colorGreyscale_6;
+        color: $style1colorHover;
       }
-      .btnicn svg {
-        stroke: $colorGreyscale_6;
+      .btnicn {
+        svg {
+          stroke: $style1colorHover;
+        }
       }
     }
   }
 
-  &.state_error {
-    .btn {
-      background-color: $colorGreyscale_6;
-      .btntxt {
-        color: $colorGreyscale_1;
+  /* ANIMATION */
+  &.anim_0 {
+    @include styleHover() {
+      .btnicn {
+        transform: translateX(4px);
       }
-      svg {
-        path {
-          stroke: $colorError;
+    }
+  }
+  &.anim_1 {
+    .btnanm {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      overflow: hidden;
+      .btnanm_el {
+        position: relative;
+        display: flex;
+        width: fit-content;
+        opacity: 0;
+        transform: translate3d(calc(-25% + 1rem), 0, 0);
+        animation: animButton1 1s linear infinite;
+        animation-play-state: paused;
+        span {
+          padding: 0 0.5rem;
+          text-align: center;
+          white-space: nowrap;
+        }
+      }
+    }
+    @include styleHover() {
+      .container {
+        opacity: 0;
+      }
+      .btnanm .btnanm_el {
+        animation-play-state: running;
+        opacity: 1;
+        transition-duration: 0.4s;
+      }
+    }
+  }
+  &.anim_2 {
+    border-color: transparent;
+    background-color: transparent;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+    }
+    &:before {
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
+    }
+    &:after {
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
+      transform: scale3d(1, 1, 1);
+    }
+    &.style_1 {
+      &:before {
+        background-color: transparent;
+      }
+      &:after {
+        border: 1px solid $style1color;
+      }
+    }
+    @include styleHover() {
+      border-color: transparent;
+      background-color: transparent;
+      &:before {
+        transform: scale3d(0.95, 0.85, 1);
+      }
+      &:after {
+        transform: scale3d(1.1, 1.1, 1);
+      }
+      &.style_1 {
+        &:before {
+          background-color: $style1color;
+        }
+        &:after {
+          border: 1px solid $style1color;
         }
       }
     }
   }
-  &.state_valid {
-    .btn {
-      background-color: $colorGreyscale_6;
-      .btntxt {
-        color: $colorGreyscale_1;
+  &.anim_3 {
+    background-color: transparent;
+    .btntxt {
+      transition: all 600ms $bezier_out4;
+    }
+    .btnicn {
+      transition: all 600ms $bezier_out4 120ms;
+    }
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -200%;
+      height: 100%;
+      width: 200%;
+      transform-origin: center left;
+      opacity: 0;
+      transition: all 800ms $bezier_out4;
+    }
+
+    &.style_1 {
+      &::before {
+        background: linear-gradient(
+          to right,
+          rgba($style1color, 1) 50%,
+          rgba($style1color, 0) 100%
+        );
       }
-      svg {
-        path {
-          stroke: $colorSuccess;
+    }
+
+    @include styleHover {
+      background-color: transparent;
+
+      &::before {
+        opacity: 1;
+        transform: translate(100%, 0);
+      }
+
+      .btnicn {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &.anim_4 {
+    .btnicn {
+      &:first-child {
+        position: absolute;
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      transition: all 600ms $bezier_out4;
+    }
+    .btntxt {
+      transition: all 600ms $bezier_out4;
+    }
+
+    @include styleHover {
+      .btnicn {
+        &:first-child {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+        &:last-child {
+          opacity: 0;
+          transform: translateX(20px);
         }
       }
+      .btntxt {
+        transform: translateX(20px);
+      }
+    }
+  }
+  &.anim_5 {
+    background-color: transparent;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -200%;
+      height: 100%;
+      width: 200%;
+      transform-origin: center left;
+      opacity: 0;
+      transition: all 800ms $bezier_out4;
+    }
+
+    &.style_1 {
+      &::before {
+        background: linear-gradient(
+          to right,
+          rgba($style1color, 1) 50%,
+          rgba($style1color, 0) 100%
+        );
+      }
+    }
+
+    .btnicn {
+      &:first-child {
+        position: absolute;
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      transition: all 600ms $bezier_out4;
+    }
+    .btntxt {
+      transition: all 600ms $bezier_out4;
+    }
+
+    @include styleHover {
+      background-color: transparent;
+
+      &::before {
+        opacity: 1;
+        transform: translate(100%, 0);
+      }
+
+      .btnicn {
+        &:first-child {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+        &:last-child {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+      }
+      .btntxt {
+        transform: translateX(20px);
+      }
+    }
+  }
+
+  /* STATUS */
+  &.style_disable {
+    cursor: default;
+    opacity: 0.5;
+  }
+  &.style_load {
+    position: relative;
+    cursor: default;
+
+    .container {
+      opacity: 0;
+    }
+
+    .container_load {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      svg {
+        fill: none;
+        animation: animLoader 2s linear infinite;
+        path {
+          stroke: $style1color;
+        }
+      }
+    }
+
+    @include styleHover {
+      .container_load {
+        svg {
+          path {
+            stroke: $style1colorHover;
+          }
+        }
+      }
+    }
+  }
+  &.style_valid {
+    border: 1px solid $colorSuccess;
+    .btntxt {
+      color: $colorSuccess;
+    }
+    .btnicn {
+      svg {
+        stroke: $colorSuccess;
+      }
+    }
+  }
+  &.style_error {
+    border: 1px solid $colorError;
+    .btntxt {
+      color: $colorError;
+    }
+    .btnicn {
+      svg {
+        stroke: $colorError;
+      }
+    }
+  }
+
+  /* RESPONSIVE */
+  @include styleResponsive('smaller-desktop') {
+    width: 100%;
+    .container {
+      width: 100%;
+      justify-content: center;
     }
   }
 }

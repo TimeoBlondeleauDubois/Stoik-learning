@@ -43,8 +43,8 @@ export async function getStaticProps({ locale, params, previewData }) {
 }
 
 export async function getStaticPaths() {
-  const customService = new CustomService()
-  const pages = await customService.getAllLegals({ lang: '*' })
+  const pageService = new PageService()
+  const pages = await pageService.getAllLegals({ lang: '*' })
   const paths = pages.map((page) => ({
     params: {
       uid: page.uid,

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "bruno": "node scripts/initPageFolder.js && next dev",
+    "bruno": "node scripts/initPageFolder.js && node scripts/initSliceFolder.js && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

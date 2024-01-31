@@ -1,44 +1,42 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import DevTools from "./DevTools";
-import { useEffect, useState } from "react";
+import Header from './Header'
+import DevTools from './DevTools'
+import { useEffect, useState } from 'react'
 
-import { Button } from "./Button";
-import { Input } from "./Form";
+import { Button } from './Button'
 
 export default function Layout({ children, header, footer }) {
-  const [isDevTools, setIsDevTools] = useState(false);
+  const [isDevTools, setIsDevTools] = useState(false)
 
   const handleMotion = (event) => {
-    const { accelerationIncludingGravity } = event;
+    const { accelerationIncludingGravity } = event
 
     const totalAcceleration = Math.sqrt(
       accelerationIncludingGravity.x ** 2 +
         accelerationIncludingGravity.y ** 2 +
         accelerationIncludingGravity.z ** 2
-    );
+    )
 
-    const shakeThreshold = 25;
+    const shakeThreshold = 25
 
     if (totalAcceleration > shakeThreshold) {
-      setIsDevTools(!isDevTools);
+      setIsDevTools(!isDevTools)
     }
-  };
+  }
 
   const handleKeyPress = (event) => {
-    if (event.key === "Escape") {
-      setIsDevTools(!isDevTools);
+    if (event.key === 'Escape') {
+      setIsDevTools(!isDevTools)
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyPress);
-    window.addEventListener("devicemotion", handleMotion);
+    document.addEventListener('keydown', handleKeyPress)
+    window.addEventListener('devicemotion', handleMotion)
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-      window.removeEventListener("devicemotion", handleMotion);
-    };
-  });
+      document.removeEventListener('keydown', handleKeyPress)
+      window.removeEventListener('devicemotion', handleMotion)
+    }
+  })
 
   return (
     <>
@@ -89,219 +87,43 @@ export default function Layout({ children, header, footer }) {
       /> */}
       <div>
         <div className="flexContainer">
-          <Button sz={"small"} stl={1} txt={"button text"} />
-          <Button sz={"medium"} stl={1} txt={"button text"} />
-          <Button sz={"big"} stl={1} txt={"button text"} />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={2} txt={"button text"} />
-          <Button sz={"medium"} stl={2} txt={"button text"} />
-          <Button sz={"big"} stl={2} txt={"button text"} />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={1} txt={"button text"} icn />
-          <Button sz={"medium"} stl={1} txt={"button text"} icn />
-          <Button sz={"big"} stl={1} txt={"button text"} icn />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={2} txt={"button text"} icn />
-          <Button sz={"medium"} stl={2} txt={"button text"} icn />
-          <Button sz={"big"} stl={2} txt={"button text"} icn />
-        </div>
-        <div>
-          <Button sz={"small"} stl={1} txt={"button text"} wdth />
-          <Button sz={"medium"} stl={1} txt={"button text"} wdth />
-          <Button sz={"big"} stl={1} txt={"button text"} wdth />
-        </div>
-        <div>
-          <Button sz={"small"} stl={2} txt={"button text"} wdth />
-          <Button sz={"medium"} stl={2} txt={"button text"} wdth />
-          <Button sz={"big"} stl={2} txt={"button text"} wdth />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"disable"}
-          />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"disable"}
-          />
-          <Button
-            sz={"big"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"disable"}
-          />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={1} txt={"button text"} icn state={"load"} />
-          <Button
-            sz={"medium"}
-            stl={1}
-            txt={"button text"}
-            icn
-            state={"load"}
-          />
-          <Button sz={"big"} stl={1} txt={"button text"} icn state={"load"} />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={2} txt={"button text"} icn state={"load"} />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"load"}
-          />
-          <Button sz={"big"} stl={2} txt={"button text"} icn state={"load"} />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={1} txt={"button text"} state={"valid"} />
-          <Button sz={"medium"} stl={1} txt={"button text"} state={"valid"} />
-          <Button sz={"big"} stl={1} txt={"button text"} state={"valid"} />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"valid"}
-          />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"valid"}
-          />
-          <Button sz={"big"} stl={2} txt={"button text"} icn state={"valid"} />
-        </div>
-        <div className="flexContainer">
-          <Button sz={"small"} stl={1} txt={"button text"} state={"error"} />
-          <Button sz={"medium"} stl={1} txt={"button text"} state={"error"} />
-          <Button sz={"big"} stl={1} txt={"button text"} state={"error"} />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"error"}
-          />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"error"}
-          />
-          <Button sz={"big"} stl={2} txt={"button text"} icn state={"error"} />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={1}
-            txt={"button text"}
-            state={"valid"}
-            drk
-          />
-          <Button
-            sz={"medium"}
-            stl={1}
-            txt={"button text"}
-            state={"valid"}
-            drk
-          />
-          <Button sz={"big"} stl={1} txt={"button text"} state={"valid"} drk />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"valid"}
-            drk
-          />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"valid"}
-            drk
-          />
-          <Button
-            sz={"big"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"valid"}
-            drk
-          />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={1}
-            txt={"button text"}
-            state={"error"}
-            drk
-          />
-          <Button
-            sz={"medium"}
-            stl={1}
-            txt={"button text"}
-            state={"error"}
-            drk
-          />
-          <Button sz={"big"} stl={1} txt={"button text"} state={"error"} drk />
-        </div>
-        <div className="flexContainer">
-          <Button
-            sz={"small"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"error"}
-            drk
-          />
-          <Button
-            sz={"medium"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"error"}
-            drk
-          />
-          <Button
-            sz={"big"}
-            stl={2}
-            txt={"button text"}
-            icn
-            state={"error"}
-            drk
-          />
+          <Button sz={'small'} stl={'1'} txt={'button'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} />
+          <br />
+          <Button sz={'big'} stl={'1'} txt={'button'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'0'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'1'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'2'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'3'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'4'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} anm={'5'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} stts={'disable'} />
+          <br />
+          <Button sz={'small'} stl={'1'} txt={'button'} stts={'load'} />
+          <br />
+          <Button sz={'medium'} stl={'1'} txt={'button'} stts={'load'} />
+          <br />
+          <Button sz={'big'} stl={'1'} txt={'button'} stts={'load'} />
+          <br />
+          <Button sz={'big'} stl={'1'} txt={'button'} stts={'valid'} />
+          <br />
+          <Button sz={'big'} stl={'1'} txt={'button'} stts={'error'} />
         </div>
       </div>
 
       <style jsx>{`
         .flexContainer {
-          display: flex;
-          align-items: center;
-          gap: 24px;
+          margin: 40px;
         }
       `}</style>
     </>
-  );
+  )
 }

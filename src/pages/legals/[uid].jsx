@@ -1,21 +1,35 @@
-import { ApiService } from '/services/api.service'
-import { CustomService } from '/services/custom.service'
-import { PageService } from '/services/page.service'
-import { getLangFromLocale } from '/utils/get-lang-from-locale'
+import { SliceZone } from '@prismicio/react'
 
-import Layout from '/components/layout.jsx'
-import SEO from '/components/SEO'
+import { ApiService } from '@/services/api.service'
+import { PageService } from '@/services/page.service'
+import { CustomService } from '@/services/custom.service'
 
-const Legals = ({ header, footer, page }) => {
-  const data = page.data
+import Layout from '@/components/layout'
+import { components as componentsSlices } from '../../slices'
+import { components as componentsHeros } from '../../heros'
+import { components as componentsBruno } from '../../bruno'
+import { getLangFromLocale } from '@/utils/get-lang-from-locale'
+
+const Legals = ({ page, header }) => {
+  const { data } = page
   return (
-    <Layout header={header} footer={footer} page={page.type}>
-      <SEO
-        title={data.meta_title}
-        description={data.meta_description}
-        image={data.meta_image}
+    <Layout
+      seo={{
+        title: data.meta_title,
+        description: data.meta_description,
+        image: data.meta_image,
+      }}
+      header={header}
+      altLang={page.alternate_languages}
+    >
+      <SliceZone
+        slices={data.slices}
+        components={{
+          ...componentsHeros,
+          ...componentsSlices,
+          ...componentsBruno,
+       }}
       />
-      <h1>LEGALS</h1>
     </Layout>
   )
 }
@@ -25,20 +39,17 @@ export default Legals
 export async function getStaticProps({ locale, params, previewData }) {
   ApiService.setPreviewData({ previewData })
   const lang = getLangFromLocale(locale)
-  const customService = new CustomService(lang)
   const pageService = new PageService(lang)
-  const [header, footer, page] = await Promise.all([
-    customService.getHeader(),
-    customService.getFooter(),
+  const customService = new CustomService(lang)
+  const [page, header] = await Promise.all([
     pageService.getLegals(params.uid),
+    customService.getHeader(),
   ])
   return {
     props: {
-      header,
-      footer,
       page,
+      header,
     },
-    revalidate: 180,
   }
 }
 

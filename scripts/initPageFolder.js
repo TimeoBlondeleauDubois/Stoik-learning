@@ -54,8 +54,6 @@ import { components as componentsHeros } from '../../heros'
 import { components as componentsBruno } from '../../bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
-import styles from './styles.module.scss'
-
 const ${pageName} = ({ page, header }) => {
   const { data } = page
   return (
@@ -113,19 +111,6 @@ export async function getStaticPaths() {
 `
 
   fs.writeFileSync(path.join(pageTypePath, '[uid].jsx'), indexContent)
-
-  const stylesContent = `@import "@/styles/common/globals.scss";
-
-.section_hero {
-  .wrapper {
-    @include styleGrid();
-  }
-  .container {
-
-  }
-}
-`
-  fs.writeFileSync(path.join(pageTypePath, 'styles.module.scss'), stylesContent)
 
   console.log(`Dossier "${pageType}" créé avec succès dans le dossier pages.`)
 

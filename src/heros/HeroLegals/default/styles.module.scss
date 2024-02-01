@@ -1,0 +1,17 @@
+@import '@/styles/common/globals.scss';
+
+.section_herolegals_default {
+  padding-top: 160px;
+  padding-bottom: 160px;
+  background-color: $colorPrimary_1;
+  .wrapper {
+    @include styleGrid();
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    @include styleH('h1', $color: $colorGreyscale_6);
+  }
+}

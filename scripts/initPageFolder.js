@@ -49,7 +49,9 @@ import { PageService } from '@/services/page.service'
 import { CustomService } from '@/services/custom.service'
 
 import Layout from '@/components/layout'
-import { components } from '../../slices'
+import { components as componentsSlices } from '../../slices'
+import { components as componentsHeros } from '../../heros'
+import { components as componentsBruno } from '../../bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
 import styles from './styles.module.scss'
@@ -66,14 +68,14 @@ const ${pageName} = ({ page, header }) => {
       header={header}
       altLang={page.alternate_languages}
     >
-      <section className={styles.section_hero}>
-        <div className={styles.wrapper}>
-          <div className={styles.container}>
-            SECTION HERO ${pageName.toUpperCase()}
-          </div>
-        </div>
-      </section>
-      <SliceZone slices={data.slices} components={components} />
+      <SliceZone
+        slices={data.slices}
+        components={{
+          ...componentsHeros,
+          ...componentsSlices,
+          ...componentsBruno,
+       }}
+      />
     </Layout>
   )
 }

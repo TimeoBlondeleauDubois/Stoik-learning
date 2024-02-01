@@ -1,0 +1,46 @@
+@import '@/styles/common/globals.scss';
+
+.section_brunotext_default {
+  padding-top: 160px;
+  padding-bottom: 160px;
+  .wrapper {
+    @include styleGrid();
+  }
+  .container {
+  }
+  h2 {
+    @include styleH('h2');
+  }
+  h3 {
+    @include styleH('h3');
+  }
+  h4 {
+    @include styleH('h4');
+  }
+  p {
+    @include styleP('medium');
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul,
+  ol {
+    margin: 24px 0;
+    padding-left: 15px;
+    li {
+      @include styleP('medium');
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  strong {
+    font-family: $font_1_bold;
+  }
+  a {
+    text-decoration: underline;
+  }
+}

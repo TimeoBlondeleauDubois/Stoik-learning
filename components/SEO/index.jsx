@@ -1,6 +1,9 @@
 import Head from 'next/head'
 
-const SEO = ({ title, description, image }) => {
+const SEO = ({ seo }) => {
+  if (!seo) return
+
+  const { title, description, image } = seo
   return (
     <>
       <Head>

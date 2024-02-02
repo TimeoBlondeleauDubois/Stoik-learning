@@ -1,9 +1,9 @@
 import HeroLegalsDefault from './default'
 
-const HeroLegals = ({ slice }) => {
+const HeroLegals = ({ slice, ...otherProps }) => {
   switch (slice.variation) {
     case 'default':
-      return <HeroLegalsDefault slice={slice} />
+      return <HeroLegalsDefault slice={slice} {...otherProps} />
     default:
       return null
   }

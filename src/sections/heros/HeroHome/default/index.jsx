@@ -8,9 +8,7 @@ const HeroHomeDefault = ({ slice }) => {
       className={styles.section_herohome_default}
     >
       <div className={styles.wrapper}>
-        <div className={styles.container}>
-          HEROHOME DEFAULT
-        </div>
+        <div className={styles.container}>HEROHOME DEFAULT</div>
       </div>
     </section>
   )

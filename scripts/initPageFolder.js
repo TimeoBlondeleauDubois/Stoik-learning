@@ -49,9 +49,9 @@ import { PageService } from '@/services/page.service'
 import { CustomService } from '@/services/custom.service'
 
 import Layout from '@/components/layout'
-import { components as componentsSlices } from '../../slices'
-import { components as componentsHeros } from '../../heros'
-import { components as componentsBruno } from '../../bruno'
+import { components as componentsHeros } from '@/sections/heros'
+import { components as componentsSlices } from '@/sections/slices'
+import { components as componentsBruno } from '@/sections/bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
 const ${pageName} = ({ page, header }) => {

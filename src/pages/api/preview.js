@@ -1,11 +1,11 @@
-import { setPreviewData, redirectToPreviewURL } from "@prismicio/next";
+import { setPreviewData, redirectToPreviewURL } from '@prismicio/next'
 
-import { createClient } from "../../prismicio";
+import { createClient } from '../../prismicio'
 
 export default async function handler(req, res) {
-  const client = createClient({ req });
+  const client = createClient({ req })
 
-  await setPreviewData({ req, res });
+  await setPreviewData({ req, res })
 
-  return await redirectToPreviewURL({ req, res, client });
+  return await redirectToPreviewURL({ req, res, client })
 }

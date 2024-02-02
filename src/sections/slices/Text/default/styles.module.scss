@@ -1,0 +1,10 @@
+@import "@/styles/common/globals.scss";
+
+.section_text_default {
+  .wrapper {
+    @include styleGrid();
+  }
+  .container {
+
+  }
+}

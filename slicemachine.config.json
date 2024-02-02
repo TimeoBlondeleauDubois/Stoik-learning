@@ -2,6 +2,10 @@
   "apiEndpoint": "https://start-next.prismic.io/api/v2",
   "repositoryName": "start-next",
   "adapter": "@slicemachine/adapter-next",
-  "libraries": ["./src/slices", "./src/bruno", "./src/heros"],
+  "libraries": [
+    "./src/sections/slices",
+    "./src/sections/bruno",
+    "./src/sections/heros"
+  ],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }

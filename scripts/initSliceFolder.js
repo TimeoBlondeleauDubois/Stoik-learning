@@ -95,7 +95,7 @@ export default ${sliceName}${
         )
         .join('\n')}
 
-const ${sliceName} = ({ slice }) => {
+const ${sliceName} = ({ slice, ...otherProps }) => {
   switch (slice.variation) {
     ${allFolders
       .map((f, i) => {
@@ -103,7 +103,7 @@ const ${sliceName} = ({ slice }) => {
         return `${i > 0 ? indent : ''}case '${f.toLowerCase()}':
       return <${sliceName}${
         f.charAt(0).toUpperCase() + f.slice(1)
-      } slice={slice} />`
+      } slice={slice} {...otherProps} />`
       })
       .join('\n')}
     default:

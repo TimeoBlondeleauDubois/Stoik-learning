@@ -1,0 +1,34 @@
+@import '@/styles/common/globals.scss';
+
+.section_hero404_default {
+  padding: 120px 0;
+  .wrapper {
+    @include styleGrid(12);
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container_img {
+    width: 450px;
+    height: 250px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  h1 {
+    margin: 24px 0;
+    @include styleH('h1');
+  }
+
+  @include styleResponsive('smaller-desktop') {
+    padding-bottom: 72px;
+    .container_img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}

@@ -1,7 +1,11 @@
+import { SliceZone } from '@prismicio/react'
+
 import { ApiService } from '/services/api.service'
 import { PageService } from '/services/page.service'
 import { getLangFromLocale } from '/utils/get-lang-from-locale'
-
+import { components as componentsHeros } from '@/sections/heros'
+import { components as componentsSlices } from '@/sections/slices'
+import { components as componentsBruno } from '@/sections/bruno'
 import Layout from '/components/layout.jsx'
 import SEO from '/components/SEO'
 
@@ -14,6 +18,14 @@ const p404 = ({ header, footer, page }) => {
         title={data.meta_title}
         description={data.meta_description}
         image={data.meta_image}
+      />
+      <SliceZone
+        slices={data.slices}
+        components={{
+          ...componentsHeros,
+          ...componentsSlices,
+          ...componentsBruno,
+        }}
       />
     </Layout>
   )

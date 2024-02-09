@@ -4,6 +4,60 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Cookie documents
+ */
+interface CookieDocumentData {
+  /**
+   * Title field in *Cookie*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Text field in *Cookie*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie.txt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Button - Text field in *Cookie*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cookie.btntxt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  btntxt: prismic.KeyTextField;
+}
+
+/**
+ * Cookie document from Prismic
+ *
+ * - **API ID**: `cookie`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CookieDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CookieDocumentData>,
+    "cookie",
+    Lang
+  >;
+
 interface FooterDocumentData {}
 
 /**
@@ -262,6 +316,7 @@ export type RedirectDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | CookieDocument
   | FooterDocument
   | HeaderDocument
   | HomeDocument
@@ -531,6 +586,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CookieDocument,
+      CookieDocumentData,
       FooterDocument,
       FooterDocumentData,
       HeaderDocument,

@@ -1,3 +1,5 @@
+import { PrismicNextLink } from '@prismicio/next'
+
 import ArrowCTA from '@/assets/icons/ArrowCTA'
 import Load from '@/assets/icons/Load'
 

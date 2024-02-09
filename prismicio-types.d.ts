@@ -143,7 +143,7 @@ interface LegalsDocumentData {
 export type LegalsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<LegalsDocumentData>, "legals", Lang>;
 
-type P404DocumentDataSlicesSlice = never;
+type P404DocumentDataSlicesSlice = Hero404Slice;
 
 /**
  * Content for p404 documents
@@ -159,6 +159,17 @@ interface P404DocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<P404DocumentDataSlicesSlice> /**
+   * Meta Title field in *p404*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: p404.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
    * Meta Description field in *p404*
    *
    * - **Field Type**: Text
@@ -166,7 +177,7 @@ interface P404DocumentData {
    * - **API ID Path**: p404.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -179,17 +190,6 @@ interface P404DocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *p404*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: p404.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
 }
 
 /**
@@ -357,6 +357,81 @@ export type BrunoTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Hero404 → Primary*
+ */
+export interface Hero404SliceDefaultPrimary {
+  /**
+   * Image field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Button - Text field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.btntxt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  btntxt: prismic.KeyTextField;
+
+  /**
+   * Button - Link field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.btnlnk
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  btnlnk: prismic.LinkField;
+}
+
+/**
+ * Default variation for Hero404 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero404SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Hero404SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero404*
+ */
+type Hero404SliceVariation = Hero404SliceDefault;
+
+/**
+ * Hero404 Shared Slice
+ *
+ * - **API ID**: `hero404`
+ * - **Description**: Hero404
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero404Slice = prismic.SharedSlice<
+  "hero404",
+  Hero404SliceVariation
+>;
+
+/**
  * Primary content in *HeroHome → Primary*
  */
 export interface HeroHomeSliceDefaultPrimary {
@@ -480,6 +555,10 @@ declare module "@prismicio/client" {
       BrunoTextSliceDefaultPrimary,
       BrunoTextSliceVariation,
       BrunoTextSliceDefault,
+      Hero404Slice,
+      Hero404SliceDefaultPrimary,
+      Hero404SliceVariation,
+      Hero404SliceDefault,
       HeroHomeSlice,
       HeroHomeSliceDefaultPrimary,
       HeroHomeSliceVariation,

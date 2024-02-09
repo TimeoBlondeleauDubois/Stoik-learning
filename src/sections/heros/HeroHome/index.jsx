@@ -8,5 +8,5 @@ const HeroHome = ({ slice, ...otherProps }) => {
       return null
   }
 }
-
+    
 export default HeroHome

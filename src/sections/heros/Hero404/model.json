@@ -1,0 +1,51 @@
+{
+  "id": "hero404",
+  "type": "SharedSlice",
+  "name": "Hero404",
+  "description": "Hero404",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,strong"
+          }
+        },
+        "btntxt": {
+          "type": "Text",
+          "config": {
+            "label": "Button - Text",
+            "placeholder": ""
+          }
+        },
+        "btnlnk": {
+          "type": "Link",
+          "config": {
+            "label": "Button - Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

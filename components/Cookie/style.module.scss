@@ -1,0 +1,62 @@
+@import '@/styles/common/globals.scss';
+
+.cookie {
+  padding: 24px;
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+
+  &:not(.open) {
+    display: none;
+  }
+
+  .wrapper {
+    width: calcGrid(5);
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .close {
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    .line {
+      width: 100%;
+      height: 2px;
+      background-color: $colorPrimary_1;
+      &:first-child {
+        transform: rotate(45deg) translate(1px, 1px);
+      }
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .title {
+    @include styleH('h5');
+    margin-bottom: 24px;
+  }
+  .text {
+    @include styleP('big', $color: $colorPrimary_1, $font: $font_1_regular);
+    margin-bottom: 8px;
+  }
+  .container_btn {
+    margin-left: auto;
+  }
+
+  @include styleResponsive('smaller-desktop') {
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    .wrapper {
+      width: 100%;
+    }
+  }
+}

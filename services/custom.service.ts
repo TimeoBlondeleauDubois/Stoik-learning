@@ -16,4 +16,8 @@ export class CustomService {
   async getHeader(): Promise<AllDocumentTypes> {
     return await this.apiService.getSinglePage('header', this.lang)
   }
+
+  async getCookie(): Promise<AllDocumentTypes> {
+    return await this.apiService.getSinglePage('cookie', this.lang)
+  }
 }

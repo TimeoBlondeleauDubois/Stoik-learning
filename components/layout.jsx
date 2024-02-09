@@ -4,6 +4,7 @@ import DevTools from './DevTools'
 import SEO from './SEO'
 import Header from './Header'
 import Footer from './Footer'
+import Cookie from './Cookie'
 
 export default function Layout({ children, currentPage, seo, header, footer }) {
   const [isDevTools, setIsDevTools] = useState(false)
@@ -43,6 +44,7 @@ export default function Layout({ children, currentPage, seo, header, footer }) {
     <>
       {isDevTools && <DevTools />}
       <SEO seo={seo} />
+      <Cookie />
       <Header header={header} />
       <main>{children}</main>
       <Footer variation={'default'} footer={footer} />

@@ -76,6 +76,9 @@ meter {
 }
 
 /* remove default dot (•) sign */
+::-webkit-details-marker {
+  display: none;
+}
 ::marker {
   content: initial;
 }

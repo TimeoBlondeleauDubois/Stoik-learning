@@ -106,7 +106,6 @@ const FooterVariant4 = () => {
                       <span>Lien numéro 1</span>
                     </a>
                   </li>
-                  Lien numéro 4
                   <li>
                     <a href="">
                       <span>Lien numéro 2</span>

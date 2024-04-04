@@ -20,4 +20,20 @@ export class CustomService {
   async getCookie(): Promise<AllDocumentTypes> {
     return await this.apiService.getSinglePage('cookie', this.lang)
   }
+
+  async getPageFromAltLang(
+    type: AllDocumentTypes['type'],
+    uid: string,
+    lang: string
+  ): Promise<AllDocumentTypes> {
+    return this.apiService.getPageByUID(type, uid, lang, {
+      graphQuery: `
+        {
+          ${type} {
+            meta_title
+          }
+        }
+      `,
+    })
+  }
 }

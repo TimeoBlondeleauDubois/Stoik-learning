@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@prismicio/types": "0.2.8",
-    "@slicemachine/adapter-next": "0.3.31",
-    "slice-machine-ui": "1.23.1"
+    "@slicemachine/adapter-next": "0.3.38",
+    "slice-machine-ui": "1.26.0"
   }
 }

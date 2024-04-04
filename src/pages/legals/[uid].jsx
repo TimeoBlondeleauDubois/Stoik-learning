@@ -10,7 +10,7 @@ import { components as componentsSlices } from '@/sections/slices'
 import { components as componentsBruno } from '@/sections/bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
-const Legals = ({ page, header }) => {
+const Legals = ({ page, header, footer, altPage }) => {
   const { data } = page
   return (
     <Layout
@@ -18,8 +18,13 @@ const Legals = ({ page, header }) => {
         title: data.meta_title,
         description: data.meta_description,
         image: data.meta_image,
+        altPage: altPage,
+        currentPath: page.url,
+        page: { uid: page.uid, type: page.type },
       }}
       header={header}
+      footer={footer}
+      currentPage={{ type: page.type }}
       altLang={page.alternate_languages}
     >
       <SliceZone
@@ -41,14 +46,24 @@ export async function getStaticProps({ locale, params, previewData }) {
   const lang = getLangFromLocale(locale)
   const pageService = new PageService(lang)
   const customService = new CustomService(lang)
-  const [page, header] = await Promise.all([
+  const [page, header, footer] = await Promise.all([
     pageService.getLegals(params.uid),
     customService.getHeader(),
+    customService.getFooter(),
   ])
+
+  const altPage = await Promise.all(
+    page.alternate_languages.map((al) =>
+      customService.getPageFromAltLang(al.type, al.uid, al.lang)
+    )
+  )
+
   return {
     props: {
       page,
       header,
+      footer,
+      altPage,
     },
   }
 }

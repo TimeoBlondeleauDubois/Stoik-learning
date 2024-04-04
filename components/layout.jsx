@@ -7,7 +7,14 @@ import Header from './Header'
 import Footer from './Footer'
 import Cookie from './Cookie'
 
-export default function Layout({ children, currentPage, seo, header, footer }) {
+export default function Layout({
+  children,
+  currentPage,
+  seo,
+  altLang,
+  header,
+  footer,
+}) {
   const [isDevTools, setIsDevTools] = useState(false)
 
   const handleMotion = (event) => {
@@ -47,9 +54,9 @@ export default function Layout({ children, currentPage, seo, header, footer }) {
       {/* <GoogleTagManager gtmId="GTM-ID" /> // Replace GTM-ID with client's GTM ID */}
       <SEO seo={seo} />
       <Cookie />
-      <Header header={header} />
+      <Header header={header} currentPage={currentPage} />
       <main>{children}</main>
-      <Footer variation={'default'} footer={footer} />
+      <Footer variation={'default'} footer={footer} altLang={altLang} currentPage={currentPage} />
     </>
   )
 }

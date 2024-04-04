@@ -34,6 +34,7 @@ export const Button = ({
   fnctnClck,
   stts,
 }) => {
+  if (!txt) return null
   sz = sz || 'big'
   stl = stl || 1
   chck = chck || false

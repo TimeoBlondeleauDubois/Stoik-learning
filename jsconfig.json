@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/assets/*": ["./assets/*"],
-      "@/components/*": ["./components/*"],
-      "@/services/*": ["/services/*"],
       "@/*": ["./src/*"],
+      "@/services/*": ["/services/*"],
+      "@/utils/*": ["/utils/*"],
+      "@/components/*": ["./components/*"],
       "@/sections": ["./src/sections"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/prismicio*": ["./src/prismicio"],
-      "@/utils/*": ["/utils/*"]
+      "@/prismicio*": ["./prismicio"],
+      "@/assets/*": ["/assets/*"],
+      "@/styles/*": ["/src/styles/*"],
+      "@/context/*": ["/context/*"],
     }
   }
 }

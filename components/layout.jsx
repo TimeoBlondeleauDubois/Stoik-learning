@@ -6,6 +6,9 @@ import SEO from './SEO'
 import Header from './Header'
 import Footer from './Footer'
 import Cookie from './Cookie'
+import Lightbox from './Lightbox'
+
+import { useLightbox } from '../context/lightboxContext'
 
 export default function Layout({
   children,
@@ -15,6 +18,7 @@ export default function Layout({
   header,
   footer,
 }) {
+  const { isLightboxOpen, lightboxResource } = useLightbox()
   const [isDevTools, setIsDevTools] = useState(false)
 
   const handleMotion = (event) => {
@@ -54,6 +58,7 @@ export default function Layout({
       {/* <GoogleTagManager gtmId="GTM-ID" /> // Replace GTM-ID with client's GTM ID */}
       <SEO seo={seo} />
       <Cookie />
+      {isLightboxOpen && <Lightbox resource={lightboxResource} />}
       <Header header={header} currentPage={currentPage} />
       <main>{children}</main>
       <Footer variation={'default'} footer={footer} altLang={altLang} currentPage={currentPage} />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 import DevTools from './DevTools'
 import SEO from './SEO'
@@ -43,6 +44,7 @@ export default function Layout({ children, currentPage, seo, header, footer }) {
   return (
     <>
       {isDevTools && <DevTools />}
+      {/* <GoogleTagManager gtmId="GTM-ID" /> // Replace GTM-ID with client's GTM ID */}
       <SEO seo={seo} />
       <Cookie />
       <Header header={header} />

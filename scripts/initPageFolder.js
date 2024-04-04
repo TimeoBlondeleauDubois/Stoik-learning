@@ -99,7 +99,7 @@ export async function getStaticProps({ locale, params, previewData }) {
 
 export async function getStaticPaths() {
   const pageService = new PageService()
-  const pages = await pageService.getAll${pageName}({ lang: '*' })
+  const pages = await pageService.getAll${pageName}('*')
   const paths = pages.map((page) => ({
     params: {
       uid: page.uid,
@@ -129,8 +129,8 @@ export async function getStaticPaths() {
     return await this.apiService.getPageByUID('${pageType}', uid, this.lang)
   }
 
-  async getAll${pageName}(): Promise<AllDocumentTypes[]> {
-    return await this.apiService.getAllDocumentTypes('${pageType}', this.lang)
+  async getAll${pageName}(lang: string = this.lang): Promise<AllDocumentTypes[]> {
+    return await this.apiService.getAllDocumentTypes('${pageType}', lang)
   }
 
 }

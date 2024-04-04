@@ -21,8 +21,8 @@ export class PageService {
     return await this.apiService.getPageByUID('legals', uid, this.lang)
   }
 
-  async getAllLegals(): Promise<AllDocumentTypes[]> {
-    return await this.apiService.getAllDocumentTypes('legals', this.lang)
+  async getAllLegals(lang: string = this.lang): Promise<AllDocumentTypes[]> {
+    return await this.apiService.getAllDocumentTypes('legals', lang)
   }
 
 }

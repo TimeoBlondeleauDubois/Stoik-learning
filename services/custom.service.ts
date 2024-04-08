@@ -29,6 +29,10 @@ export class CustomService {
     return await this.apiService.getSinglePage('share_article', this.lang)
   }
 
+  async getLogoBank(): Promise<AllDocumentTypes> {
+    return await this.apiService.getSinglePage('logo_bank', this.lang)
+  }
+
   async getPageFromAltLang(
     type: AllDocumentTypes['type'],
     uid: string,

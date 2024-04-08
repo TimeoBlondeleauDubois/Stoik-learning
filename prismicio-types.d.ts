@@ -197,6 +197,53 @@ interface LegalsDocumentData {
 export type LegalsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<LegalsDocumentData>, "legals", Lang>;
 
+/**
+ * Item in *Logo bank → Logo bank - Group*
+ */
+export interface LogoBankDocumentDataGrpItem {
+  /**
+   * Logo field in *Logo bank → Logo bank - Group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo_bank.grp[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Logo bank documents
+ */
+interface LogoBankDocumentData {
+  /**
+   * Logo bank - Group field in *Logo bank*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo_bank.grp[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  grp: prismic.GroupField<Simplify<LogoBankDocumentDataGrpItem>>;
+}
+
+/**
+ * Logo bank document from Prismic
+ *
+ * - **API ID**: `logo_bank`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LogoBankDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<LogoBankDocumentData>,
+    "logo_bank",
+    Lang
+  >;
+
 type P404DocumentDataSlicesSlice = Hero404Slice;
 
 /**
@@ -457,6 +504,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomeDocument
   | LegalsDocument
+  | LogoBankDocument
   | P404Document
   | RedirectDocument
   | ShareArticleDocument
@@ -735,6 +783,9 @@ declare module "@prismicio/client" {
       LegalsDocument,
       LegalsDocumentData,
       LegalsDocumentDataSlicesSlice,
+      LogoBankDocument,
+      LogoBankDocumentData,
+      LogoBankDocumentDataGrpItem,
       P404Document,
       P404DocumentData,
       P404DocumentDataSlicesSlice,

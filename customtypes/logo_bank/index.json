@@ -1,0 +1,28 @@
+{
+  "format": "custom",
+  "id": "logo_bank",
+  "label": "Logo bank",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "grp": {
+        "type": "Group",
+        "config": {
+          "label": "Logo bank - Group",
+          "repeat": true,
+          "fields": {
+            "logo": {
+              "type": "Image",
+              "config": {
+                "label": "Logo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,10 @@ export class CustomService {
     return await this.apiService.getSinglePage('cookie', this.lang)
   }
 
+  async getSocialMedia(): Promise<AllDocumentTypes> {
+    return await this.apiService.getSinglePage('social_media', this.lang)
+  }
+
   async getPageFromAltLang(
     type: AllDocumentTypes['type'],
     uid: string,

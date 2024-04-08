@@ -1,0 +1,42 @@
+{
+  "format": "custom",
+  "id": "share_article",
+  "label": "Share article",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "grp": {
+        "type": "Group",
+        "config": {
+          "label": "Share article - Group",
+          "repeat": true,
+          "fields": {
+            "icn": {
+              "type": "Image",
+              "config": {
+                "label": "Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Text",
+              "config": {
+                "label": "Link (base url)",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

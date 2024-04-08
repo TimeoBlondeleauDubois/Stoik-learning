@@ -316,6 +316,74 @@ export type RedirectDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Share article → Share article - Group*
+ */
+export interface ShareArticleDocumentDataGrpItem {
+  /**
+   * Icon field in *Share article → Share article - Group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: share_article.grp[].icn
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icn: prismic.ImageField<never>;
+
+  /**
+   * Link (base url) field in *Share article → Share article - Group*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: share_article.grp[].link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link: prismic.KeyTextField;
+}
+
+/**
+ * Content for Share article documents
+ */
+interface ShareArticleDocumentData {
+  /**
+   * Title field in *Share article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: share_article.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Share article - Group field in *Share article*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: share_article.grp[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  grp: prismic.GroupField<Simplify<ShareArticleDocumentDataGrpItem>>;
+}
+
+/**
+ * Share article document from Prismic
+ *
+ * - **API ID**: `share_article`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ShareArticleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ShareArticleDocumentData>,
+    "share_article",
+    Lang
+  >;
+
+/**
  * Item in *Social Media → Social media - Group*
  */
 export interface SocialMediaDocumentDataGrpItem {
@@ -391,6 +459,7 @@ export type AllDocumentTypes =
   | LegalsDocument
   | P404Document
   | RedirectDocument
+  | ShareArticleDocument
   | SocialMediaDocument;
 
 /**
@@ -672,6 +741,9 @@ declare module "@prismicio/client" {
       RedirectDocument,
       RedirectDocumentData,
       RedirectDocumentDataRedirectItem,
+      ShareArticleDocument,
+      ShareArticleDocumentData,
+      ShareArticleDocumentDataGrpItem,
       SocialMediaDocument,
       SocialMediaDocumentData,
       SocialMediaDocumentDataGrpItem,

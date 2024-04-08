@@ -315,6 +315,74 @@ export type RedirectDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Social Media → Social media - Group*
+ */
+export interface SocialMediaDocumentDataGrpItem {
+  /**
+   * Icon field in *Social Media → Social media - Group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.grp[].icn
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icn: prismic.ImageField<never>;
+
+  /**
+   * Link field in *Social Media → Social media - Group*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.grp[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for Social Media documents
+ */
+interface SocialMediaDocumentData {
+  /**
+   * Title field in *Social Media*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Social media - Group field in *Social Media*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.grp[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  grp: prismic.GroupField<Simplify<SocialMediaDocumentDataGrpItem>>;
+}
+
+/**
+ * Social Media document from Prismic
+ *
+ * - **API ID**: `social_media`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SocialMediaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SocialMediaDocumentData>,
+    "social_media",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | CookieDocument
   | FooterDocument
@@ -322,7 +390,8 @@ export type AllDocumentTypes =
   | HomeDocument
   | LegalsDocument
   | P404Document
-  | RedirectDocument;
+  | RedirectDocument
+  | SocialMediaDocument;
 
 /**
  * Primary content in *Text → Primary*
@@ -603,6 +672,9 @@ declare module "@prismicio/client" {
       RedirectDocument,
       RedirectDocumentData,
       RedirectDocumentDataRedirectItem,
+      SocialMediaDocument,
+      SocialMediaDocumentData,
+      SocialMediaDocumentDataGrpItem,
       AllDocumentTypes,
       TextSlice,
       TextSliceDefaultPrimary,

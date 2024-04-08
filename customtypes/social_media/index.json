@@ -1,0 +1,44 @@
+{
+  "format": "custom",
+  "id": "social_media",
+  "label": "Social Media",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "grp": {
+        "type": "Group",
+        "config": {
+          "label": "Social media - Group",
+          "repeat": true,
+          "fields": {
+            "icn": {
+              "type": "Image",
+              "config": {
+                "label": "Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

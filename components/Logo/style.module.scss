@@ -1,0 +1,48 @@
+@import '@/styles/common/globals.scss';
+
+.container_logo {
+  width: 100vw;
+  overflow: hidden;
+  &.wrapper {
+    @include styleGrid();
+  }
+  .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+  }
+  .fade {
+    position: relative;
+    .step {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translate(0, 8px);
+      transition: all 800ms $bezier_inout2;
+      &.active {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+  .static {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    transition: all 800ms $bezier_out4;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

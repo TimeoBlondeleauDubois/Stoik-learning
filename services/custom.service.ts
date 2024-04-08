@@ -25,6 +25,10 @@ export class CustomService {
     return await this.apiService.getSinglePage('social_media', this.lang)
   }
 
+  async getShareArticle(): Promise<AllDocumentTypes> {
+    return await this.apiService.getSinglePage('share_article', this.lang)
+  }
+
   async getPageFromAltLang(
     type: AllDocumentTypes['type'],
     uid: string,

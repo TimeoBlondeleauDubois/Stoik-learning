@@ -1,8 +1,13 @@
 import Layout from '@/components/layout'
 import { Button } from '@/components/Button'
 import { Input } from '@/components/Form'
+import Logo from '@/components/Logo'
 
-export default function uikit() {
+import { ApiService } from '@/services/api.service'
+import { CustomService } from '@/services/custom.service'
+import { getLangFromLocale } from '@/utils/get-lang-from-locale'
+
+export default function uikit({ logo }) {
   return (
     <Layout>
       <div className="flexContainer">
@@ -35,6 +40,33 @@ export default function uikit() {
         <Button sz={'big'} stl={'1'} txt={'button'} stts={'valid'} />
         <br />
         <Button sz={'big'} stl={'1'} txt={'button'} stts={'error'} />
+      </div>
+
+      <div>
+        <Logo
+          bank={logo}
+          width={120}
+          height={120}
+          gap={120}
+          animation={'slider'}
+          fullScreen={false}
+        />
+        <Logo
+          bank={logo}
+          width={120}
+          height={120}
+          gap={120}
+          animation={'fade-in'}
+          fullScreen={false}
+        />
+        <Logo
+          bank={logo}
+          width={120}
+          height={120}
+          gap={120}
+          animation={'static'}
+          fullScreen={false}
+        />
       </div>
 
       <style jsx>{`
@@ -80,4 +112,18 @@ export default function uikit() {
       />
     </Layout>
   )
+}
+
+export async function getStaticProps({ locale, previewData }) {
+  const lang = getLangFromLocale(locale)
+
+  ApiService.setPreviewData({ previewData })
+  const customService = new CustomService(lang)
+  const [logo] = await Promise.all([customService.getLogoBank()])
+
+  return {
+    props: {
+      logo,
+    },
+  }
 }

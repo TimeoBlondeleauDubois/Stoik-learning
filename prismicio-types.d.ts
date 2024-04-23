@@ -602,16 +602,6 @@ export type BrunoTextSlice = prismic.SharedSlice<
  */
 export interface Hero404SliceDefaultPrimary {
   /**
-   * Image field in *Hero404 → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero404.primary.img
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  img: prismic.ImageField<never>;
-
-  /**
    * Title field in *Hero404 → Primary*
    *
    * - **Field Type**: Rich Text
@@ -620,6 +610,16 @@ export interface Hero404SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
 
   /**
    * Button - Text field in *Hero404 → Primary*
@@ -640,6 +640,16 @@ export interface Hero404SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   btnlnk: prismic.LinkField;
+
+  /**
+   * Image field in *Hero404 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero404.primary.img
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img: prismic.ImageField<never>;
 }
 
 /**

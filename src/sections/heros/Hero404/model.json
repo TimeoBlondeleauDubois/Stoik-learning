@@ -12,14 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "img": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "title": {
           "type": "StructuredText",
           "config": {
@@ -27,6 +19,15 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "heading1,strong"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
           }
         },
         "btntxt": {
@@ -42,6 +43,14 @@
             "label": "Button - Link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

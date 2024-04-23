@@ -48,6 +48,17 @@
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com"
 				}
+			},
+			"paragraph": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt cillum aliqua amet incididunt do occaecat ad velit eu aliquip do non dolor."
+						}
+					}
+				]
 			}
 		},
 		"items": []

@@ -1,7 +1,7 @@
 import { PrismicNextImage } from '@prismicio/next'
 import styles from './styles.module.scss'
 import { PrismicRichText } from '@prismicio/react'
-import { Button } from '@/components/Button'
+import { PrismicNextLink } from "@prismicio/next";
 
 const Hero404Default = ({ slice }) => {
   return (
@@ -12,15 +12,20 @@ const Hero404Default = ({ slice }) => {
     >
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <div className={styles.container_img}>
-            <PrismicNextImage field={slice.primary.img} />
+          <div className={styles.LeftContainer}>
+            <div className={styles.title}>
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+            <div className={styles.paragraph}>
+              <PrismicRichText field={slice.primary.paragraph} />
+            </div>
+            <PrismicNextLink className={styles.button} field={slice.primary.btnlnk}>
+              <>{slice.primary.btntxt}</>
+            </PrismicNextLink>
           </div>
-          <PrismicRichText field={slice.primary.title} />
-          <Button
-            txt={slice.primary.btntxt}
-            lnk={slice.primary.btnlnk}
-            stl={'1'}
-          />
+          <div className={styles.RightContainer}>
+            <PrismicNextImage className={styles.picture} field={slice.primary.img} />
+          </div>
         </div>
       </div>
     </section>

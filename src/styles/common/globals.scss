@@ -7,12 +7,12 @@ $colorPrimary_1: #101010;
 $colorPrimary_2: #f95b17;
 
 /*----------  SECONDARY  ----------*/
-$colorSecondary_1: #ebb7f5;
+$colorSecondary_1: #320A37;
 $colorSecondary_2: #b8ffc3;
 $colorSecondary_3: #fff8b8;
 
 /*----------  GREYSCALE  ----------*/
-$colorGreyscale_1: #101010;
+$colorGreyscale_1: #F2F2F2;
 $colorGreyscale_2: #434649;
 $colorGreyscale_3: #888c8f;
 $colorGreyscale_4: #cdced0;
@@ -38,8 +38,14 @@ $colorSuccess: #22af5c;
   src: url(../../../assets/fonts/Inter/Inter-Regular.ttf);
 }
 
+@font-face {
+  font-family: Work-Sans;
+  src: url(../../../assets/fonts/worksSans/Archivo/Archivo-Variable.ttf);
+}
+
 $font_1_bold: Inter-Bold;
 $font_1_regular: Inter-Regular;
+$font_2: Work-Sans;
 
 /*=====  End of FONTS  ======*/
 
@@ -47,7 +53,7 @@ $font_1_regular: Inter-Regular;
 =            TEXT SIZE            =
 =================================*/
 /*----------  H1  ----------*/
-$h1_textsize_desktop: 64px;
+$h1_textsize_desktop: 56px;
 $h1_textsize_mobile: 40px;
 
 /*----------  H2  ----------*/

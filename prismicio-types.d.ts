@@ -72,7 +72,101 @@ interface FooterDocumentData {}
 export type FooterDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 
-interface HeaderDocumentData {}
+/**
+ * Item in *Header → LowTitle*
+ */
+export interface HeaderDocumentDataLowtitleItem {
+  /**
+   * LowTitleLink field in *Header → LowTitle*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.lowtitle[].lowtitlelink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  lowtitlelink: prismic.LinkField;
+
+  /**
+   * LowTitleTitle field in *Header → LowTitle*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.lowtitle[].lowtitletitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  lowtitletitle: prismic.RichTextField;
+}
+
+/**
+ * Content for Header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * Logo field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Language field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.language
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  language: prismic.ImageField<never>;
+
+  /**
+   * ButtonLink field in *Header*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonlink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonlink: prismic.LinkField;
+
+  /**
+   * ButtonLabel field in *Header*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonlabel
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  buttonlabel: prismic.RichTextField;
+
+  /**
+   * ButtonArrow field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonarrow
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  buttonarrow: prismic.ImageField<never>;
+
+  /**
+   * LowTitle field in *Header*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.lowtitle[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  lowtitle: prismic.GroupField<Simplify<HeaderDocumentDataLowtitleItem>>;
+}
 
 /**
  * Header document from Prismic
@@ -788,6 +882,7 @@ declare module "@prismicio/client" {
       FooterDocumentData,
       HeaderDocument,
       HeaderDocumentData,
+      HeaderDocumentDataLowtitleItem,
       HomeDocument,
       HomeDocumentData,
       LegalsDocument,

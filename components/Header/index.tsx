@@ -15,7 +15,7 @@ const Header = ({ header }) => {
               <div className={styles.Link}>
                 <PrismicNextLink key={index} field={item.lowtitlelink}>
                   <div className={styles.LowTitle}>
-                    <PrismicRichText field={item.lowtitletitle} />
+                    <PrismicRichText key={index} field={item.lowtitletitle} />
                   </div>
                 </PrismicNextLink>
               </div>
@@ -25,13 +25,12 @@ const Header = ({ header }) => {
             <div className={styles.language}>
               <PrismicNextImage field={header.data.language} />
             </div>
-            <PrismicNextLink field={header.data.buttonlink}>
               <div className={styles.ContainerButton}>
                 <div className={styles.ButtonLabel}>
                   <PrismicRichText field={header.data.buttonlabel} />
                 </div>
-                <PrismicNextImage className={styles.ButtonArrow} field={header.data.buttonarrow} />
-                <div className={styles.OptionsBox}>
+                <PrismicNextImage className={styles.ButtonArrow} field={header.data.buttonarrow} />                
+                <div className={styles.Box}>
                   {header.data.buttonchoice.map((item, index) => (
                     <PrismicNextLink key={index} field={item.linkbuttonchoice}>
                       <div className={styles.LinkLabelChoice}>
@@ -41,7 +40,6 @@ const Header = ({ header }) => {
                   ))}
                 </div>
               </div>
-            </PrismicNextLink>
           </div>
         </div>
       </header>

@@ -176,17 +176,6 @@ interface HeaderDocumentData {
   language: prismic.ImageField<never>;
 
   /**
-   * ButtonLink field in *Header*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.buttonlink
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonlink: prismic.LinkField;
-
-  /**
    * ButtonLabel field in *Header*
    *
    * - **Field Type**: Rich Text

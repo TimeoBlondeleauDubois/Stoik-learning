@@ -1,5 +1,4 @@
 @import '@/styles/common/globals.scss';
-$i: 0;
 
 .header {
   margin-left: auto;
@@ -60,7 +59,9 @@ $i: 0;
                 transform: rotate(180deg);
             }
 
-            $i: 1;
+            .Box {
+                display: flex;
+            }
         }
 
         .ButtonLabel {
@@ -78,10 +79,10 @@ $i: 0;
   }
 }
 
-.OptionsBox {
+.Box {
     transition: all 200ms ease;
     position: absolute;
-    top: 115%;
+    top: 100%;
     left: 0;
     width: 144px;
     background-color: white;
@@ -106,15 +107,5 @@ $i: 0;
         &:hover {
         background-color: $colorGreyscale_1;
         }
-    }
-}
-
-.header :not(:hover) {
-    $i: 0;
-}
-
-@while $i == 0 {
-    .OptionsBox {
-        display: flex;
     }
 }

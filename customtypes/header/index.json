@@ -37,14 +37,6 @@
           "thumbnails": []
         }
       },
-      "buttonlink": {
-        "type": "Link",
-        "config": {
-          "label": "ButtonLink",
-          "placeholder": "",
-          "select": null
-        }
-      },
       "buttonlabel": {
         "type": "StructuredText",
         "config": {

@@ -13,6 +13,14 @@
           "placeholder": ""
         }
       },
+      "logolink": {
+        "type": "Link",
+        "config": {
+          "label": "LogoLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "logo": {
         "type": "Image",
         "config": {
@@ -52,6 +60,32 @@
           "label": "ButtonArrow",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "buttonchoice": {
+        "type": "Group",
+        "config": {
+          "label": "ButtonChoice",
+          "repeat": true,
+          "fields": {
+            "linkbuttonchoice": {
+              "type": "Link",
+              "config": {
+                "label": "LinkButtonChoice",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "linklabelchoice": {
+              "type": "StructuredText",
+              "config": {
+                "label": "LinkLabelChoice",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            }
+          }
         }
       },
       "lowtitle": {

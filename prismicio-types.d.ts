@@ -89,6 +89,31 @@ export type FooterDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 
 /**
+ * Item in *Header → ButtonChoice*
+ */
+export interface HeaderDocumentDataButtonchoiceItem {
+  /**
+   * LinkButtonChoice field in *Header → ButtonChoice*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonchoice[].linkbuttonchoice
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbuttonchoice: prismic.LinkField;
+
+  /**
+   * LinkLabelChoice field in *Header → ButtonChoice*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonchoice[].linklabelchoice
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  linklabelchoice: prismic.RichTextField;
+}
+
+/**
  * Item in *Header → LowTitle*
  */
 export interface HeaderDocumentDataLowtitleItem {
@@ -117,6 +142,17 @@ export interface HeaderDocumentDataLowtitleItem {
  * Content for Header documents
  */
 interface HeaderDocumentData {
+  /**
+   * LogoLink field in *Header*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logolink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  logolink: prismic.LinkField;
+
   /**
    * Logo field in *Header*
    *
@@ -171,6 +207,19 @@ interface HeaderDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   buttonarrow: prismic.ImageField<never>;
+
+  /**
+   * ButtonChoice field in *Header*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonchoice[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  buttonchoice: prismic.GroupField<
+    Simplify<HeaderDocumentDataButtonchoiceItem>
+  >;
 
   /**
    * LowTitle field in *Header*
@@ -899,6 +948,7 @@ declare module "@prismicio/client" {
       FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
+      HeaderDocumentDataButtonchoiceItem,
       HeaderDocumentDataLowtitleItem,
       HomeDocument,
       HomeDocumentData,

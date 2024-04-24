@@ -58,7 +58,23 @@ export type CookieDocument<Lang extends string = string> =
     Lang
   >;
 
-interface FooterDocumentData {}
+type FooterDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * `slices` field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
 
 /**
  * Footer document from Prismic
@@ -880,6 +896,7 @@ declare module "@prismicio/client" {
       CookieDocumentData,
       FooterDocument,
       FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataLowtitleItem,

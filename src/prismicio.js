@@ -19,12 +19,7 @@ export const repositoryName =
 const routes = [
   {
     type: 'home',
-    path: '/',
-    lang: 'fr-fr',
-  },
-  {
-    type: 'home',
-    path: '/:lang',
+    path: '/:lang?',
   },
   {
     type: 'legals',

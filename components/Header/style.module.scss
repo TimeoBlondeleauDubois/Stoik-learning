@@ -19,7 +19,6 @@
 
     .container {
       display: flex;
-      margin-left: 123px;
 
       .logo {
         min-width: 92px;
@@ -39,7 +38,6 @@
 
     .SecondContainer {
       display: flex;
-      margin-right: 123px;
       align-items: center;
 
       .language {
@@ -123,5 +121,25 @@
         background-color: $colorGreyscale_1;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .container {
+    margin-left: 10px;
+  }
+
+  .SecondContainer {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 1130px) {
+  .container {
+    margin-left: 123px;
+  }
+
+  .SecondContainer {
+    margin-right: 123px;
   }
 }

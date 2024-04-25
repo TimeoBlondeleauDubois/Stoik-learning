@@ -17,7 +17,6 @@
       margin-left: 124px;
       margin-right: 124px;
       margin-top: 20px;
-      margin-bottom: 72px;
       font-size: $h1_textsize_desktop;
       color: $colorSecondary_2;
       font-family: $font_1_regular;
@@ -29,6 +28,9 @@
       display: flex;
       max-width: 1192px;
       justify-content: space-between;
+      margin-top: 72px;
+      background-color: $colorPrimary_2;
+      align-items: flex-start;
 
       .text {
         max-width: 792px;
@@ -36,6 +38,8 @@
         font-family: $font_1_regular;
         margin-right: 30px;
         margin-bottom: 120px;
+        margin-top: 0px;
+        top : 0px;
       }
 
       .LastUpdate {

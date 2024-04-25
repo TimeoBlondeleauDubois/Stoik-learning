@@ -19,6 +19,7 @@ const BrunoTextDefault = ({ slice }) => {
           </h3>
         );
       } else if (textItem.type === 'paragraph') {
+
         if (!isFirstParagraph && richText[index - 1]?.type === 'paragraph' && richText[index - 1]?.text.trim() !== "") {
           return (
             <>

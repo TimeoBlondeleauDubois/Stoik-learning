@@ -5,6 +5,7 @@
   margin-right: auto;
   display: flex;
   justify-content: center;
+  background-color: $colorPrimary_2;
 
   .wrapper {
     width: 1440px;
@@ -14,8 +15,6 @@
     margin-right: 10px;
 
     .title {
-      margin-left: 124px;
-      margin-right: 124px;
       margin-top: 20px;
       font-size: $h1_textsize_desktop;
       color: $colorSecondary_2;
@@ -23,8 +22,6 @@
     }
 
     .container {
-      margin-left: 124px;
-      margin-right: 124px;
       display: flex;
       max-width: 1192px;
       justify-content: space-between;
@@ -76,4 +73,37 @@
 
 .listItem {
   font-size: 18px;
+}
+
+@media screen and (max-width: 900px) {
+  .container  {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+  }
+
+  .title {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .LastUpdate {
+    order: 1;
+  }
+
+  .text {
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container  {
+    margin-left: 124px;
+    margin-right: 124px;
+  }
+
+  .title {
+    margin-left: 124px;
+    margin-right: 124px;
+  }
 }

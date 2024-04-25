@@ -3,5 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  footer: dynamic(() => import("./Footer")),
   text: dynamic(() => import("./Text")),
 };

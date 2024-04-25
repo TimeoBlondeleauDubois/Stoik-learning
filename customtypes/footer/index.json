@@ -13,9 +13,68 @@
           "placeholder": ""
         }
       },
-      "slices": {
+      "stoiklogo": {
+        "type": "Image",
+        "config": {
+          "label": "StoikLogo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "socials": {
+        "type": "Group",
+        "config": {
+          "label": "Socials",
+          "repeat": true,
+          "fields": {
+            "socialslogo": {
+              "type": "Image",
+              "config": {
+                "label": "SocialsLogo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "socialslink": {
+              "type": "Link",
+              "config": {
+                "label": "SocialsLink",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "paragraph": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Paragraph",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "logos": {
+        "type": "Image",
+        "config": {
+          "label": "logos",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    },
+    "ColumnSection": {
+      "slices1": {
         "type": "Slices",
-        "fieldset": "Slice Zone"
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

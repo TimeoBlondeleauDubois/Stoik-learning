@@ -4,7 +4,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import DevTools from './DevTools'
 import SEO from './SEO'
 import Header from './Header'
-import Footer from './Footer'
+import Footer from './Footer/index'
 import Cookie from './Cookie'
 import Lightbox from './Lightbox'
 
@@ -61,7 +61,7 @@ export default function Layout({
       {isLightboxOpen && <Lightbox resource={lightboxResource} />}
       <Header header={header} currentPage={currentPage} />
       <main>{children}</main>
-      <Footer variation={'default'} footer={footer} altLang={altLang} currentPage={currentPage} />
+      <Footer footer={footer} currentPage={currentPage} />
     </>
   )
 }

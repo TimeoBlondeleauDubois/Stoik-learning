@@ -1,0 +1,24 @@
+@import '@/styles/common/globals.scss';
+
+    .title {
+        margin-bottom: 25px;
+        font-family: $font_1_bold;
+        font-size: $paragraphSmall_textsize_desktop;
+        color: $colorSecondary_1;
+    }
+
+    .description {
+        max-width: 192px;
+        background-color: $colorSecondary_1;
+        font-family: $font_1_regular;
+        font-size: $paragraphSmall_textsize_desktop;
+        color: $colorSecondary_1;
+        background-color: $colorPrimary_2;
+        
+        
+        .LinkInContainer {
+            margin-bottom: 8px;
+            background-color: green;
+            width: 192px;
+        }
+    }

@@ -1,0 +1,78 @@
+@import '@/styles/common/globals.scss';
+
+.footer {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+  
+    .wrapper {
+      width: 1440px;
+      display: flex;
+      flex-direction: column;
+
+        .container {
+            margin-left: 124px;   
+        
+            .SecondContainer {
+                display: flex;
+                margin-top: 40px;
+            
+                .stoiklogo {
+                    margin-right: 108px;
+                    min-width: 92px;
+                    min-height: auto;
+                }
+
+                .SliceZone {
+                    display: flex;
+                }
+            }
+
+            .LogoSection {
+                display: flex;
+                margin-bottom: 40px;
+                margin-top: -40px;
+
+                .ContainerForMargin {
+                    margin-right: 10px;
+                    
+                    .LogoInSection {
+                        background-color: $colorGreyscale_1;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        justify-content: center;
+                        min-height: 30px;
+                        max-height: 30px;
+                        min-width: 30px;
+                        max-width: 30px;
+                        border-radius: 6px;
+                        transition: all 300ms ease-in-out;
+                        
+                        &:hover {
+                            background-color: $colorGreyscale_4;
+                        }
+                    }
+                }
+            }
+            
+            .ThirdContainer {
+                display: flex;
+                justify-content: space-between;
+
+                .paragraph {
+                    font-family: $font_1_regular;
+                    font-size: $paragraphTiny_textsize_desktop;
+                    color: $colorSecondary_1;
+                    margin-right: 10px;
+                    margin-bottom: 40px;
+                }
+
+                .logos {
+                    margin-right: 126px;
+                }
+            }
+        }
+    }
+}

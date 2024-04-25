@@ -8,9 +8,11 @@ const Header = ({ header }) => {
       <header className={styles.header}>
         <div className={styles.wrapper}>
           <div className={styles.container}>
-            <PrismicNextLink field={header.logolink}>
-              <PrismicNextImage field={header.data.logo} />
-            </PrismicNextLink>
+            <div className={styles.logo}>
+              <PrismicNextLink field={header.logolink}>
+                <PrismicNextImage field={header.data.logo} />
+              </PrismicNextLink>
+            </div>
             {header.data.lowtitle.map((item, index) => (
               <div className={styles.Link}>
                 <PrismicNextLink key={index} field={item.lowtitlelink}>

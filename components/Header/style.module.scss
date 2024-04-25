@@ -19,6 +19,11 @@
       display: flex;
       margin-left: 123px;
 
+      .logo {
+        min-width: 92px;
+        min-height: auto;
+      }
+
       .Link {
         margin-left: 40px;
 

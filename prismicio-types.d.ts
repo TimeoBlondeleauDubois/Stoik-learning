@@ -850,6 +850,16 @@ export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
  */
 export interface BrunoTextSliceDefaultPrimary {
   /**
+   * Title field in *BrunoText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bruno_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
    * Text field in *BrunoText → Primary*
    *
    * - **Field Type**: Rich Text
@@ -858,6 +868,16 @@ export interface BrunoTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   txt: prismic.RichTextField;
+
+  /**
+   * LastUpdate field in *BrunoText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bruno_text.primary.lastupdate
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  lastupdate: prismic.RichTextField;
 }
 
 /**

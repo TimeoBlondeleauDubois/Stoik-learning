@@ -12,13 +12,31 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong,em"
+          }
+        },
         "txt": {
           "type": "StructuredText",
           "config": {
             "label": "Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,o-list-item,list-item,strong,heading3,heading4,hyperlink"
+            "multi": "paragraph,heading2,heading3,strong,em,hyperlink,embed,list-item,o-list-item,preformatted"
+          }
+        },
+        "lastupdate": {
+          "type": "StructuredText",
+          "config": {
+            "label": "LastUpdate",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
           }
         }
       },

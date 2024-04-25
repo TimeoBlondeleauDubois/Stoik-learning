@@ -1,46 +1,76 @@
 @import '@/styles/common/globals.scss';
 
 .section_brunotext_default {
-  padding-top: 160px;
-  padding-bottom: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+
   .wrapper {
-    @include styleGrid();
-  }
-  .container {
-  }
-  h2 {
-    @include styleH('h2');
-  }
-  h3 {
-    @include styleH('h3');
-  }
-  h4 {
-    @include styleH('h4');
-  }
-  p {
-    @include styleP('medium');
-  }
-  ul {
-    list-style-type: disc;
-  }
-  ol {
-    list-style-type: decimal;
-  }
-  ul,
-  ol {
-    margin: 24px 0;
-    padding-left: 15px;
-    li {
-      @include styleP('medium');
-      &:not(:last-child) {
-        margin-bottom: 16px;
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    .title {
+      margin-left: 124px;
+      margin-right: 124px;
+      margin-top: 20px;
+      margin-bottom: 72px;
+      font-size: $h1_textsize_desktop;
+      color: $colorSecondary_2;
+      font-family: $font_1_regular;
+    }
+
+    .container {
+      margin-left: 124px;
+      margin-right: 124px;
+      display: flex;
+      max-width: 1192px;
+      justify-content: space-between;
+
+      .text {
+        max-width: 792px;
+        color: $colorSecondary_2;
+        font-family: $font_1_regular;
+        margin-right: 30px;
+        margin-bottom: 120px;
+      }
+
+      .LastUpdate {
+        font-size: $paragraphSmall_textsize_desktop;
+        color: $colorSecondary_2;
+        font-family: $font_1_regular;
+        min-width: 292px;
+        border-bottom: solid 1px #3c144176;
+        max-height: 36px;
       }
     }
   }
-  strong {
-    font-family: $font_1_bold;
-  }
-  a {
-    text-decoration: underline;
-  }
+}
+
+.h2 {
+  font-size: $h1_textsize_mobile;
+  margin-bottom: 40px;
+  margin-top: 72px;
+}
+
+.h3 {
+  font-size: $h5_textsize_desktop;
+  margin-bottom: 24px;
+  margin-top: 40px;
+  font-family: $font_1_bold;
+}
+
+.paragraph {
+  font-size: $h6_textsize_mobile;
+}
+
+.hyperlink {
+  font-size: 50px;
+}
+
+.listItem {
+  font-size: 18px;
 }

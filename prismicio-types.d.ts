@@ -101,6 +101,17 @@ interface FooterDocumentData {
   stoiklogo: prismic.ImageField<never>;
 
   /**
+   * StoikLink field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.stoiklink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  stoiklink: prismic.LinkField;
+
+  /**
    * Socials field in *Footer*
    *
    * - **Field Type**: Group

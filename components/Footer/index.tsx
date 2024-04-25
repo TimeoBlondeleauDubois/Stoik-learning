@@ -12,9 +12,11 @@ const Footer = ({ footer }) => {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.SecondContainer}>
-            <div className={styles.stoiklogo}>
-              <PrismicNextImage field={footer.data.stoiklogo} />
-            </div>
+              <div className={styles.stoiklogo}>
+            <PrismicNextLink field={footer.data.stoiklink}>
+                <PrismicNextImage field={footer.data.stoiklogo} />
+              </PrismicNextLink>
+              </div>
             <div className={styles.SliceZone}>
               <SliceZone
                 slices={footer.data.slices1}

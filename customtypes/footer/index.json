@@ -21,6 +21,14 @@
           "thumbnails": []
         }
       },
+      "stoiklink": {
+        "type": "Link",
+        "config": {
+          "label": "StoikLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "socials": {
         "type": "Group",
         "config": {

@@ -8,17 +8,14 @@
     }
 
     .description {
-        max-width: 192px;
-        background-color: $colorSecondary_1;
         font-family: $font_1_regular;
         font-size: $paragraphSmall_textsize_desktop;
         color: $colorSecondary_1;
-        background-color: $colorPrimary_2;
+        width: 192px;
         
         
         .LinkInContainer {
             margin-bottom: 8px;
-            background-color: green;
-            width: 192px;
+            max-width: 60%;
         }
     }

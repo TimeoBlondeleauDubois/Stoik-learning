@@ -298,6 +298,17 @@ interface HeaderDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   lowtitle: prismic.GroupField<Simplify<HeaderDocumentDataLowtitleItem>>;
+
+  /**
+   * ButtonLogoOnMobile field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.buttonlogoonmobile
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  buttonlogoonmobile: prismic.ImageField<never>;
 }
 
 /**

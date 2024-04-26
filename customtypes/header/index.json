@@ -105,6 +105,14 @@
             }
           }
         }
+      },
+      "buttonlogoonmobile": {
+        "type": "Image",
+        "config": {
+          "label": "ButtonLogoOnMobile",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

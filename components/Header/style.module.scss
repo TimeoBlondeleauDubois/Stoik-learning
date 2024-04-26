@@ -19,11 +19,12 @@
 
     .container {
       display: flex;
+      margin-left: 123px;
 
       .logo {
         min-width: 92px;
         min-height: auto;
-      }
+      }    
 
       .Link {
         margin-left: 40px;
@@ -39,27 +40,16 @@
     .SecondContainer {
       display: flex;
       align-items: center;
-
-      .language {
-        margin-right: 20px;
-        display: flex;
-        align-items: center;
-      }
+      margin-right: 123px;
 
       .ContainerButton {
         display: flex;
         align-items: center;
-        width: 144px;
-        height: 40px;
-        background-color: $colorSecondary_2;
-        border-radius: 4px;
         justify-content: center;
         position: relative;
         transition: all 300ms ease-in-out;
 
         &:hover {
-          background-color: $colorSecondary_3;
-
           .ButtonArrow {
             transform: rotate(180deg);
           }
@@ -80,66 +70,122 @@
         .ButtonArrow {
           transition: all 200ms ease;
         }
+
+        .ButtononMobile {
+          transition: all 200ms ease;
+        }
       }
     }
   }
 }
 
-.BoxContainer {
-  position: absolute;
-  top: 100%;
-  width: 170px;
+.ContainerMobile {
   display: none;
+}
+
+.ContainerMobile.show {
   display: flex;
-  justify-content: center;
-  
-  .Box {
-    transition: all 200ms ease;
-    width: 144px;
-    background-color: white;
-    border-radius: 8px;
-    padding: 7.5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    flex-direction: column;
-    z-index: 998;
-    margin-top: 10px;
+}
+
+.ContainerMobile:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1180px) {
+  .LinkLabelChoice,
+  .Link,
+  .ContainerButton,
+  .ButtonLabel {
     display: none;
-    margin-bottom: 10px;
+  }
+
+  .ButtonLogoMobile{
+    width: 40px;
+    height: 40px;
+    background-color: $colorGreyscale_1;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .language {
+    width: 40px;
+    height: 40px;
+    background-color: $colorGreyscale_1;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .ContainerButtonMobile,
+  .LinkMobile {
+    display: none;
+  }  
+
+  .ContainerButton {
+    width: 144px;
+    height: 40px;
+    background-color: $colorSecondary_2;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $colorSecondary_3;
+    }
+  }
+
+  .language {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .BoxContainer {
+    position: absolute;
+    top: 100%;
+    width: 170px;
+    justify-content: center;
     
-    .LinkLabelChoice {
-      color: $colorSecondary_1;
-      font-size: $paragraphSmall_textsize_desktop;
-      font-family: $font_1_regular;
-      margin-top: 1px;
-      margin-bottom: 1px;
-      padding-left: 7.5px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+    .Box {
+      transition: all 200ms ease;
+      width: 144px;
+      background-color: white;
       border-radius: 8px;
+      padding: 7.5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      flex-direction: column;
+      z-index: 998;
+      margin-top: 10px;
+      display: none;
+      margin-bottom: 10px;
       
-      &:hover {
-        background-color: $colorGreyscale_1;
+      .LinkLabelChoice {
+        color: $colorSecondary_1;
+        font-size: $paragraphSmall_textsize_desktop;
+        font-family: $font_1_regular;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        padding-left: 7.5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 8px;
+        
+        &:hover {
+          background-color: $colorGreyscale_1;
+        }
       }
     }
   }
-}
 
-@media screen and (max-width: 1130px) {
-  .container {
-    margin-left: 10px;
-  }
-
-  .SecondContainer {
-    margin-right: 10px;
-  }
-}
-
-@media screen and (min-width: 1130px) {
-  .container {
-    margin-left: 123px;
-  }
-
-  .SecondContainer {
-    margin-right: 123px;
+  .EaqualMobile,
+  .ButtonLogoMobile {
+    display: none;
   }
 }

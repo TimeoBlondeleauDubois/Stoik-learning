@@ -7,6 +7,8 @@ const Header = ({ header }) => {
   const toggleContainerMobile = () => {
     const containerMobile = document.querySelector(`.${styles.ContainerMobile}`) as HTMLElement;
     containerMobile.style.display = containerMobile.style.display === 'flex' ? 'none' : 'flex';
+    const logo = document.querySelector(`.${styles.logo}`) as HTMLElement;
+    logo.style.display = containerMobile.style.display === 'none' ? 'flex' : 'none';
   };
 
   return (

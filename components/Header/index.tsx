@@ -65,9 +65,9 @@ const Header = ({ header }) => {
           </div>
           <div className={styles.ContainerMobile}>
             <div className={styles.Mobile}>
-              <div className={styles.LogoMobile}>
+              <div>
                 <PrismicNextLink field={header.logolink}>
-                  <PrismicNextImage field={header.data.logo} />
+                  <PrismicNextImage className={styles.LogoMobile} field={header.data.logo} />
                 </PrismicNextLink>
               </div>
               {header.data.lowtitle.map((item, index) => (

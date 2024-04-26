@@ -117,6 +117,23 @@
 
   .Mobile {
     margin-left: 30px;
+    margin-top: 40px;
+
+    .LogoMobile {
+      min-width: 100px;
+      min-height: 35px;
+      margin-bottom: 30px;
+    }
+
+    .LinkMobile {
+      margin-bottom: 30px;
+
+      .LowTitleMobile {
+        font-family: $font_1_regular;
+        font-size: $h5_textsize_mobile;
+        color: $colorSecondary_1;
+      }
+    }
   }
 }
 

@@ -156,9 +156,15 @@
 
 @media screen and (min-width: 1180px) {
   .ContainerButtonMobile,
-  .LinkMobile {
+  .LinkMobile,
+  .EaqualMobile,
+  .ButtonLogoMobile {
     display: none;
   }  
+
+  .ContainerMobile {
+    background-color: transparent;
+  }
 
   .ContainerButton {
     width: 144px;
@@ -212,10 +218,5 @@
         }
       }
     }
-  }
-
-  .EaqualMobile,
-  .ButtonLogoMobile {
-    display: none;
   }
 }

@@ -64,18 +64,25 @@ const Header = ({ header }) => {
             <PrismicNextImage field={header.data.buttonlogoonmobile} />
           </div>
           <div className={styles.ContainerMobile}>
-            {header.data.lowtitle.map((item, index) => (
-              <div className={styles.LinkMobile} key={index}>
-                <PrismicNextLink field={item.lowtitlelink}>
-                  <div className={styles.LowTitleMobile}>
-                    <PrismicRichText
-                      key={index}
-                      field={item.lowtitletitle}
-                    />
-                  </div>
+            <div className={styles.Mobile}>
+              <div className={styles.LogoMobile}>
+                <PrismicNextLink field={header.logolink}>
+                  <PrismicNextImage field={header.data.logo} />
                 </PrismicNextLink>
               </div>
-            ))}
+              {header.data.lowtitle.map((item, index) => (
+                <div className={styles.LinkMobile} key={index}>
+                  <PrismicNextLink field={item.lowtitlelink}>
+                    <div className={styles.LowTitleMobile}>
+                      <PrismicRichText
+                        key={index}
+                        field={item.lowtitletitle}
+                        />
+                    </div>
+                  </PrismicNextLink>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

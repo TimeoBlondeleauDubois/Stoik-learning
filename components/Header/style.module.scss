@@ -19,7 +19,6 @@
 
     .container {
       display: flex;
-      margin-left: 123px;
 
       .logo {
         min-width: 92px;
@@ -40,7 +39,6 @@
     .SecondContainer {
       display: flex;
       align-items: center;
-      margin-right: 123px;
 
       .ContainerButton {
         display: flex;
@@ -114,6 +112,12 @@
   background-color: white;
   z-index: 999;
   animation: slideDown 0.6s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+
+  .Mobile {
+    margin-left: 30px;
+  }
 }
 
 .ContainerMobile {
@@ -152,6 +156,14 @@
     justify-content: center;
     align-items: center;
   }
+
+  .container {
+    margin-left: 30px;
+  }
+
+  .SecondContainer {
+    margin-right: 30px;
+  }
 }
 
 @media screen and (min-width: 1180px) {
@@ -164,6 +176,14 @@
 
   .ContainerMobile {
     background-color: transparent;
+  }
+
+  .container {
+    margin-left: 123px;
+  }
+
+  .SecondContainer {
+    margin-right: 123px;
   }
 
   .ContainerButton {

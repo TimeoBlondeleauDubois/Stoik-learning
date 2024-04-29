@@ -14,7 +14,7 @@
       margin-right: 10px;
 
         .container {
-            margin-left: 124px;   
+            border-top: solid 1px #3C144166;
         
             .SecondContainer {
                 display: flex;
@@ -28,17 +28,12 @@
 
                 .SliceZone {
                     display: flex;
-                    justify-content: space-between;
-                    width: 80%;
-                    margin-right: 230px;
                     white-space: nowrap;
                 }
             }
 
             .LogoSection {
                 display: flex;
-                margin-bottom: 40px;
-                margin-top: -40px;
 
                 .ContainerForMargin {
                     margin-right: 10px;
@@ -80,5 +75,66 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .stoiklogo,
+    .logos{
+        display: none;
+    }
+
+    .SliceZone {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .container {
+        margin-left: 10px;
+    }
+
+    .stoiklogoMobile {
+        display: flex;
+        justify-content: center;
+        border-top: solid 1px #3C144166;
+        padding-top: 30px;
+    }
+
+    .StoikPicture {
+        width: 120px;
+        height: 35px;
+    }
+
+    .LogoSection {
+        display: flex;
+        justify-content: center;
+    }
+
+    .LogoSection {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+  
+@media screen and (min-width: 1180px) {
+    .SliceZone {
+        justify-content: space-between;
+        width: 80%;
+        margin-right: 230px;
+    }
+
+    .container {
+        margin-left: 124px;   
+    }
+
+    .StoiklogoMobile,
+    .StoikPicture {
+        display: none;
+    }
+
+    .LogoSection {
+        margin-bottom: 40px;
+        margin-top: -40px;
     }
 }

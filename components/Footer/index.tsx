@@ -26,6 +26,11 @@ const Footer = ({ footer }) => {
               />
             </div>
           </div>
+          <div className={styles.stoiklogoMobile}>
+            <PrismicNextLink field={footer.data.stoiklink}>
+              <PrismicNextImage className={styles.StoikPicture} field={footer.data.stoiklogo} />
+            </PrismicNextLink>
+          </div>
           <div className={styles.LogoSection}>
             {footer.data.socials.map((item, index) => (
               <div className={styles.ContainerForMargin}>

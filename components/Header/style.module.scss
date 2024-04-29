@@ -132,6 +132,37 @@
         font-family: $font_1_regular;
         font-size: $h5_textsize_mobile;
         color: $colorSecondary_1;
+        max-width: 150px;
+      }
+    }
+
+    .ContainerButton2 {
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: all 300ms ease-in-out;
+
+      &:hover {
+        .ButtonArrow {
+          transform: rotate(180deg);
+        }
+      }
+
+      .ButtonLabel2 {
+        background-color: $colorSecondary_1;
+        color: white;
+        width: 100%;
+        height: 40px;
+        border-radius: 4px;
+        font-family: $font_1_regular;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ButtonArrow2 {
+        transition: all 200ms ease;
+        margin-left: 10px;
       }
     }
   }
@@ -181,14 +212,48 @@
   .SecondContainer {
     margin-right: 30px;
   }
+
+  .BoxContainerMobile {
+    position: absolute;
+    top: 100%;
+    width: 170px;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+    
+    .BoxMobile {
+      transition: all 200ms ease;
+      background-color: white;
+      border-radius: 8px;
+      padding: 7.5px;
+      flex-direction: column;
+      z-index: 998;
+      margin-top: 10px;
+      display: none;
+      margin-bottom: 10px;
+      
+      .LinkLabelChoiceMobile {
+        color: $colorSecondary_1;
+        font-size: $paragraphMedium_textsize_desktop;
+        font-family: $font_1_regular;
+        margin-top: 20px;
+        border-radius: 8px;
+        margin-left: -6px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1180px) {
   .ContainerButtonMobile,
   .LinkMobile,
   .EaqualMobile,
-  .ButtonLogoMobile {
-    display: none;
+  .ButtonLogoMobile,
+  .BoxContainermobile
+  .ButtonLabel2,
+  .ContainerMobile,
+  .ContainerButton2,
+  .ButtonLabel2 {
+    display: none !important;
   }  
 
   .ContainerMobile {

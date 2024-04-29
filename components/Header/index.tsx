@@ -11,6 +11,11 @@ const Header = ({ header }) => {
     logo.style.display = containerMobile.style.display === 'none' ? 'flex' : 'none';
   };
 
+  const toggleBoxMobile = () => {
+    const BoxMobile = document.querySelector(`.${styles.BoxMobile}`) as HTMLElement;
+    BoxMobile.style.display = BoxMobile.style.display === 'flex' ? 'none' : 'flex';
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -72,7 +77,7 @@ const Header = ({ header }) => {
               </div>
               {header.data.lowtitle.map((item, index) => (
                 <div className={styles.LinkMobile} key={index}>
-                  <PrismicNextLink field={item.lowtitlelink}>
+                  <PrismicNextLink key={index} field={item.lowtitlelink}>
                     <div className={styles.LowTitleMobile}>
                       <PrismicRichText
                         key={index}
@@ -82,6 +87,26 @@ const Header = ({ header }) => {
                   </PrismicNextLink>
                 </div>
               ))}
+              <div className={styles.ContainerButton2} onClick={toggleBoxMobile}>
+                <div className={styles.ButtonLabel2}>
+                  <PrismicRichText field={header.data.buttonlabel} />
+                  <PrismicNextImage className={styles.ButtonArrow2} field={header.data.buttonarrow}/>
+                </div>
+                <div className={styles.BoxContainerMobile}>
+                  <div className={styles.BoxMobile}>
+                    {header.data.buttonchoice.map((item, index) => (
+                      <PrismicNextLink key={index} field={item.linkbuttonchoice}>
+                        <div className={styles.LinkLabelChoiceMobile}>
+                          <PrismicRichText
+                            key={index}
+                            field={item.linklabelchoice}
+                          />
+                        </div>
+                      </PrismicNextLink>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

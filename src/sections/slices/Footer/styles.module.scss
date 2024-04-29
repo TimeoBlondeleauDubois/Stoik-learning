@@ -1,5 +1,8 @@
 @import '@/styles/common/globals.scss';
 
+.FooterContainer {
+    display: flex;
+
     .title {
         margin-bottom: 25px;
         font-family: $font_1_bold;
@@ -11,11 +14,11 @@
         font-family: $font_1_regular;
         font-size: $paragraphSmall_textsize_desktop;
         color: $colorSecondary_1;
-        width: 192px;
-        
+        width: 100%;
         
         .LinkInContainer {
             margin-bottom: 8px;
             max-width: 60%;
         }
     }
+}

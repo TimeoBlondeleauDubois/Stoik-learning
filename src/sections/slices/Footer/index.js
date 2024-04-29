@@ -12,19 +12,21 @@ const Footer = ({ slice }) => {
   return (
     <section
       data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}>
-        
-      <div className={styles.title}>
-        <PrismicRichText field={slice.primary.title} />
-      </div>
-      <div className={styles.description}>
-      {slice.items.map((item, index) => (
+      data-slice-variation={slice.variation}
+      className={styles.FooterContainer}>
+      <div>
+        <div className={styles.title}>
+          <PrismicRichText field={slice.primary.title} />
+        </div>
+        <div className={styles.description}>
+        {slice.items.map((item, index) => (
           <div className={styles.LinkInContainer}>
-            <PrismicNextLink key={index} field={item.link}>
-              <PrismicRichText key={index} field={item.label} />
-            </PrismicNextLink>
-          </div>
-        ))}
+              <PrismicNextLink key={index} field={item.link}>
+                <PrismicRichText key={index} field={item.label} />
+              </PrismicNextLink>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

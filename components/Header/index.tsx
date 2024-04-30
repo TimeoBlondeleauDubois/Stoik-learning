@@ -143,14 +143,16 @@ const Header = ({ header }) => {
                 <div className={styles.BoxContainerMobile}>
                   <div className={styles.BoxMobile}>
                     {header.data.buttonchoice.map((item, index) => (
-                      <PrismicNextLink key={index} field={item.linkbuttonchoice}>
-                        <div className={styles.LinkLabelChoiceMobile}>
-                          <PrismicRichText
-                            key={index}
-                            field={item.linklabelchoice}
-                          />
-                        </div>
-                      </PrismicNextLink>
+                      <div className={styles.linklink}>
+                        <PrismicNextLink key={index} field={item.linkbuttonchoice}>
+                          <div className={styles.LinkLabelChoiceMobile}>
+                            <PrismicRichText
+                              key={index}
+                              field={item.linklabelchoice}
+                              />
+                          </div>
+                        </PrismicNextLink>
+                      </div>
                     ))}
                   </div>
                 </div>

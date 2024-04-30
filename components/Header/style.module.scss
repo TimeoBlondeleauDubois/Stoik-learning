@@ -127,12 +127,12 @@
 
     .LinkMobile {
       margin-bottom: 30px;
+      max-width: fit-content;
 
       .LowTitleMobile {
         font-family: $font_1_regular;
         font-size: $h5_textsize_mobile;
         color: $colorSecondary_1;
-        max-width: 150px;
       }
     }
 
@@ -174,6 +174,18 @@
 }
 
 @media screen and (max-width: 1180px) {
+
+  .fixedHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideUp 0.75s ease;
+    background-color: white;
+    border-bottom: solid 1px $colorGreyscale_3;
+  }
+
   .LinkLabelChoice,
   .Link,
   .ContainerButton,
@@ -230,6 +242,10 @@
       margin-top: 10px;
       display: none;
       margin-bottom: 10px;
+
+      .linklink {
+        max-width: fit-content;
+      }
       
       .LinkLabelChoiceMobile {
         color: $colorSecondary_1;
@@ -238,12 +254,25 @@
         margin-top: 20px;
         border-radius: 8px;
         margin-left: -6px;
+        max-width: fit-content;
       }
     }
   }
 }
 
 @media screen and (min-width: 1180px) {
+
+  .fixedHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideUp 0.75s ease;
+    background-color: rgba(255, 255, 255, 0.25); 
+    backdrop-filter: blur(10px); 
+  }
+
   .ContainerButtonMobile,
   .LinkMobile,
   .EaqualMobile,
@@ -321,17 +350,6 @@
       }
     }
   }
-}
-
-.fixedHeader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  animation: slideUp 0.75s ease;
-  background-color: rgba(255, 255, 255, 0.25); 
-  backdrop-filter: blur(10px); 
 }
 
 .fixedHeader.noAnimation {

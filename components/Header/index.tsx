@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import React from "react";
 import styles from "./style.module.scss";
 
 const Header = ({ header }) => {
@@ -9,15 +9,43 @@ const Header = ({ header }) => {
     containerMobile.style.display = containerMobile.style.display === 'flex' ? 'none' : 'flex';
     const logo = document.querySelector(`.${styles.logo}`) as HTMLElement;
     logo.style.display = containerMobile.style.display === 'none' ? 'flex' : 'none';
+  
+    const body = document.querySelector('body');
+    if (body) {
+      body.style.overflowY = containerMobile.style.display === 'flex' ? 'hidden' : 'auto';
+    }
   };
-
+  
   const toggleBoxMobile = () => {
     const BoxMobile = document.querySelector(`.${styles.BoxMobile}`) as HTMLElement;
     BoxMobile.style.display = BoxMobile.style.display === 'flex' ? 'none' : 'flex';
   };
 
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsHeaderVisible(currentScrollY === 0 || currentScrollY < 600);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const headerElement = document.querySelector(`.${styles.header}`) as HTMLElement;
+    if (isHeaderVisible) {
+      headerElement.classList.remove(styles.fixedHeader);
+    } else {
+      headerElement.classList.add(styles.fixedHeader);
+    }
+  }, [isHeaderVisible]);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header}`}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.logo}>

@@ -27,9 +27,9 @@ const Header = ({ header }) => {
           </div>
           {header.data.lowtitle.map((item, index) => (
             <div className={styles.Link} key={index}>
-              <PrismicNextLink field={item.lowtitlelink}>
+              <PrismicNextLink key={index} field={item.lowtitlelink}>
                 <div className={styles.LowTitle}>
-                  <PrismicRichText field={item.lowtitletitle} />
+                  <PrismicRichText key={index} field={item.lowtitletitle} />
                 </div>
               </PrismicNextLink>
             </div>

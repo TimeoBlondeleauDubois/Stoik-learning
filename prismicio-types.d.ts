@@ -323,11 +323,22 @@ interface HeaderDocumentData {
 export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
+type HomeDocumentDataSlicesSlice = never;
+
 /**
  * Content for Home documents
  */
 interface HomeDocumentData {
   /**
+   * Slice Zone field in *Home*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
    * Meta Description field in *Home*
    *
    * - **Field Type**: Text
@@ -335,7 +346,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -1118,6 +1129,7 @@ declare module "@prismicio/client" {
       HeaderDocumentDataLowtitleItem,
       HomeDocument,
       HomeDocumentData,
+      HomeDocumentDataSlicesSlice,
       LegalsDocument,
       LegalsDocumentData,
       LegalsDocumentDataSlicesSlice,

@@ -4,28 +4,46 @@ import { PrismicRichText } from "@prismicio/react";
 import styles from "./style.module.scss";
 
 const Header = ({ header }) => {
+  let i = 0;
   const toggleContainerMobile = () => {
+    i = i + 1;
+    let x = 0;
+    let y = 0;
     const containerMobile = document.querySelector(`.${styles.ContainerMobile}`) as HTMLElement;
     containerMobile.style.display = containerMobile.style.display === 'flex' ? 'none' : 'flex';
     const logo = document.querySelector(`.${styles.logo}`) as HTMLElement;
     logo.style.display = containerMobile.style.display === 'none' ? 'flex' : 'none';
   
+    const ButtonLogo = document.querySelector(`.${styles.ButtonLogoMobile}`) as HTMLElement;
+    if (ButtonLogo) {
+      if (i % 2 === 0) {
+        x = x - 15;
+        ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${x}px`; 
+      }
+      else {
+        y = y + 2;
+        ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${y}px`; 
+      }
+    }  
+
     const body = document.querySelector('body');
     if (body) {
       body.style.overflowY = containerMobile.style.display === 'flex' ? 'hidden' : 'auto';
     }
   };
-  
+
   const toggleBoxMobile = () => {
     const BoxMobile = document.querySelector(`.${styles.BoxMobile}`) as HTMLElement;
     BoxMobile.style.display = BoxMobile.style.display === 'flex' ? 'none' : 'flex';
   };
 
+
+
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsHeaderVisible(currentScrollY === 0 || currentScrollY < 600);
+      setIsHeaderVisible(currentScrollY === 0 || currentScrollY < 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,6 +62,8 @@ const Header = ({ header }) => {
     }
   }, [isHeaderVisible]);
 
+
+  
   return (
     <header className={`${styles.header}`}>
       <div className={styles.wrapper}>

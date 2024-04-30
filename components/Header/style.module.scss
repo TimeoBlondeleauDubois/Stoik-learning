@@ -5,8 +5,6 @@
   margin-right: auto;
   display: flex;
   justify-content: center;
-  min-height: 120px;
-  max-height: 120px;
   align-items: center;
 
   .wrapper {
@@ -131,7 +129,7 @@
 
       .LowTitleMobile {
         font-family: $font_1_regular;
-        font-size: $h5_textsize_mobile;
+        font-size: $h6_textsize_mobile;
         color: $colorSecondary_1;
       }
     }
@@ -174,6 +172,10 @@
 }
 
 @media screen and (max-width: 1180px) {
+  .header {
+    min-height: 80px;
+    max-height: 80px;
+  }
 
   .fixedHeader {
     position: fixed;
@@ -203,6 +205,7 @@
     align-items: center;
     z-index: 1000;
     margin-right: -15px;
+    margin-left: 6px;
   }
 
   .language {
@@ -228,7 +231,7 @@
   .BoxContainerMobile {
     position: absolute;
     top: 100%;
-    width: 170px;
+    width: 100%;
     justify-content: center;
     transition: all 300ms ease-in-out;
     
@@ -242,25 +245,33 @@
       margin-top: 10px;
       display: none;
       margin-bottom: 10px;
-
-      .linklink {
-        max-width: fit-content;
-      }
+      width: 100%;
       
       .LinkLabelChoiceMobile {
         color: $colorSecondary_1;
         font-size: $paragraphMedium_textsize_desktop;
         font-family: $font_1_regular;
-        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         border-radius: 8px;
-        margin-left: -6px;
-        max-width: fit-content;
+        margin-right: 23px;
+        padding-left: 10px;
+        margin-left: -8px;
+        
+        &:hover {
+          background-color: $colorGreyscale_1;
+        }
       }
     }
   }
 }
 
 @media screen and (min-width: 1180px) {
+  .header {
+    min-height: 65px;
+    max-height: 65px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
 
   .fixedHeader {
     position: fixed;

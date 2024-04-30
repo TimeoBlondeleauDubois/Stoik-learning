@@ -21,7 +21,7 @@ const Header = ({ header }) => {
         ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${x}px`; 
       }
       else {
-        y = y + 2;
+        y = y + 1.5;
         ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${y}px`; 
       }
     }  

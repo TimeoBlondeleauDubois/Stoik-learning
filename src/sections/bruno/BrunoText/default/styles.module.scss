@@ -13,28 +13,69 @@
     margin-left: 10px;
     margin-right: 10px;
 
-    .title {
-      margin-top: 20px;
-      font-size: $h1_textsize_desktop;
-      color: $colorSecondary_2;
-      font-family: $font_1_regular;
-    }
-
     .container {
       display: flex;
       max-width: 1192px;
       justify-content: space-between;
-      margin-top: 72px;
       align-items: flex-start;
 
       .text {
         max-width: 792px;
         color: $colorSecondary_2;
         font-family: $font_1_regular;
-        margin-right: 30px;
         margin-bottom: 120px;
         margin-top: 0px;
         top : 0px;
+
+        h1 {
+          font-size: $h1_textsize_desktop;
+          color: $colorSecondary_2;
+          font-family: $font_1_regular;
+          margin-top: 30px;
+          margin-bottom: 72px;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+
+        h2 {
+          font-size: $h1_textsize_mobile;
+          margin-top: 72px;
+          margin-bottom: 40px;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+
+        h3 {
+          font-size: $h5_textsize_desktop;
+          font-family: $font_1_bold;
+          margin-bottom: 24px;
+          margin-top: 40px;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+        
+        p {
+          font-size: $paragraphMedium_textsize_desktop;
+          margin-bottom: 20px;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+
+        a {
+          text-decoration: underline;
+          font-size: $paragraphMedium_textsize_desktop;
+          word-wrap: break-word;
+          margin-left: 1px;
+          margin-right: 1px;
+        }
+        
+        li {
+          font-size: 18px;
+          font-size: $paragraphMedium_textsize_desktop;
+          margin-left: 1px;
+          margin-right: 1px;
+          word-wrap: break-word;
+        }
       }
 
       .LastUpdate {
@@ -47,31 +88,6 @@
       }
     }
   }
-}
-
-.h2 {
-  font-size: $h1_textsize_mobile;
-  margin-bottom: 40px;
-  margin-top: 72px;
-}
-
-.h3 {
-  font-size: $h5_textsize_desktop;
-  margin-bottom: 24px;
-  margin-top: 40px;
-  font-family: $font_1_bold;
-}
-
-.paragraph {
-  font-size: $h6_textsize_mobile;
-}
-
-.hyperlink {
-  font-size: 50px;
-}
-
-.listItem {
-  font-size: 18px;
 }
 
 @media screen and (max-width: 1180px) {
@@ -87,11 +103,16 @@
   }
 
   .LastUpdate {
-    order: 1;
+    order: 2;
   }
 
   .text {
-    order: 2;
+    order: 1;
+  }
+
+  .LastUpdate {
+    margin-bottom: 120px;
+    margin-top: -40px;
   }
 }
 
@@ -104,5 +125,9 @@
   .title {
     margin-left: 124px;
     margin-right: 124px;
+  }
+
+  .LastUpdate {
+    margin-top: 170px;
   }
 }

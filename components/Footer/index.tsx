@@ -28,15 +28,15 @@ const Footer = ({ footer }) => {
           </div>
           <div className={styles.stoiklogoMobile}>
             <PrismicNextLink field={footer.data.stoiklink}>
-              <PrismicNextImage className={styles.StoikPicture} field={footer.data.stoiklogo} />
+              <PrismicNextImage priority className={styles.StoikPicture} field={footer.data.stoiklogo} />
             </PrismicNextLink>
           </div>
           <div className={styles.LogoSection}>
-            {footer.data.socials.map((item) => (
-              <div key={item.id} className={styles.ContainerForMargin}>
-                <PrismicNextLink field={item.socialslink}>
-                  <div className={styles.LogoInSection}>
-                    <PrismicNextImage field={item.socialslogo} />
+            {footer.data.socials.map((item, index) => (
+              <div key={index} className={styles.ContainerForMargin}>
+                <PrismicNextLink key={index} field={item.socialslink}>
+                  <div key={index} className={styles.LogoInSection}>
+                    <PrismicNextImage key={index} field={item.socialslogo} />
                   </div>
                 </PrismicNextLink>
               </div>

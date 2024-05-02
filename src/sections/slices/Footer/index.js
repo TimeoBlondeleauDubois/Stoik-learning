@@ -19,10 +19,10 @@ const Footer = ({ slice }) => {
           <PrismicRichText field={slice.primary.title} />
         </div>
         <div className={styles.description}>
-        {slice.items.map((item, index) => (
-          <div className={styles.LinkInContainer}>
+          {slice.items.map((item, index) => (
+            <div className={styles.LinkInContainer} key={index}>
               <PrismicNextLink key={index} field={item.link}>
-                <div className={styles.text}>
+                <div className={styles.text} key={index}>
                   <PrismicRichText key={index} field={item.label} />
                 </div>
               </PrismicNextLink>

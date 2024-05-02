@@ -74,7 +74,7 @@ const Header = ({ header }) => {
           {header.data.lowtitle.map((item, index) => (
             <div className={styles.Link} key={index}>
               <PrismicNextLink key={index} field={item.lowtitlelink}>
-                <div className={styles.LowTitle}>
+                <div className={styles.LowTitle} key={index}>
                   <PrismicRichText key={index} field={item.lowtitletitle} />
                 </div>
               </PrismicNextLink>
@@ -97,7 +97,7 @@ const Header = ({ header }) => {
               <div className={styles.Box}>
                 {header.data.buttonchoice.map((item, index) => (
                   <PrismicNextLink key={index} field={item.linkbuttonchoice}>
-                    <div className={styles.LinkLabelChoice}>
+                    <div className={styles.LinkLabelChoice} key={index}>
                       <PrismicRichText
                         key={index}
                         field={item.linklabelchoice}
@@ -124,7 +124,7 @@ const Header = ({ header }) => {
               {header.data.lowtitle.map((item, index) => (
                 <div className={styles.LinkMobile} key={index}>
                   <PrismicNextLink key={index} field={item.lowtitlelink}>
-                    <div className={styles.LowTitleMobile}>
+                    <div className={styles.LowTitleMobile} key={index}>
                       <PrismicRichText
                         key={index}
                         field={item.lowtitletitle}
@@ -141,9 +141,9 @@ const Header = ({ header }) => {
                 <div className={styles.BoxContainerMobile}>
                   <div className={styles.BoxMobile}>
                     {header.data.buttonchoice.map((item, index) => (
-                      <div className={styles.linklink}>
+                      <div className={styles.linklink} key={index}>
                         <PrismicNextLink key={index} field={item.linkbuttonchoice}>
-                          <div className={styles.LinkLabelChoiceMobile}>
+                          <div className={styles.LinkLabelChoiceMobile} key={index}>
                             <PrismicRichText
                               key={index}
                               field={item.linklabelchoice}

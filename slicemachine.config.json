@@ -1,5 +1,5 @@
 {
-  "apiEndpoint": "https://stoik-learning.prismic.io/api/v2",
+  "apiEndpoint": "https://stoik-learning.prismic.io",
   "repositoryName": "stoik-learning",
   "adapter": "@slicemachine/adapter-next",
   "libraries": [

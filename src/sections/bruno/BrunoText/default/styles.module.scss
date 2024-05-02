@@ -26,6 +26,7 @@
         margin-bottom: 120px;
         margin-top: 0px;
         top : 0px;
+        max-height: none;
 
         h1 {
           font-size: $h1_textsize_desktop;
@@ -33,16 +34,12 @@
           font-family: $font_1_regular;
           margin-top: 30px;
           margin-bottom: 72px;
-          margin-left: 1px;
-          margin-right: 1px;
         }
 
         h2 {
           font-size: $h1_textsize_mobile;
           margin-top: 72px;
           margin-bottom: 40px;
-          margin-left: 1px;
-          margin-right: 1px;
         }
 
         h3 {
@@ -50,31 +47,23 @@
           font-family: $font_1_bold;
           margin-bottom: 24px;
           margin-top: 40px;
-          margin-left: 1px;
-          margin-right: 1px;
         }
         
         p {
           font-size: $paragraphMedium_textsize_desktop;
           margin-bottom: 20px;
-          margin-left: 1px;
-          margin-right: 1px;
         }
 
         a {
           text-decoration: underline;
           font-size: $paragraphMedium_textsize_desktop;
+          display: inline;
           word-wrap: break-word;
-          margin-left: 1px;
-          margin-right: 1px;
         }
         
         li {
           font-size: 18px;
           font-size: $paragraphMedium_textsize_desktop;
-          margin-left: 1px;
-          margin-right: 1px;
-          word-wrap: break-word;
         }
       }
 

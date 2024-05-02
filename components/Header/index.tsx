@@ -87,7 +87,7 @@ const Header = ({ header }) => {
       setMoveY1(0);
       setMoveX1(0);
     } else {
-      setMoveY1(7);
+      setMoveY1(6.5);
       setMoveX1(-1);
     }
 
@@ -95,7 +95,7 @@ const Header = ({ header }) => {
       setMoveY2(0);
       setMoveX2(0);
     } else {
-      setMoveY2(-4);
+      setMoveY2(-4.5);
       setMoveX2(4);
     }
 

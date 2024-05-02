@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import styles from "./style.module.scss";
+import Eaqual from "../eaqual";
 
 const Header = ({ header }) => {
   let i = 0;
@@ -108,11 +109,8 @@ const Header = ({ header }) => {
               </div>
             </div>
           </div>
-          <div
-            className={styles.ButtonLogoMobile}
-            onClick={toggleContainerMobile}
-          >
-            <PrismicNextImage field={header.data.buttonlogoonmobile} />
+          <div className={styles.ButtonLogoMobile} onClick={toggleContainerMobile}>
+            <Eaqual/> 
           </div>
           <div className={styles.ContainerMobile}>
             <div className={styles.Mobile}>

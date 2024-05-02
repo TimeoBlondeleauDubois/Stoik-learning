@@ -59,6 +59,13 @@
           font-size: $paragraphMedium_textsize_desktop;
           display: inline;
           word-wrap: break-word;
+          text-decoration-color: $colorSecondary_2;
+          transition: all 300ms ease-in-out;
+
+          &:hover {
+            color: $colorSecondary_3;
+            text-decoration-color: $colorSecondary_3;
+          }
         }
         
         li {

@@ -19,6 +19,14 @@
         .LinkInContainer {
             margin-bottom: 8px;
             max-width: fit-content;
+
+            .text {
+                transition: all 300ms ease-in-out;
+
+                &:hover {
+                color: $colorSecondary_3;
+                }
+            }
         }
     }
 }

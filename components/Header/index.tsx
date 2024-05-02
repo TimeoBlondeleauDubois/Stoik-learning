@@ -35,9 +35,9 @@ const Header = ({ header }) => {
   const toggleBoxMobile = () => {
     const BoxMobile = document.querySelector(`.${styles.BoxMobile}`) as HTMLElement;
     BoxMobile.style.display = BoxMobile.style.display === 'flex' ? 'none' : 'flex';
+    const ButtonArrow2 = document.querySelector(`.${styles.ButtonArrow2}`) as HTMLElement;
+    ButtonArrow2.style.transform = BoxMobile.style.display === 'none' ? 'rotate(0deg)' : 'rotate(180deg)';
   };
-
-
 
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   useEffect(() => {
@@ -62,8 +62,6 @@ const Header = ({ header }) => {
     }
   }, [isHeaderVisible]);
 
-
-  
   return (
     <header className={`${styles.header}`}>
       <div className={styles.wrapper}>

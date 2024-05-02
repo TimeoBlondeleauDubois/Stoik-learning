@@ -22,7 +22,9 @@ const Footer = ({ slice }) => {
         {slice.items.map((item, index) => (
           <div className={styles.LinkInContainer}>
               <PrismicNextLink key={index} field={item.link}>
-                <PrismicRichText key={index} field={item.label} />
+                <div className={styles.text}>
+                  <PrismicRichText key={index} field={item.label} />
+                </div>
               </PrismicNextLink>
             </div>
           ))}

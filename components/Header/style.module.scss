@@ -30,6 +30,11 @@
           font-family: $font_1_regular;
           font-size: $paragraphSmall_textsize_desktop;
           color: $colorSecondary_1;
+          transition: all 300ms ease-in-out;
+
+          &:hover {
+            color: $colorSecondary_3;
+          }
         }
       }
     }

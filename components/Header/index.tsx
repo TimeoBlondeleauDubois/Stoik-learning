@@ -7,24 +7,10 @@ const Header = ({ header }) => {
   let i = 0;
   const toggleContainerMobile = () => {
     i = i + 1;
-    let x = 0;
-    let y = 0;
     const containerMobile = document.querySelector(`.${styles.ContainerMobile}`) as HTMLElement;
     containerMobile.style.display = containerMobile.style.display === 'flex' ? 'none' : 'flex';
     const logo = document.querySelector(`.${styles.logo}`) as HTMLElement;
     logo.style.display = containerMobile.style.display === 'none' ? 'flex' : 'none';
-  
-    const ButtonLogo = document.querySelector(`.${styles.ButtonLogoMobile}`) as HTMLElement;
-    if (ButtonLogo) {
-      if (i % 2 === 0) {
-        x = x - 15;
-        ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${x}px`; 
-      }
-      else {
-        y = y + 1.5;
-        ButtonLogo.style.marginRight = containerMobile.style.marginRight === 'none' ? 'none' : `${y}px`; 
-      }
-    }  
 
     const body = document.querySelector('body');
     if (body) {
@@ -61,6 +47,60 @@ const Header = ({ header }) => {
       headerElement.classList.add(styles.fixedHeader);
     }
   }, [isHeaderVisible]);
+
+  const [isPath1Rotated, setIsPath1Rotated] = useState(false);
+  const [isPath2Rotated, setIsPath2Rotated] = useState(false);
+  const [moveX1, setMoveX1] = useState(0);
+  const [moveY1, setMoveY1] = useState(0);
+  const [moveX2, setMoveX2] = useState(0);
+  const [moveY2, setMoveY2] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsHeaderVisible(currentScrollY === 0 || currentScrollY < 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const headerElement = document.querySelector(`.${styles.header}`) as HTMLElement;
+    if (isHeaderVisible) {
+      headerElement.classList.remove(styles.fixedHeader);
+    } else {
+      headerElement.classList.add(styles.fixedHeader);
+    }
+  }, [isHeaderVisible]);
+
+  const rotatePaths = () => {
+    setIsPath1Rotated(!isPath1Rotated);
+    setIsPath2Rotated(!isPath2Rotated);
+  };
+
+  const handleSvgClick = () => {
+    if (isPath1Rotated) {
+      setMoveY1(0);
+      setMoveX1(0);
+    } else {
+      setMoveY1(7);
+      setMoveX1(-1);
+    }
+
+    if (isPath2Rotated) {
+      setMoveY2(0);
+      setMoveX2(0);
+    } else {
+      setMoveY2(-4);
+      setMoveX2(4);
+    }
+
+    rotatePaths();
+  };
 
   return (
     <header className={`${styles.header}`}>
@@ -108,10 +148,24 @@ const Header = ({ header }) => {
               </div>
             </div>
           </div>
-          <div className={styles.ButtonLogoMobile} onClick={toggleContainerMobile}>
-            <svg id="all" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path id="path1" d="M1 6.8125H15M1" stroke="#3C1441" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
-              <path id="path2" d="M1 0.8125H15" stroke="#3C1441" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+          <div className={styles.ButtonLogoMobile} onClick={() => { toggleContainerMobile(); rotatePaths(); handleSvgClick(); }}>
+            <svg id="all" viewBox="0 0 23 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              id="path1"
+              d="M6 6.8125H16"
+              stroke="#3C1441"
+              strokeWidth="1"
+              strokeLinecap="square"
+              strokeLinejoin="round"
+              style={{ transform: `translate(${moveX1}px, ${moveY1}px) rotate(${ isPath1Rotated ? "-45deg" : "0" })`, transition: "transform 0.3s ease-in-out", }}/>
+            <path
+              id="path2"
+              d="M6 0.8125H16"
+              stroke="#3C1441"
+              strokeWidth="1"
+              strokeLinecap="square"
+              strokeLinejoin="round"
+              style={{ transform: `translate(${moveX2}px, ${moveY2}px) rotate(${ isPath2Rotated ? "45deg" : "0" })`, transition: "transform 0.3s ease-in-out", }}/>
             </svg>
           </div>
           <div className={styles.ContainerMobile}>

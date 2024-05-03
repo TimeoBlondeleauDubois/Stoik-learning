@@ -1,0 +1,191 @@
+@import '@/styles/common/globals.scss';
+.wrappercontainer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; /*temporaire*/
+
+    .wrapper {
+        display: flex;
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        .SecondContainer {
+            display: flex;
+            flex-direction: column;
+            min-width: 40%;
+            max-height: 650px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            border-bottom-right-radius: 16px;
+            
+            .picture1 {
+                width: 100%;
+                height: auto;
+            }
+                
+            .picture2container {
+                border-bottom-right-radius: 16px;   
+                width: 100%;
+                height: auto;
+                background-color: $colorGreyscale_7;
+                display: flex;
+                justify-content: center;
+                
+                .picture2 {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .container {
+            border-top-left-radius: 16px;
+            background-color: $colorPrimary_3;
+            display: flex;
+            max-height: 650px;
+
+            .FirstContainer {
+                .title {
+                    font-size: $h1_textsize_desktop;
+                    color: white;
+                    font-family: $font_2;
+                    margin-bottom: 40px;
+                }
+
+                .paragraph {
+                    font-family: $font_1_regular;
+                    font-size: $h6_textsize_desktop;
+                    color: white;
+                    margin-bottom: 40px;
+                }
+
+                .ThirdContainer  {
+                    display: flex;
+
+                    .linkbutton1 {
+                        color: $colorSecondary_2;
+                        font-family: $font_1_regular;
+                        font-size: $paragraphMedium_textsize_desktop;
+                        background-color: white;
+                        border-radius: 4px;
+                        border: solid 1px white;
+                        transition: all 300ms;
+                        text-align: center;
+
+                        &:hover {
+                            background-color: $colorGreyscale_1;
+                        }
+                    }
+
+                    .linkbutton2 {
+                        color: white;
+                        font-family: $font_1_regular;
+                        font-size: $paragraphMedium_textsize_desktop;
+                        background-color: transparent;
+                        border-radius: 4px;
+                        border: solid 1px white;
+                        transition: all 300ms;
+                        text-align: center;
+
+                        &:hover {
+                            background-color: $colorPrimary_4;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_mobile) {
+    .SecondContainer {
+        border-top-right-radius: 16px;
+        margin-left: 8px;
+
+        .picture1 {
+            border-top-right-radius: 16px;
+        }
+    }
+
+    .container {
+        border-bottom-left-radius: 16px;
+        min-width: 59.3%;
+    }
+
+    .wrapper {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .FirstContainer {
+        margin-top: 140px;
+        margin-left: 114px;
+    }
+
+    .ThirdContainer {
+        margin-bottom: 175px;
+    }
+
+    .linkbutton1 {
+        margin-right: 8px;
+        padding: 16px 32px;
+    }
+
+    .linkbutton2 {
+        padding: 16px 32px;
+    }
+}
+
+@media screen and (max-width: $breakPoint_mobile) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .SecondContainer {
+        border-bottom-left-radius: 16px;
+        margin-top: 8px;
+        margin-left: 8px;
+        margin-right: 8px;
+
+        .picture2 {
+            border-bottom-left-radius: 16px;
+        }
+    }
+
+    .container {
+        border-top-right-radius: 16px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .FirstContainer {
+        margin-top: 98px;
+        margin-left: 16px;
+    }
+
+    .ThirdContainer {
+        display: flex;
+        margin-bottom: 40px;
+        flex-direction: column;
+
+        .linkbutton1 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    
+        .linkbutton2 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 8px;
+        }
+    }
+}

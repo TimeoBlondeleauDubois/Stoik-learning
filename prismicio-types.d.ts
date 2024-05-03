@@ -312,7 +312,7 @@ interface HeaderDocumentData {
 export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
-type HomeDocumentDataSlicesSlice = BrunoTextSlice;
+type HomeDocumentDataSlicesSlice = HeroSlice | BannerSlice | BrunoTextSlice;
 
 /**
  * Content for Home documents
@@ -748,6 +748,68 @@ export type AllDocumentTypes =
   | SocialMediaDocument;
 
 /**
+ * Primary content in *Banner → Primary*
+ */
+export interface BannerSliceDefaultPrimary {
+  /**
+   * Text field in *Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * En savoir plus field in *Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.en_savoir_plus
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  en_savoir_plus: prismic.RichTextField;
+
+  /**
+   * Link field in *Banner → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Banner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Banner*
+ */
+type BannerSliceVariation = BannerSliceDefault;
+
+/**
+ * Banner Shared Slice
+ *
+ * - **API ID**: `banner`
+ * - **Description**: Banner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
  * Primary content in *Footer → Primary*
  */
 export interface FooterSliceDefaultPrimary {
@@ -813,6 +875,118 @@ type FooterSliceVariation = FooterSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * HeroTitle field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.herotitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  herotitle: prismic.RichTextField;
+
+  /**
+   * HeroParagraph field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heroparagraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heroparagraph: prismic.RichTextField;
+
+  /**
+   * Picture1 field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.picture1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture1: prismic.ImageField<never>;
+
+  /**
+   * Picture2 field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.picture2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture2: prismic.ImageField<never>;
+
+  /**
+   * TextButton1 field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.textbutton1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  textbutton1: prismic.RichTextField;
+
+  /**
+   * LinkButton1 field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.linkbutton1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbutton1: prismic.LinkField;
+
+  /**
+   * TextButton2 field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.textbutton2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  textbutton2: prismic.RichTextField;
+
+  /**
+   * LinkButton2 field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.linkbutton2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbutton2: prismic.LinkField;
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
  * Primary content in *Text → Primary*
@@ -1138,11 +1312,19 @@ declare module "@prismicio/client" {
       SocialMediaDocumentData,
       SocialMediaDocumentDataGrpItem,
       AllDocumentTypes,
+      BannerSlice,
+      BannerSliceDefaultPrimary,
+      BannerSliceVariation,
+      BannerSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimary,
       FooterSliceDefaultItem,
       FooterSliceVariation,
       FooterSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,

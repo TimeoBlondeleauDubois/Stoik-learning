@@ -1,0 +1,87 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "herotitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "HeroTitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,strong,em"
+          }
+        },
+        "heroparagraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "HeroParagraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "picture1": {
+          "type": "Image",
+          "config": {
+            "label": "Picture1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "picture2": {
+          "type": "Image",
+          "config": {
+            "label": "Picture2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "textbutton1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "TextButton1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "linkbutton1": {
+          "type": "Link",
+          "config": {
+            "label": "LinkButton1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "textbutton2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "TextButton2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "linkbutton2": {
+          "type": "Link",
+          "config": {
+            "label": "LinkButton2",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -5,6 +5,8 @@
 /*----------  PRIMARY  ----------*/
 $colorPrimary_1: #101010;
 $colorPrimary_2: #f95b17;
+$colorPrimary_3: #1362DD;
+$colorPrimary_4: #246cdf;
 
 /*----------  SECONDARY  ----------*/
 $colorSecondary_1: #320A37;
@@ -19,6 +21,7 @@ $colorGreyscale_3: #888c8f;
 $colorGreyscale_4: #cdced0;
 $colorGreyscale_5: #f5f5f5;
 $colorGreyscale_6: #ffffff;
+$colorGreyscale_7: #EBEBFF;
 
 /*----------  SYSTEM PALETTE  ----------*/
 $colorError: #eb392e;
@@ -151,7 +154,7 @@ $grid_mobile: calc(100% - (#{$gap_mobile} * 2)); // GRID MOBILE
 }
 
 $breakPoint_tablet: calcGrid();
-$breakPoint_mobile: 700px;
+$breakPoint_mobile: 1180px;
 
 // MIXIN RESPONSIVE
 @mixin styleResponsive($size: 'mobile') {

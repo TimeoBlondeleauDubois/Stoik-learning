@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  banner: dynamic(() => import("./Banner")),
   footer: dynamic(() => import("./Footer")),
+  hero: dynamic(() => import("./Hero")),
   text: dynamic(() => import("./Text")),
 };

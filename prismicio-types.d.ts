@@ -312,7 +312,11 @@ interface HeaderDocumentData {
 export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
-type HomeDocumentDataSlicesSlice = HeroSlice | BannerSlice | BrunoTextSlice;
+type HomeDocumentDataSlicesSlice =
+  | FirstSectionSlice
+  | HeroSlice
+  | BannerSlice
+  | BrunoTextSlice;
 
 /**
  * Content for Home documents
@@ -808,6 +812,161 @@ type BannerSliceVariation = BannerSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Primary content in *FirstSection → Primary*
+ */
+export interface FirstSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * LinkBox1 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.linkbox1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbox1: prismic.LinkField;
+
+  /**
+   * Picture1Box1 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.picture1box1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture1box1: prismic.ImageField<never>;
+
+  /**
+   * Picture2Box1 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.picture2box1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture2box1: prismic.ImageField<never>;
+
+  /**
+   * TitleBox1 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.titlebox1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  titlebox1: prismic.RichTextField;
+
+  /**
+   * ParagraphBox1 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.paragraphbox1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraphbox1: prismic.RichTextField;
+
+  /**
+   * LinkBox2 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.linkbox2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbox2: prismic.LinkField;
+
+  /**
+   * Picture1Box2 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.picture1box2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture1box2: prismic.ImageField<never>;
+
+  /**
+   * Picture2Box2 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.picture2box2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture2box2: prismic.ImageField<never>;
+
+  /**
+   * TitleBox2 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.titlebox2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  titlebox2: prismic.RichTextField;
+
+  /**
+   * ParagraphBox2 field in *FirstSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: first_section.primary.paragraphbox2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraphbox2: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FirstSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FirstSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FirstSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FirstSection*
+ */
+type FirstSectionSliceVariation = FirstSectionSliceDefault;
+
+/**
+ * FirstSection Shared Slice
+ *
+ * - **API ID**: `first_section`
+ * - **Description**: FirstSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FirstSectionSlice = prismic.SharedSlice<
+  "first_section",
+  FirstSectionSliceVariation
+>;
 
 /**
  * Primary content in *Footer → Primary*
@@ -1316,6 +1475,10 @@ declare module "@prismicio/client" {
       BannerSliceDefaultPrimary,
       BannerSliceVariation,
       BannerSliceDefault,
+      FirstSectionSlice,
+      FirstSectionSliceDefaultPrimary,
+      FirstSectionSliceVariation,
+      FirstSectionSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimary,
       FooterSliceDefaultItem,

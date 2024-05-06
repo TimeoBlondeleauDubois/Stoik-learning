@@ -9,4 +9,5 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   second_section: dynamic(() => import("./SecondSection")),
   text: dynamic(() => import("./Text")),
+  third_section: dynamic(() => import("./ThirdSection")),
 };

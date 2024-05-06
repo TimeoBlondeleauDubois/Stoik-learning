@@ -1,0 +1,140 @@
+@import '@/styles/common/globals.scss';
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .container {
+        margin-left: 8px;
+        margin-right: 8px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .title {
+            font-family: $font_2;
+            color: $colorSecondary_2;
+        }
+
+        .paragraph {
+            font-family: $font_1_regular;
+            font-size: $h6_textsize_desktop;
+            color: $colorSecondary_2;
+        }
+
+        .LogoContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .logo {
+                background-color: $colorGreyscale_1;
+            }
+        }
+
+        .button {
+            width: fit-content;
+            height: fit-content; 
+            border: solid 1px $colorSecondary_2;    
+            border-radius: 4px;         
+            color: $colorSecondary_2;
+            font-family: $font_1_regular;
+            font-size: $paragraphMedium_textsize_desktop;
+            transition: all 300ms ease-in-out;
+            padding: 16px 32px;
+
+            &:hover {
+                background-color: $colorGreyscale_8;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_mobile) {
+    .title {
+        font-size: $h1_textsize_mobile;
+        width: 792px;
+        margin-top: 120px;
+    }
+
+    .paragraph {
+        width: 792px;
+        margin-top: 40px;
+        margin-bottom: 72px;
+    }
+
+    .LogoContainer {
+        margin-bottom: 72px;
+
+        .logo {
+            width: 392px;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+    }
+
+    .button {
+        margin-bottom: 120px;
+    }
+}
+
+@media screen and (max-width: $breakPoint_mobile) {
+    .title {
+        font-size: $h2_textsize_mobile;
+        margin-top: 72px;
+        order: 0;
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+
+    .paragraph {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        order: 1;
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+
+    .LogoContainer {
+        margin-bottom: 72px;
+        order: 3;
+        margin-left: 13px;
+        margin-right: 13px;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 19px;
+        padding-right: 19px;
+
+        .logo {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+    }
+
+    .button {
+        margin-bottom: 40px;
+        order: 2;
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+}

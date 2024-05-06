@@ -313,6 +313,7 @@ export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
 type HomeDocumentDataSlicesSlice =
+  | ThirdSectionSlice
   | SecondSectionSlice
   | FirstSectionSlice
   | HeroSlice
@@ -1366,6 +1367,96 @@ type TextSliceVariation = TextSliceDefault;
 export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
 
 /**
+ * Primary content in *ThirdSection → Primary*
+ */
+export interface ThirdSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ThirdSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: third_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *ThirdSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: third_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * ButtonLabel field in *ThirdSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: third_section.primary.buttonlabel
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  buttonlabel: prismic.RichTextField;
+
+  /**
+   * ButtonLink field in *ThirdSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: third_section.primary.buttonlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonlink: prismic.LinkField;
+}
+
+/**
+ * Primary content in *ThirdSection → Items*
+ */
+export interface ThirdSectionSliceDefaultItem {
+  /**
+   * Logo field in *ThirdSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: third_section.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ThirdSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThirdSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ThirdSectionSliceDefaultPrimary>,
+  Simplify<ThirdSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ThirdSection*
+ */
+type ThirdSectionSliceVariation = ThirdSectionSliceDefault;
+
+/**
+ * ThirdSection Shared Slice
+ *
+ * - **API ID**: `third_section`
+ * - **Description**: ThirdSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThirdSectionSlice = prismic.SharedSlice<
+  "third_section",
+  ThirdSectionSliceVariation
+>;
+
+/**
  * Primary content in *BrunoText → Primary*
  */
 export interface BrunoTextSliceDefaultPrimary {
@@ -1672,6 +1763,11 @@ declare module "@prismicio/client" {
       TextSliceDefaultPrimary,
       TextSliceVariation,
       TextSliceDefault,
+      ThirdSectionSlice,
+      ThirdSectionSliceDefaultPrimary,
+      ThirdSectionSliceDefaultItem,
+      ThirdSectionSliceVariation,
+      ThirdSectionSliceDefault,
       BrunoTextSlice,
       BrunoTextSliceDefaultPrimary,
       BrunoTextSliceVariation,

@@ -28,7 +28,6 @@
 
                 .title {
                     font-family: $font_2;
-                    font-size: $h1_textsize_mobile;
                     color: $colorSecondary_2;
                 }
 
@@ -194,6 +193,10 @@
         padding-top: 72px;
         padding-bottom: 120px;
     }
+
+    .title {
+        font-size: $h1_textsize_mobile;
+    }
 }
 
 @media screen and (max-width: $breakPoint_mobile) {
@@ -244,6 +247,10 @@
     .FirstContainer,
     .SecondContainer {
         margin-bottom: 24px;
+    }
+
+    .title {
+        font-size: $h2_textsize_mobile;
     }
 }
 

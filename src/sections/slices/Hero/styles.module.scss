@@ -52,7 +52,6 @@
 
             .FirstContainer {
                 .title {
-                    font-size: $h1_textsize_desktop;
                     color: white;
                     font-family: $font_2;
                     margin-bottom: 40px;
@@ -114,6 +113,10 @@
         }
     }
 
+    .title {
+        font-size: $h1_textsize_desktop;
+    }
+
     .container {
         border-bottom-left-radius: 16px;
         min-width: 59.3%;
@@ -147,6 +150,10 @@
     .wrapper {
         display: flex;
         flex-direction: column;
+    }
+
+    .title {
+        font-size: $h1_textsize_mobile;
     }
     
     .SecondContainer {

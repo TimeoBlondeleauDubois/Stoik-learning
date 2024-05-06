@@ -13,7 +13,6 @@
 
         .title {
             margin-bottom: 40px;
-            font-size: 40px;
             max-width: 792px;
             margin-left: 24px;
             margin-right: 24px;
@@ -187,6 +186,7 @@
 @media screen and (min-width: $breakPoint_mobile) {
     .title {
         padding-top: 120px;
+        font-size: 40px;
     }
 
     .second_container {
@@ -197,6 +197,7 @@
 @media screen and (max-width: $breakPoint_mobile) {
     .title {
         padding-top: 72px;
+        font-size: 32px;
     }
 
     .second_container {

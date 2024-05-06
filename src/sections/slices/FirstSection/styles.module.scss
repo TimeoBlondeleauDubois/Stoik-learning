@@ -12,7 +12,6 @@
         text-align: center;
 
         .title {
-            padding-top: 120px;
             margin-bottom: 40px;
             font-size: 40px;
             max-width: 792px;
@@ -35,7 +34,6 @@
     .second_container{
         display: flex;
         justify-content: center;
-        padding-bottom: 120px;
         font-family: $font_2;
 
         .second_container_wrapper:hover {    
@@ -184,5 +182,24 @@
             }
         }   
     }
-    
+}
+
+@media screen and (min-width: $breakPoint_mobile) {
+    .title {
+        padding-top: 120px;
+    }
+
+    .second_container {
+        padding-bottom: 120px;
+    }
+}
+
+@media screen and (max-width: $breakPoint_mobile) {
+    .title {
+        padding-top: 72px;
+    }
+
+    .second_container {
+        padding-bottom: 72px;
+    }
 }

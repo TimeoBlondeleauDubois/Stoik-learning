@@ -16,18 +16,15 @@
         margin-left: 5px;
         margin-right: 5px;
         background-color: $colorGreyscale_1;
+        border-radius: 16px;
 
         .TopContainer {
             display: flex;
-            justify-content: center;
-            margin-bottom: 72px;
 
             .WrapperTopContainer {
                 display: flex;
                 flex-direction: column;
                 margin-left: 5px;
-                margin-top: 120px;
-                margin-right: 65px;
 
                 .title {
                     font-family: $font_2;
@@ -45,8 +42,7 @@
 
                 .Button {
                     width: fit-content;
-                    height: fit-content;
-                    padding: 16px 32px;   
+                    height: fit-content; 
                     border: solid 1px $colorSecondary_2;    
                     border-radius: 4px;         
                     color: $colorSecondary_2;
@@ -62,22 +58,16 @@
 
             .picture {
                 margin-right: 5px;
-                margin-top: 120px;
-                margin-left: 65px;
             }
         }
 
         .BottomContainer {
             display: flex;
             justify-content: center;
-            padding-top: 72px;
-            padding-bottom: 120px;
 
             .FirstContainer {
                 display: flex;
-                width: 376px;
                 margin-right: 24px;
-                border-right: solid 1px $colorSecondary_2;
 
                 .FCPictureContainer {
                     min-width: 40px;
@@ -108,9 +98,7 @@
 
             .SecondContainer {
                 display: flex;
-                width: 376px;
                 margin-right: 24px;
-                border-right: solid 1px $colorSecondary_2;
 
                 .SCPictureContainer {
                     min-width: 40px;
@@ -141,7 +129,6 @@
 
             .ThirdContainer {
                 display: flex;
-                width: 376px;
                 margin-right: 24px;
 
                 .TCPictureContainer {
@@ -171,5 +158,103 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (min-width: $breakPoint_mobile) {
+    .picture {
+        margin-top: 120px;
+    }
+
+    .Button {
+        padding: 16px 32px;
+    }
+
+    .WrapperTopContainer {
+        margin-top: 120px;
+    }
+
+    .TopContainer {
+        justify-content: center;
+        margin-bottom: 72px;
+    }
+
+    .FirstContainer,
+    .SecondContainer {
+        border-right: solid 1px $colorSecondary_2;
+    }
+
+    .FirstContainer,
+    .SecondContainer,
+    .ThirdContainer {
+        width: 376px;
+    }
+
+    .BottomContainer {
+        padding-top: 72px;
+        padding-bottom: 120px;
+    }
+}
+
+@media screen and (max-width: $breakPoint_mobile) {
+    .TopContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 40px;
+    }
+
+    .SecondContainer,
+    .FirstContainer,
+    .ThirdContainer {
+       width: 345px;
+    }
+
+    .Button { 
+        min-height: 55px; 
+        min-width: 100%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .WrapperTopContainer {
+        margin-top: 40px;
+    }
+
+    .picture {
+        margin-right: 16px;
+        margin-left: -3px;
+        margin-top: 0px;
+        margin-top: 40px;
+        max-width: auto;
+        max-height: 225px;
+    }
+
+    .BottomContainer {
+        flex-direction: column;
+        padding-bottom: 40px;
+        margin-left: 24px;
+        align-items: center;
+    }
+
+    .FirstContainer,
+    .SecondContainer {
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .WrapperTopContainer {
+        margin-right: 130px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .WrapperTopContainer {
+        margin-right: 50px;
     }
 }

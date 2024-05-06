@@ -25,9 +25,7 @@ const SecondSection = ({ slice }) => {
                 <PrismicRichText field={slice.primary.buttonlabel} />
               </PrismicNextLink>
             </div>
-            <div className={styles.PictureContainer}>
-              <PrismicNextImage className={styles.picture} field={slice.primary.picture} />
-            </div>
+            <PrismicNextImage className={styles.picture} field={slice.primary.picture} />
           </div>
           <div className={styles.BottomContainer}>
             <div className={styles.FirstContainer}>

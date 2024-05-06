@@ -47,8 +47,6 @@
         .second_container_wrapper {
             border: 1px solid rgba(50, 10, 55, 0.4);
             border-radius: 8px;
-            width: 592px;
-            margin-left: 24px;
             transition: all 0.5s ease-in-out;
 
             .flex {
@@ -119,9 +117,6 @@
         .third_container_wrapper {
             border: 1px solid rgba(50, 10, 55, 0.4);
             border-radius: 8px;
-            width: 592px;
-            margin-left: 8px;
-            margin-right: 24px;
             transition: all 0.5s ease-in-out;
 
             .flex {
@@ -191,6 +186,17 @@
 
     .second_container {
         padding-bottom: 120px;
+        margin-left: 24px;
+    }
+
+    .third_container_wrapper,
+    .second_container_wrapper {
+        width: 592px;
+    }
+
+    .third_container_wrapper {
+        margin-left: 8px;
+        margin-right: 24px;
     }
 }
 
@@ -202,5 +208,17 @@
 
     .second_container {
         padding-bottom: 72px;
+        flex-direction: column;
+    }
+
+    .third_container_wrapper {
+        margin-top: 8px;
+    }
+
+    .third_container_wrapper,
+    .second_container_wrapper {
+        margin-left: 24px;
+        max-width: 592px;
+        margin-right: 24px
     }
 }

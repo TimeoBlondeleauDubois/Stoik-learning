@@ -25,7 +25,7 @@ return (
       </div>
       <div className={styles.second_container}>
         <div className={styles.second_container_wrapper}>
-          <PrismicNextLink field={slice.primary.linkbox1}>
+          <PrismicNextLink field={slice.primary.linkzbox1}>
             <div className={styles.flex}>
               <div className={styles.picture1box1}>
                 <PrismicNextImage field={slice.primary.picture1box1} />

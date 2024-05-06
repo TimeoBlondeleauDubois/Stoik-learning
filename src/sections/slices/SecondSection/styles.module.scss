@@ -1,0 +1,175 @@
+@import '@/styles/common/globals.scss';
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .container {
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: $colorGreyscale_1;
+
+        .TopContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 72px;
+
+            .WrapperTopContainer {
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+                margin-top: 120px;
+                margin-right: 65px;
+
+                .title {
+                    font-family: $font_2;
+                    font-size: $h1_textsize_mobile;
+                    color: $colorSecondary_2;
+                }
+
+                .paragraph {
+                    font-family: $font_1_regular;
+                    font-size: $h6_textsize_desktop;
+                    color: $colorSecondary_2;
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+                }
+
+                .Button {
+                    width: fit-content;
+                    height: fit-content;
+                    padding: 16px 32px;   
+                    border: solid 1px $colorSecondary_2;    
+                    border-radius: 4px;         
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                    transition: all 300ms ease-in-out;
+
+                    &:hover {
+                        background-color: $colorGreyscale_8;
+                    }
+                }
+            }
+
+            .picture {
+                margin-right: 5px;
+                margin-top: 120px;
+                margin-left: 65px;
+            }
+        }
+
+        .BottomContainer {
+            display: flex;
+            justify-content: center;
+            padding-top: 72px;
+            padding-bottom: 120px;
+
+            .FirstContainer {
+                display: flex;
+                width: 376px;
+                margin-right: 24px;
+                border-right: solid 1px $colorSecondary_2;
+
+                .FCPictureContainer {
+                    min-width: 40px;
+                    min-height: 40px;
+                    max-width: 40px;
+                    max-height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:#FFAAAA;
+                    border-radius: 8px;
+                    margin-right: 16px;
+                }
+
+                .FCTitle {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                    margin-bottom: 8px;
+                }
+
+                .FCParagraph {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                }
+            }
+
+            .SecondContainer {
+                display: flex;
+                width: 376px;
+                margin-right: 24px;
+                border-right: solid 1px $colorSecondary_2;
+
+                .SCPictureContainer {
+                    min-width: 40px;
+                    min-height: 40px;
+                    max-width: 40px;
+                    max-height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:#C8C8FF;
+                    border-radius: 8px;
+                    margin-right: 16px;
+                }
+
+                .SCTitle {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                    margin-bottom: 8px;
+                }
+
+                .SCParagraph {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                }
+            }
+
+            .ThirdContainer {
+                display: flex;
+                width: 376px;
+                margin-right: 24px;
+
+                .TCPictureContainer {
+                    min-width: 40px;
+                    min-height: 40px;
+                    max-width: 40px;
+                    max-height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:white;
+                    border-radius: 8px;
+                    margin-right: 16px;
+                }
+
+                .TCTitle {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                    margin-bottom: 8px;
+                }
+
+                .TCParagraph {
+                    color: $colorSecondary_2;
+                    font-family: $font_1_regular;
+                    font-size: $paragraphMedium_textsize_desktop;
+                }
+            }
+        }
+    }
+}

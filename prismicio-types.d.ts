@@ -313,6 +313,7 @@ export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
 type HomeDocumentDataSlicesSlice =
+  | SecondSectionSlice
   | FirstSectionSlice
   | HeroSlice
   | BannerSlice
@@ -1148,6 +1149,181 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *SecondSection → Primary*
+ */
+export interface SecondSectionSliceDefaultPrimary {
+  /**
+   * Title field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * ButtonLabel field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.buttonlabel
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  buttonlabel: prismic.RichTextField;
+
+  /**
+   * Button Link field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Picture field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.picture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture: prismic.ImageField<never>;
+
+  /**
+   * Logo1 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo1: prismic.ImageField<never>;
+
+  /**
+   * SmallTitle1 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smalltitle1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smalltitle1: prismic.RichTextField;
+
+  /**
+   * SmallParagraph1 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph1: prismic.RichTextField;
+
+  /**
+   * Logo2 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo2: prismic.ImageField<never>;
+
+  /**
+   * SmallTitle2 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smalltitle2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smalltitle2: prismic.RichTextField;
+
+  /**
+   * SmallParagraph2 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph2: prismic.RichTextField;
+
+  /**
+   * Logo3 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo3: prismic.ImageField<never>;
+
+  /**
+   * SmallTittle3 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smalltittle3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smalltittle3: prismic.RichTextField;
+
+  /**
+   * SmallParagraph3 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph3: prismic.RichTextField;
+}
+
+/**
+ * Default variation for SecondSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SecondSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SecondSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SecondSection*
+ */
+type SecondSectionSliceVariation = SecondSectionSliceDefault;
+
+/**
+ * SecondSection Shared Slice
+ *
+ * - **API ID**: `second_section`
+ * - **Description**: SecondSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SecondSectionSlice = prismic.SharedSlice<
+  "second_section",
+  SecondSectionSliceVariation
+>;
+
+/**
  * Primary content in *Text → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -1488,6 +1664,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      SecondSectionSlice,
+      SecondSectionSliceDefaultPrimary,
+      SecondSectionSliceVariation,
+      SecondSectionSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,

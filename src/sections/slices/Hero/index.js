@@ -35,7 +35,7 @@ const Hero = ({ slice }) => {
             </div>
           </div>
           <div className={styles.SecondContainer}>
-              <PrismicNextImage className={styles.picture1} field={slice.primary.picture1} />
+              <PrismicNextImage priority className={styles.picture1} field={slice.primary.picture1} />
               <div className={styles.picture2container}>
                 <PrismicNextImage className={styles.picture2} field={slice.primary.picture2} />
               </div>

@@ -41,10 +41,12 @@ const Header = ({ header }) => {
 
   useEffect(() => {
     const headerElement = document.querySelector(`.${styles.header}`) as HTMLElement;
-    if (isHeaderVisible) {
-      headerElement.classList.remove(styles.fixedHeader);
-    } else {
+    if (!isHeaderVisible) {
       headerElement.classList.add(styles.fixedHeader);
+      document.body.style.marginTop = `${headerElement.offsetHeight}px`;
+    } else {
+      headerElement.classList.remove(styles.fixedHeader);
+      document.body.style.marginTop = 0;
     }
   }, [isHeaderVisible]);
 

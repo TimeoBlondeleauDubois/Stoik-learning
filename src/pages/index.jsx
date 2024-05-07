@@ -13,7 +13,7 @@ import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
 export default function Home({ page, header, footer }) { 
   const { data } = page 
-  return (<Layout header={header} footer={footer}>
+  return (<Layout header={header} footer={footer} currentPage="homepage">
     <SliceZone
     slices={data.slices}
     components={{

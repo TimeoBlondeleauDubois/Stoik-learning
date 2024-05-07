@@ -3,7 +3,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import styles from "./style.module.scss";
 
-const Header = ({ header }) => {
+const Header = ({ currentPage, header }) => {
   let i = 0;
   const toggleContainerMobile = () => {
     i = i + 1;
@@ -102,10 +102,21 @@ const Header = ({ header }) => {
     }
 
     rotatePaths();
+
+    
   };
+  
+    let headerClassName = styles.header; 
+    
+    if (currentPage === 'homepage') {
+      headerClassName += ` ${styles['homepage']}`;
+    } else if (currentPage === '') {
+      headerClassName += ` ${styles['']}`;
+    }
+  
 
   return (
-    <header className={`${styles.header}`}>
+    <header className={`${styles.header} ${headerClassName}`}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.logo}>

@@ -1308,9 +1308,119 @@ export type SecondSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SecondSection → Primary*
+ */
+export interface SecondSectionSlicePictureReversePrimary {
+  /**
+   * Picture field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.picture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Logo1 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo1: prismic.ImageField<never>;
+
+  /**
+   * SmallParagraph1 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph1: prismic.RichTextField;
+
+  /**
+   * Logo2 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo2: prismic.ImageField<never>;
+
+  /**
+   * SmallParagraph2 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph2: prismic.RichTextField;
+
+  /**
+   * Logo3 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.logo3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo3: prismic.ImageField<never>;
+
+  /**
+   * SmallParagraph3 field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.smallparagraph3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  smallparagraph3: prismic.RichTextField;
+}
+
+/**
+ * PictureReverse variation for SecondSection Slice
+ *
+ * - **API ID**: `pictureReverse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SecondSectionSlicePictureReverse = prismic.SharedSliceVariation<
+  "pictureReverse",
+  Simplify<SecondSectionSlicePictureReversePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SecondSection*
  */
-type SecondSectionSliceVariation = SecondSectionSliceDefault;
+type SecondSectionSliceVariation =
+  | SecondSectionSliceDefault
+  | SecondSectionSlicePictureReverse;
 
 /**
  * SecondSection Shared Slice
@@ -1757,8 +1867,10 @@ declare module "@prismicio/client" {
       HeroSliceDefault,
       SecondSectionSlice,
       SecondSectionSliceDefaultPrimary,
+      SecondSectionSlicePictureReversePrimary,
       SecondSectionSliceVariation,
       SecondSectionSliceDefault,
+      SecondSectionSlicePictureReverse,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,

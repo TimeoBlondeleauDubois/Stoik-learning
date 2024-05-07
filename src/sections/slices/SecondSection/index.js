@@ -11,7 +11,7 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 const SecondSection = ({ slice }) => {
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} ${slice.variation === "pictureReverse" ? styles.columnDirection : ""}`}>
         <div className={styles.container}>
           <div className={styles.TopContainer}>
             <div className={styles.WrapperTopContainer}>

@@ -135,6 +135,94 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "pictureReverse",
+      "name": "PictureReverse",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "picture": {
+          "type": "Image",
+          "config": {
+            "label": "Picture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "logo1": {
+          "type": "Image",
+          "config": {
+            "label": "Logo1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "smallparagraph1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "SmallParagraph1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "logo2": {
+          "type": "Image",
+          "config": {
+            "label": "Logo2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "smallparagraph2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "SmallParagraph2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "logo3": {
+          "type": "Image",
+          "config": {
+            "label": "Logo3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "smallparagraph3": {
+          "type": "StructuredText",
+          "config": {
+            "label": "SmallParagraph3",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -3,6 +3,40 @@
 .wrapper {
     margin-left: auto;
     margin-right: auto;
+    
+    &.columnDirection {
+        .Button {
+            display: none;
+        }
+
+        .FCPictureContainer,
+        .SCPictureContainer,
+        .TCPictureContainer {
+            background-color: transparent !important;
+            border: solid 1px white;
+        }
+
+        .container {
+            background-color: $colorSecondary_2;
+        }
+
+        .title,
+        .paragraph,
+        .FCTitle,
+        .FCParagraph,
+        .SCTitle,
+        .SCParagraph,
+        .TCTitle,
+        .TCParagraph {
+            color: white !important;
+        }
+
+        .FCParagraph,
+        .SCParagraph,
+        .TCParagraph {
+            margin-top: -8px;
+        }
+    }
 
     strong {
         font-weight: bold;
@@ -183,6 +217,19 @@
         border-right: solid 1px $colorSecondary_2;
     }
 
+    .wrapper { 
+        &.columnDirection {
+            .FirstContainer,
+            .SecondContainer {
+                border-right: solid 1px white;
+            }
+
+            .WrapperTopContainer {
+                order: 2;
+            }
+        }
+    }
+
     .FirstContainer,
     .SecondContainer,
     .ThirdContainer {
@@ -258,10 +305,28 @@
     .WrapperTopContainer {
         margin-right: 130px;
     }
+
+    .wrapper { 
+        &.columnDirection {
+            .WrapperTopContainer {
+                margin-right: 0px !important;
+                margin-left: 130px !important;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 1400px) {
     .WrapperTopContainer {
         margin-right: 50px;
+    }
+
+    .wrapper { 
+        &.columnDirection {
+            .WrapperTopContainer {
+                margin-right: 0px !important;
+                margin-left: 50px !important;
+            }
+        }
     }
 }

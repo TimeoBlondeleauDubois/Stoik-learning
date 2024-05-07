@@ -12,6 +12,17 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "bgcolor": {
+          "type": "Select",
+          "config": {
+            "label": "BGColor",
+            "placeholder": "",
+            "options": [
+              "Grey",
+              "Purple"
+            ]
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
@@ -144,6 +155,17 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "bgcolor": {
+          "type": "Select",
+          "config": {
+            "label": "BGColor",
+            "placeholder": "",
+            "options": [
+              "Grey",
+              "Purple"
+            ]
+          }
+        },
         "picture": {
           "type": "Image",
           "config": {

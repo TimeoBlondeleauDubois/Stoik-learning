@@ -9,10 +9,17 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
  * @param {SecondSectionProps}
  */
 const SecondSection = ({ slice }) => {
+  const colorMap = {
+    'Grey': '#F2F2F2',
+    'Purple': '#3C1441',
+  };
+
+  const bgColor = colorMap[slice.primary.bgcolor] || 'blue';
+
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
       <div className={`${styles.wrapper} ${slice.variation === "pictureReverse" ? styles.columnDirection : ""}`}>
-        <div className={styles.container}>
+        <div className={styles.container} style={{ backgroundColor: bgColor }}>
           <div className={styles.TopContainer}>
             <div className={styles.WrapperTopContainer}>
               <div className={styles.title}>

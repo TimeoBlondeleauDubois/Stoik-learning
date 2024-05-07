@@ -200,6 +200,11 @@
 						}
 					}
 				]
+			},
+			"bgcolor": {
+				"__TYPE__": "FieldContent",
+				"value": "Grey",
+				"type": "Select"
 			}
 		},
 		"items": []
@@ -354,6 +359,11 @@
 						}
 					}
 				]
+			},
+			"bgcolor": {
+				"__TYPE__": "FieldContent",
+				"value": "Purple",
+				"type": "Select"
 			}
 		},
 		"items": [

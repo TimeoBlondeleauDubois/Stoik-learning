@@ -1154,6 +1154,16 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export interface SecondSectionSliceDefaultPrimary {
   /**
+   * BGColor field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.bgcolor
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  bgcolor: prismic.SelectField<"Grey" | "Purple">;
+
+  /**
    * Title field in *SecondSection → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1311,6 +1321,16 @@ export type SecondSectionSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *SecondSection → Primary*
  */
 export interface SecondSectionSlicePictureReversePrimary {
+  /**
+   * BGColor field in *SecondSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_section.primary.bgcolor
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  bgcolor: prismic.SelectField<"Grey" | "Purple">;
+
   /**
    * Picture field in *SecondSection → Primary*
    *

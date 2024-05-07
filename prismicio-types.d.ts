@@ -313,6 +313,7 @@ export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
 type HomeDocumentDataSlicesSlice =
+  | FifthSectionSlice
   | FourthSectionSlice
   | ThirdSectionSlice
   | SecondSectionSlice
@@ -815,6 +816,96 @@ type BannerSliceVariation = BannerSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Primary content in *FifthSection → Primary*
+ */
+export interface FifthSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * ButtonLabel field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.buttonlabel
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  buttonlabel: prismic.RichTextField;
+
+  /**
+   * ButtonLink field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.buttonlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonlink: prismic.LinkField;
+}
+
+/**
+ * Primary content in *FifthSection → Items*
+ */
+export interface FifthSectionSliceDefaultItem {
+  /**
+   * Logo field in *FifthSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for FifthSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FifthSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FifthSectionSliceDefaultPrimary>,
+  Simplify<FifthSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FifthSection*
+ */
+type FifthSectionSliceVariation = FifthSectionSliceDefault;
+
+/**
+ * FifthSection Shared Slice
+ *
+ * - **API ID**: `fifth_section`
+ * - **Description**: FifthSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FifthSectionSlice = prismic.SharedSlice<
+  "fifth_section",
+  FifthSectionSliceVariation
+>;
 
 /**
  * Primary content in *FirstSection → Primary*
@@ -1993,6 +2084,11 @@ declare module "@prismicio/client" {
       BannerSliceDefaultPrimary,
       BannerSliceVariation,
       BannerSliceDefault,
+      FifthSectionSlice,
+      FifthSectionSliceDefaultPrimary,
+      FifthSectionSliceDefaultItem,
+      FifthSectionSliceVariation,
+      FifthSectionSliceDefault,
       FirstSectionSlice,
       FirstSectionSliceDefaultPrimary,
       FirstSectionSliceVariation,

@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "fifth_section": {
+              "type": "SharedSlice"
+            },
             "fourth_section": {
               "type": "SharedSlice"
             },

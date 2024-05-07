@@ -1,0 +1,63 @@
+{
+  "id": "fifth_section",
+  "type": "SharedSlice",
+  "name": "FifthSection",
+  "description": "FifthSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "buttonlabel": {
+          "type": "StructuredText",
+          "config": {
+            "label": "ButtonLabel",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "buttonlink": {
+          "type": "Link",
+          "config": {
+            "label": "ButtonLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

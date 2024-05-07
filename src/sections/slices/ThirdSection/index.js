@@ -29,11 +29,9 @@ const ThirdSection = ({ slice }) => {
             </div>
             ))}
           </div>
-          <div className={styles.button}>
-            <PrismicNextLink field={slice.primary.buttonlink}>
+            <PrismicNextLink className={styles.button} field={slice.primary.buttonlink}>
               <PrismicRichText field={slice.primary.buttonlabel} />
             </PrismicNextLink>
-          </div>
         </div>
       </div>
     </section>

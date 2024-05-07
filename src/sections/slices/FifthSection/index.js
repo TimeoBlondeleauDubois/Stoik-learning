@@ -29,8 +29,8 @@ const FifthSection = ({ slice }) => {
         </div>
         <div className={styles.SecondSection}>
           {slice.items.map((item, index) => (
-            <div className={styles.logocontainer}>
-              <PrismicNextImage className={styles.logo} field={item.logo} />
+            <div key={index} className={styles.logocontainer}>
+              <PrismicNextImage key={index} className={styles.logo} field={item.logo} />
             </div>
           ))}
         </div>

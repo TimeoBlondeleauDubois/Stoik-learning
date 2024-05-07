@@ -32,6 +32,10 @@
         .TCParagraph {
             margin-top: -8px;
         }
+
+        em {
+            color: #FFAAAA;
+        }
     }
 
     strong {
@@ -39,7 +43,7 @@
     }
 
     em {
-        font-style: italic;
+        color: $colorPrimary_3;
     }
 
     .container {

@@ -18,7 +18,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,strong,em"
+            "multi": "heading2,strong,em,embed,rtl,preformatted"
           }
         },
         "buttonlink": {

@@ -59,6 +59,7 @@ export default function Layout({
       <SEO seo={seo} />
       <Cookie />
       {isLightboxOpen && <Lightbox resource={lightboxResource} />}
+      {/* /*<Banner /> */}
       <Header header={header} currentPage={currentPage} />
       <main>{children}</main>
       <Footer footer={footer} currentPage={currentPage} />

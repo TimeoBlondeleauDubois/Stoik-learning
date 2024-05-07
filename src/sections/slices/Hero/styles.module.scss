@@ -6,14 +6,6 @@
     .wrapper {
         display: flex;
 
-        strong {
-            font-weight: bold;
-        }
-
-        em {
-            font-style: italic;
-        }
-
         .SecondContainer {
             display: flex;
             flex-direction: column;
@@ -55,6 +47,14 @@
                     color: white;
                     font-family: $font_2;
                     margin-bottom: 40px;
+
+                    strong {
+                        color: #C8C8FF;
+                    }
+            
+                    em {
+                        color: #FFAAAA;
+                    }
                 }
 
                 .paragraph {
@@ -66,6 +66,10 @@
 
                 .ThirdContainer  {
                     display: flex;
+
+                    strong {
+                        font-weight: bold;
+                    }
 
                     .linkbutton1 {
                         color: $colorSecondary_2;

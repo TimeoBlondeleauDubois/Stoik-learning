@@ -315,7 +315,9 @@
     .WrapperTopContainer {
         margin-right: 50px;
     }
+}
 
+@media screen and (max-width: 1400px) and (min-width: $breakPoint_mobile) {
     .wrapper { 
         &.columnDirection {
             .WrapperTopContainer {

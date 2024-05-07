@@ -313,6 +313,7 @@ export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
 type HomeDocumentDataSlicesSlice =
+  | FourthSectionSlice
   | ThirdSectionSlice
   | SecondSectionSlice
   | FirstSectionSlice
@@ -1036,6 +1037,126 @@ type FooterSliceVariation = FooterSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
+ * Primary content in *FourthSection → Primary*
+ */
+export interface FourthSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FourthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * ButtonLink field in *FourthSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.primary.buttonlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonlink: prismic.LinkField;
+
+  /**
+   * ButtonLabel field in *FourthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.primary.buttonlabel
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  buttonlabel: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FourthSection → Items*
+ */
+export interface FourthSectionSliceDefaultItem {
+  /**
+   * Icon1 field in *FourthSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.items[].icon1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon1: prismic.ImageField<never>;
+
+  /**
+   * Icon2 field in *FourthSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.items[].icon2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon2: prismic.ImageField<never>;
+
+  /**
+   * TitleBox field in *FourthSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.items[].titlebox
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  titlebox: prismic.RichTextField;
+
+  /**
+   * ParagraphBox field in *FourthSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.items[].paragraphbox
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraphbox: prismic.RichTextField;
+
+  /**
+   * LinkBox field in *FourthSection → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fourth_section.items[].linkbox
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkbox: prismic.LinkField;
+}
+
+/**
+ * Default variation for FourthSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FourthSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FourthSectionSliceDefaultPrimary>,
+  Simplify<FourthSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FourthSection*
+ */
+type FourthSectionSliceVariation = FourthSectionSliceDefault;
+
+/**
+ * FourthSection Shared Slice
+ *
+ * - **API ID**: `fourth_section`
+ * - **Description**: FourthSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FourthSectionSlice = prismic.SharedSlice<
+  "fourth_section",
+  FourthSectionSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -1881,6 +2002,11 @@ declare module "@prismicio/client" {
       FooterSliceDefaultItem,
       FooterSliceVariation,
       FooterSliceDefault,
+      FourthSectionSlice,
+      FourthSectionSliceDefaultPrimary,
+      FourthSectionSliceDefaultItem,
+      FourthSectionSliceVariation,
+      FourthSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

@@ -6,6 +6,7 @@ export const components = {
   banner: dynamic(() => import("./Banner")),
   first_section: dynamic(() => import("./FirstSection")),
   footer: dynamic(() => import("./Footer")),
+  fourth_section: dynamic(() => import("./FourthSection")),
   hero: dynamic(() => import("./Hero")),
   second_section: dynamic(() => import("./SecondSection")),
   text: dynamic(() => import("./Text")),

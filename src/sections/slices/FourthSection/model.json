@@ -1,0 +1,88 @@
+{
+  "id": "fourth_section",
+  "type": "SharedSlice",
+  "name": "FourthSection",
+  "description": "FourthSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "buttonlink": {
+          "type": "Link",
+          "config": {
+            "label": "ButtonLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "buttonlabel": {
+          "type": "StructuredText",
+          "config": {
+            "label": "ButtonLabel",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {
+        "icon1": {
+          "type": "Image",
+          "config": {
+            "label": "Icon1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "icon2": {
+          "type": "Image",
+          "config": {
+            "label": "Icon2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "titlebox": {
+          "type": "StructuredText",
+          "config": {
+            "label": "TitleBox",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,heading3"
+          }
+        },
+        "paragraphbox": {
+          "type": "StructuredText",
+          "config": {
+            "label": "ParagraphBox",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "linkbox": {
+          "type": "Link",
+          "config": {
+            "label": "LinkBox",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

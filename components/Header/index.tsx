@@ -72,12 +72,22 @@ const Header = ({ currentPage, header }) => {
 
   useEffect(() => {
     const headerElement = document.querySelector(`.${styles.header}`) as HTMLElement;
+    const homepageMargin = 0;
+  
     if (isHeaderVisible) {
       headerElement.classList.remove(styles.fixedHeader);
+      headerElement.style.marginTop = '';
     } else {
       headerElement.classList.add(styles.fixedHeader);
+      if (currentPage === 'homepage') {
+        headerElement.classList.add(styles.homepage);
+        headerElement.style.marginTop = `${homepageMargin}px`;
+      } else {
+        headerElement.classList.remove(styles.homepage);
+        headerElement.style.marginTop = '';
+      }
     }
-  }, [isHeaderVisible]);
+  }, [isHeaderVisible, currentPage]);
 
   const rotatePaths = () => {
     setIsPath1Rotated(!isPath1Rotated);

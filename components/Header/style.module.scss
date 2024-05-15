@@ -182,6 +182,28 @@
 }
 
 @media screen and (max-width: 1180px) {
+  .homepage {
+    .container {
+      margin-left: 17px !important;
+      margin-top: 50px;
+    }
+  
+    .SecondContainer {
+      margin-right: 30px !important;
+      margin-top: 50px;
+    }
+  }
+
+  .fixedHeader {
+    .container {
+      margin-top: 0px !important;
+    }
+
+    .SecondContainer {
+      margin-top: 0px !important;
+    }
+  }
+
   .header {
     min-height: 80px;
     max-height: 80px;
@@ -201,7 +223,8 @@
   .LinkLabelChoice,
   .Link,
   .ContainerButton,
-  .ButtonLabel {
+  .ButtonLabel,
+  .ButtonArrow {
     display: none;
   }
 
@@ -215,7 +238,13 @@
     align-items: center;
     z-index: 1000;
     margin-right: -15px;
-    margin-left: 6px;
+    margin-left: 17px;
+  }
+
+  .homepage {
+    .language {
+      background-color: transparent;
+    }
   }
 
   .language {
@@ -403,6 +432,14 @@
 
   .SvgPurple2 {
     stroke: white !important;
+  }
+
+  .container {
+    margin-left: 82px;
+  }
+
+  .SecondContainer {
+    margin-right: 82px;
   }
 }
 

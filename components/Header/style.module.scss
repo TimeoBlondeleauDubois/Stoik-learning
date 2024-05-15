@@ -397,4 +397,13 @@
 
 .homepage {
   margin-top: 100px;
+  .LowTitle {
+    color: white !important;
+  }
+}
+
+.fixedHeader {
+  .LowTitle {
+    color: $colorSecondary_1 !important;
+  }
 }

@@ -46,7 +46,7 @@ const Header = ({ currentPage, header }) => {
       document.body.style.marginTop = `${headerElement.offsetHeight}px`;
     } else {
       headerElement.classList.remove(styles.fixedHeader);
-      document.body.style.marginTop = 0;
+      document.body.style.marginTop = '0';
     }
   }, [isHeaderVisible]);
 

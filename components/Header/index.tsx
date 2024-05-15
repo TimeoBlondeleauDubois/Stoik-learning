@@ -241,7 +241,7 @@ const Header = ({ currentPage, header }) => {
                             <PrismicRichText
                               key={index}
                               field={item.linklabelchoice}
-                              />
+                            />
                           </div>
                         </PrismicNextLink>
                       </div>

@@ -73,10 +73,14 @@
             background: linear-gradient(to top, #1360dd00 85%, #1362DD 100%);
         }            
 
+        :root {
+            --nombredelogo: 0;
+          }
+
         @keyframes scroll {
             0% { transform: translateY(0); }
-            100% { transform: translateY(calc(-124px * 5 /*nombre de logo*/)) }
-        }
+            100% { transform: translateY(calc(-124px * var(--nombredelogo))); }
+          }
 
         .SecondSectionWrapper {
             height: 100px;

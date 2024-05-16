@@ -1,7 +1,8 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import React from "react";
 import styles from './styles.module.scss';
+import React, { useState, useEffect } from "react";
+
 
 /**
  * @typedef {import("@prismicio/client").Content.FifthSectionSlice} FifthSectionSlice
@@ -9,6 +10,16 @@ import styles from './styles.module.scss';
  * @param {FifthSectionProps}
  */
 const FifthSection = ({ slice }) => {
+  const [numLogos, setNumLogos] = useState(5);
+
+  useEffect(() => {
+    if (slice && slice.items) {
+      const numLogos = slice.items.length;
+      setNumLogos(numLogos);
+      document.documentElement.style.setProperty('--nombredelogo', numLogos);
+    }
+  }, [slice]);
+
   return (
     <section
       data-slice-type={slice.slice_type}

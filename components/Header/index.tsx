@@ -3,9 +3,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import styles from "./style.module.scss";
 
-
-/*test*/
-
 const Header = ({ currentPage, header }) => {
   let i = 0;
   const toggleContainerMobile = () => {

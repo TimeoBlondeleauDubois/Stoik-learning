@@ -66,12 +66,58 @@
             align-items: center;
             flex-direction: column;
             margin-right: 24px;
+            background-color: $colorPrimary_3;
+        }
+
+        @mixin white-gradient {
+            background: linear-gradient(to top, #1360dd00 85%, #1362DD 100%);
+        }            
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(calc(-250px * 2.025))}
+        }
+
+        .SecondSectionWrapper {
+            height: 100px;
+            margin: auto;
+            overflow:hidden;
+            position: relative;
+            height: 550px;
+
+            &::before,
+            &::after {
+                @include white-gradient;
+                content: "";
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: 2;
+            }
+            
+            &::after {
+                right: 0;
+                top: 0;
+                transform: rotateZ(180deg);
+            }
+
+            &::before {
+                left: 0;
+                top: 0;
+            }
+
+            .SecondSectionContainer {
+                animation: scroll 4s linear infinite;
+                display: flex;
+                height: calc(250px * 3.7);
+                flex-direction: column;
+            }
 
             .logocontainer {
-                background-color: white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background-color: white;
             }
         }
     }

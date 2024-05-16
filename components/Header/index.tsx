@@ -41,14 +41,19 @@ const Header = ({ currentPage, header }) => {
 
   useEffect(() => {
     const headerElement = document.querySelector(`.${styles.header}`) as HTMLElement;
+    let headerHeight = `${headerElement.offsetHeight}px`;
+    if (currentPage === 'homepage') {
+      headerHeight = '167px';
+    }
     if (!isHeaderVisible) {
       headerElement.classList.add(styles.fixedHeader);
-      document.body.style.marginTop = `${headerElement.offsetHeight}px`;
+      document.body.style.marginTop = headerHeight;
     } else {
       headerElement.classList.remove(styles.fixedHeader);
       document.body.style.marginTop = '0';
     }
-  }, [isHeaderVisible]);
+  }, [isHeaderVisible, currentPage]);
+  
 
   const [isPath1Rotated, setIsPath1Rotated] = useState(false);
   const [isPath2Rotated, setIsPath2Rotated] = useState(false);

@@ -76,11 +76,6 @@
             --nombredelogo: 0;
           }
 
-        @keyframes scroll {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(calc(-124px * var(--nombredelogo))); }
-          }
-
         .SecondSectionWrapper {
             height: 100px;
             margin: auto;
@@ -156,9 +151,20 @@
             }
         }
     }
+
+    @keyframes scroll {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(calc(-124px * var(--nombredelogo))); }
+      }
 }
 
 @media screen and (max-width: $breakPoint_mobile) {
+
+    @keyframes scroll {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(calc(-109px * var(--nombredelogo))); }
+      }
+
     .title {
         font-size: $h2_textsize_mobile;
         margin-top: 40px;
@@ -184,8 +190,8 @@
         margin-bottom: 16px;
 
         .logo {
-            width: 250px;
-            height: 60px;
+            width: 180px;
+            height: 45px;
         }
     }
 

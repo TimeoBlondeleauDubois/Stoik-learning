@@ -17,6 +17,10 @@ export class PageService {
     return await this.apiService.getSinglePage('p404', this.lang)
   }
 
+  async getAssurance(): Promise<AllDocumentTypes> {
+    return await this.apiService.getSinglePage('assurance', this.lang)
+  }
+
   async getLegals(uid: string): Promise<AllDocumentTypes> {
     return await this.apiService.getPageByUID('legals', uid, this.lang)
   }
@@ -24,5 +28,4 @@ export class PageService {
   async getAllLegals(lang: string = this.lang): Promise<AllDocumentTypes[]> {
     return await this.apiService.getAllDocumentTypes('legals', lang)
   }
-
 }

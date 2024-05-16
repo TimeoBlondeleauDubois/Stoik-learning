@@ -75,7 +75,7 @@
 
         @keyframes scroll {
             0% { transform: translateY(0); }
-            100% { transform: translateY(calc(-250px * 2.025))}
+            100% { transform: translateY(calc(-510px)) }
         }
 
         .SecondSectionWrapper {
@@ -109,8 +109,8 @@
             .SecondSectionContainer {
                 animation: scroll 4s linear infinite;
                 display: flex;
-                height: calc(250px * 3.7);
                 flex-direction: column;
+                z-index: 10;
             }
 
             .logocontainer {

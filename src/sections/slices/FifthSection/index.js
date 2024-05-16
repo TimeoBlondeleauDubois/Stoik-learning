@@ -43,7 +43,7 @@ const FifthSection = ({ slice }) => {
             <div className={styles.SecondSectionContainer}>
               {slice.items.map((item, index) => (
                 <div key={index} className={styles.logocontainer}>
-                  <PrismicNextImage key={index} className={styles.logo} field={item.logo} />
+                  <PrismicNextImage priority key={index} className={styles.logo} field={item.logo} />
                 </div>
               ))}
               {slice.items.map((item, index) => (

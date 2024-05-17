@@ -83,72 +83,6 @@ export interface FooterDocumentDataSocialsItem {
   socialslink: prismic.LinkField;
 }
 
-type AssuranceDocumentDataSlicesSlice = FourthSectionSlice;
-
-/**
- * Content for Assurance documents
- */
-interface AssuranceDocumentData {
-  /**
-   * Slice Zone field in *Assurance*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: assurance.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<AssuranceDocumentDataSlicesSlice> /**
-   * Meta Description field in *Assurance*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: assurance.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Assurance*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: assurance.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Assurance*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: assurance.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * Assurance document from Prismic
- *
- * - **API ID**: `assurance`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AssuranceDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AssuranceDocumentData>,
-    "assurance",
-    Lang
-  >;
-
-
 type FooterDocumentDataSlices1Slice = FooterSlice;
 
 /**
@@ -810,7 +744,6 @@ export type SocialMediaDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | AssuranceDocument
   | CookieDocument
   | FooterDocument
   | HeaderDocument
@@ -2115,9 +2048,6 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      AssuranceDocument,
-      AssuranceDocumentData,
-      AssuranceDocumentDataSlicesSlice,
       CookieDocument,
       CookieDocumentData,
       FooterDocument,

@@ -54,6 +54,10 @@
         .TopContainer {
             display: flex;
 
+            .style {
+                display: flex;
+            }
+
             .WrapperTopContainer {
                 display: flex;
                 flex-direction: column;
@@ -208,7 +212,11 @@
 
     .TopContainer {
         justify-content: center;
-        margin-bottom: 72px;
+    }
+
+    .style {
+        padding-bottom: 72px;
+        border-bottom: solid 1px $colorSecondary_2;
     }
 
     .FirstContainer,
@@ -243,10 +251,18 @@
     .title {
         font-size: $h1_textsize_mobile;
     }
+
+    .wrapper {
+        &.columnDirection {
+            .style {
+                border-bottom: solid 1px white;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: $breakPoint_mobile) {
-    .TopContainer {
+    .style {
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -21,6 +21,7 @@ const SecondSection = ({ slice }) => {
       <div className={`${styles.wrapper} ${slice.variation === "pictureReverse" ? styles.columnDirection : ""}`}>
         <div className={styles.container} style={{ backgroundColor: bgColor }}>
           <div className={styles.TopContainer}>
+            <div className={styles.style}>
             <div className={styles.WrapperTopContainer}>
               <div className={styles.title}>
                 <PrismicRichText field={slice.primary.title} />
@@ -33,6 +34,7 @@ const SecondSection = ({ slice }) => {
               </PrismicNextLink>
             </div>
             <PrismicNextImage className={styles.picture} field={slice.primary.picture} />
+          </div>
           </div>
           <div className={styles.BottomContainer}>
             <div className={styles.FirstContainer}>

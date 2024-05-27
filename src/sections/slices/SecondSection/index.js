@@ -14,7 +14,7 @@ const SecondSection = ({ slice }) => {
     'Purple': '#3C1441',
   };
 
-  const bgColor = colorMap[slice.primary.bgcolor] || 'blue';
+  const bgColor = colorMap[slice.primary.bgcolor] || 'Purple';
 
   return (
     <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>

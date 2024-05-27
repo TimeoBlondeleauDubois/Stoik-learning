@@ -46,6 +46,55 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "bgcolor": {
+          "type": "Select",
+          "config": {
+            "label": "BGColor",
+            "placeholder": "",
+            "options": [
+              "blue",
+              "purple"
+            ]
+          }
+        }
+      },
+      "items": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    },
+    {
+      "id": "nobutton",
+      "name": "nobutton",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
         }
       },
       "items": {

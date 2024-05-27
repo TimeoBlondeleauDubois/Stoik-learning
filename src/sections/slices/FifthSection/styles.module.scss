@@ -9,7 +9,7 @@
     }
 
     em {
-        color: $colorPrimary_5;
+        color: var(--text-color);
     }
 
     .container {
@@ -19,7 +19,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $colorPrimary_3;
 
         .FirstSection {
             display: flex;
@@ -69,12 +68,8 @@
         }
 
         @mixin white-gradient {
-            background: linear-gradient(to top, #1360dd00 85%, #1362DD 100%);
+            background: linear-gradient(to top, #1360dd00 85%, var(--color) 100%);
         }            
-
-        :root {
-            --nombredelogo: 0;
-          }
 
         .SecondSectionWrapper {
             height: 100px;
@@ -199,5 +194,13 @@
         margin-bottom: 40px;
         margin-left: 8px;
         margin-right: 8px;
+    }
+}
+
+.wrapper {
+    &.nobutton {
+        .button {
+            display: none;
+        }
     }
 }

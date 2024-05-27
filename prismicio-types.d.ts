@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AssuranceDocumentDataSlicesSlice = FirstSectionSlice | FifthSectionSlice;
+
+/**
+ * Content for Assurance documents
+ */
+interface AssuranceDocumentData {
+  /**
+   * Slice Zone field in *Assurance*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: assurance.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AssuranceDocumentDataSlicesSlice> /**
+   * Meta Description field in *Assurance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: assurance.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Assurance*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: assurance.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Assurance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: assurance.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Assurance document from Prismic
+ *
+ * - **API ID**: `assurance`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AssuranceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AssuranceDocumentData>,
+    "assurance",
+    Lang
+  >;
+
 /**
  * Content for Cookie documents
  */
@@ -744,6 +809,7 @@ export type SocialMediaDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AssuranceDocument
   | CookieDocument
   | FooterDocument
   | HeaderDocument
@@ -860,6 +926,16 @@ export interface FifthSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   buttonlink: prismic.LinkField;
+
+  /**
+   * BGColor field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.bgcolor
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  bgcolor: prismic.SelectField<"blue" | "purple">;
 }
 
 /**
@@ -891,9 +967,64 @@ export type FifthSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FifthSection → Primary*
+ */
+export interface FifthSectionSliceNobuttonPrimary {
+  /**
+   * Title field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Paragraph field in *FifthSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FifthSection → Items*
+ */
+export interface FifthSectionSliceNobuttonItem {
+  /**
+   * Logo field in *FifthSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fifth_section.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * nobutton variation for FifthSection Slice
+ *
+ * - **API ID**: `nobutton`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FifthSectionSliceNobutton = prismic.SharedSliceVariation<
+  "nobutton",
+  Simplify<FifthSectionSliceNobuttonPrimary>,
+  Simplify<FifthSectionSliceNobuttonItem>
+>;
+
+/**
  * Slice variation for *FifthSection*
  */
-type FifthSectionSliceVariation = FifthSectionSliceDefault;
+type FifthSectionSliceVariation =
+  | FifthSectionSliceDefault
+  | FifthSectionSliceNobutton;
 
 /**
  * FifthSection Shared Slice
@@ -2048,6 +2179,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AssuranceDocument,
+      AssuranceDocumentData,
+      AssuranceDocumentDataSlicesSlice,
       CookieDocument,
       CookieDocumentData,
       FooterDocument,
@@ -2087,8 +2221,11 @@ declare module "@prismicio/client" {
       FifthSectionSlice,
       FifthSectionSliceDefaultPrimary,
       FifthSectionSliceDefaultItem,
+      FifthSectionSliceNobuttonPrimary,
+      FifthSectionSliceNobuttonItem,
       FifthSectionSliceVariation,
       FifthSectionSliceDefault,
+      FifthSectionSliceNobutton,
       FirstSectionSlice,
       FirstSectionSliceDefaultPrimary,
       FirstSectionSliceVariation,

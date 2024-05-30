@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Layout from '@/components/layout';
 import { SliceZone } from '@prismicio/react';
 import { ApiService } from '@/services/api.service';
@@ -9,10 +10,16 @@ import { components as componentsSlices } from '@/sections/slices';
 import { components as componentsBruno } from '@/sections/bruno';
 
 export default function Home({ page, header, footer, categories, articles }) { 
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   console.log('Categories data:', categories);
   console.log('Articles data:', articles);
 
   const { data } = page;
+
+  const filteredArticles = selectedCategory
+    ? articles.filter(article => article.data.categorie.id === selectedCategory)
+    : articles;
 
   return (
     <Layout header={header} footer={footer} currentPage="blog">
@@ -25,22 +32,29 @@ export default function Home({ page, header, footer, categories, articles }) {
         }}
       />
       <div>
+        <h2>Catégories:</h2>
+        <br />
         <ul>
-          <h2>Catégories:</h2><br />
           {categories.map(categorie => (
             <li key={categorie.id}>
-              <p>id de la catégorie: {categorie.id}</p>
-              <p>nom de la categorie: {categorie.data.name}</p>
-              <br/>
+              <button onClick={() => setSelectedCategory(categorie.id)}>
+                {categorie.data.name}
+              </button>
             </li>
           ))}
+          <li>
+            <button onClick={() => setSelectedCategory(null)}>
+              Tout afficher
+            </button>
+          </li>
         </ul>
       </div>
       <br />
       <div>
+        <h2>Articles:</h2>
+        <br />
         <ul>
-          <h2>Articles:</h2><br />
-          {articles.map(article => (
+          {filteredArticles.map(article => (
             <li key={article.id}>
               <p>id de l'article: {article.uid}</p>
               <p>id de la catégorie présent dans l'article: {article.data.categorie.id}</p>
@@ -52,7 +66,6 @@ export default function Home({ page, header, footer, categories, articles }) {
           ))}
         </ul>
       </div>
-
     </Layout>
   );
 }

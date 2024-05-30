@@ -20,6 +20,24 @@
           "customtypes": ["blog_categorie"]
         }
       },
+      "titlearticle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "TitleArticle",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1"
+        }
+      },
+      "descriptionarticle": {
+        "type": "StructuredText",
+        "config": {
+          "label": "DescriptionArticle",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

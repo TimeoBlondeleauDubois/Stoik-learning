@@ -22,6 +22,28 @@ interface ArticleDocumentData {
   categorie: prismic.ContentRelationshipField<"blog_categorie">;
 
   /**
+   * TitleArticle field in *Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.titlearticle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  titlearticle: prismic.RichTextField;
+
+  /**
+   * DescriptionArticle field in *Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.descriptionarticle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descriptionarticle: prismic.RichTextField;
+
+  /**
    * Slice Zone field in *Article*
    *
    * - **Field Type**: Slice Zone

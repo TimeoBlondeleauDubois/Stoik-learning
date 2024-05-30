@@ -11,6 +11,17 @@ type ArticleDocumentDataSlicesSlice = BrunoTextSlice;
  */
 interface ArticleDocumentData {
   /**
+   * Categorie field in *Article*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.categorie
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  categorie: prismic.ContentRelationshipField<"blog_categorie">;
+
+  /**
    * Slice Zone field in *Article*
    *
    * - **Field Type**: Slice Zone
@@ -194,6 +205,38 @@ interface BlogDocumentData {
  */
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+/**
+ * Content for Blog Categorie documents
+ */
+interface BlogCategorieDocumentData {
+  /**
+   * Name field in *Blog Categorie*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_categorie.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Blog Categorie document from Prismic
+ *
+ * - **API ID**: `blog_categorie`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogCategorieDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogCategorieDocumentData>,
+    "blog_categorie",
+    Lang
+  >;
 
 /**
  * Content for Cookie documents
@@ -938,6 +981,7 @@ export type AllDocumentTypes =
   | ArticleDocument
   | AssuranceDocument
   | BlogDocument
+  | BlogCategorieDocument
   | CookieDocument
   | FooterDocument
   | HeaderDocument
@@ -2316,6 +2360,8 @@ declare module "@prismicio/client" {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+      BlogCategorieDocument,
+      BlogCategorieDocumentData,
       CookieDocument,
       CookieDocumentData,
       FooterDocument,

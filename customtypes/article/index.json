@@ -12,6 +12,14 @@
         },
         "type": "UID"
       },
+      "categorie": {
+        "type": "Link",
+        "config": {
+          "label": "Categorie",
+          "select": "document",
+          "customtypes": ["blog_categorie"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

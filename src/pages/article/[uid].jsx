@@ -10,7 +10,9 @@ import { components as componentsSlices } from '@/sections/slices'
 import { components as componentsBruno } from '@/sections/bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
-const Article = ({ page, header, footer, altPage }) => {
+const Article = ({ page, header, footer, altPage, categorie, article }) => {
+  console.log('categorie data:', categorie);
+  console.log('article data:', article);
   const { data } = page
   return (
     <Layout
@@ -46,10 +48,12 @@ export async function getStaticProps({ locale, params, previewData }) {
   const lang = getLangFromLocale(locale)
   const pageService = new PageService(lang)
   const customService = new CustomService(lang)
-  const [page, header, footer] = await Promise.all([
+  const [page, header, footer, categorie, article] = await Promise.all([
     pageService.getArticle(params.uid),
     customService.getHeader(),
     customService.getFooter(),
+    pageService.getAllCategories(),
+    pageService.getAllArticle(),
   ])
 
   const altPage = await Promise.all(
@@ -64,6 +68,8 @@ export async function getStaticProps({ locale, params, previewData }) {
       header,
       footer,
       altPage,
+      categorie,
+      article,
     },
   }
 }

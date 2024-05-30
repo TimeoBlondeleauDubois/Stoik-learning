@@ -11,7 +11,9 @@ import { components as componentsBruno } from '@/sections/bruno'
 import { getLangFromLocale } from '@/utils/get-lang-from-locale'
 
 
-export default function Home({ page, header, footer }) { 
+export default function Home({ page, header, footer, categorie, article}) { 
+  console.log('categorie data:', categorie);
+  console.log('article data:', article);
   const { data } = page 
   return (<Layout header={header} footer={footer} currentPage="blog">
     <SliceZone
@@ -30,8 +32,7 @@ export async function getStaticProps({ locale, previewData }) {
   ApiService.setPreviewData({ previewData })
   const pageService = new PageService(lang)
   const customService = new CustomService(lang)
-
-  const [page, header, footer] = await Promise.all([pageService.getBlog(), customService.getHeader(), customService.getFooter()])
+  const [page, header, footer, categorie, article] = await Promise.all([pageService.getBlog(), customService.getHeader(), customService.getFooter(), pageService.getAllCategories(), pageService.getAllArticle()])
 
 
   return {
@@ -39,6 +40,8 @@ export async function getStaticProps({ locale, previewData }) {
       page,
       header,
       footer,
+      categorie,
+      article,
     },
   }
 }

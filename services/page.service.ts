@@ -1,3 +1,4 @@
+import * as prismic from '@prismicio/client'
 import { AllDocumentTypes } from '../prismicio-types'
 import { ApiService } from './api.service'
 
@@ -39,5 +40,13 @@ export class PageService {
 
   async getAllArticle(lang: string = this.lang): Promise<AllDocumentTypes[]> {
     return await this.apiService.getAllDocumentTypes('article', lang)
+  }
+
+  async getCategories(uid: string): Promise<AllDocumentTypes> {
+    return await this.apiService.getPageByUID('blog_categorie', uid, this.lang)
+  }
+
+  async getAllCategories(lang: string = this.lang): Promise<AllDocumentTypes[]> {
+    return await this.apiService.getAllDocumentTypes('blog_categorie', lang)
   }
 }

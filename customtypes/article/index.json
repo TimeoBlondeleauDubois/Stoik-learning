@@ -38,6 +38,21 @@
           "multi": "paragraph"
         }
       },
+      "date_de_creation": {
+        "type": "Date",
+        "config": {
+          "label": "Date de creation",
+          "placeholder": ""
+        }
+      },
+      "picture": {
+        "type": "Image",
+        "config": {
+          "label": "picture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

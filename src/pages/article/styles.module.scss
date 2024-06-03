@@ -1,0 +1,40 @@
+@import "@/styles/common/globals.scss";
+
+.global_container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    max-width: 1440px;
+    justify-content: space-between;
+    font-family: $font_1_regular;
+    color: #3C1441;
+
+    .left_container {
+        margin-left: 120px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .categorie_date_container {
+            display: flex;
+            font-size: 14px;
+
+            .point {
+                margin-left: 8px;
+                margin-right: 8px;
+                margin-top: -3px;
+            }
+
+            .date_de_creation {
+                
+            }
+        }
+    }
+
+    .right_container {
+        margin-right: 120px;
+        margin-top: 30px;
+    }
+}

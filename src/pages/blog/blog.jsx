@@ -8,6 +8,7 @@ import { getLangFromLocale } from '@/utils/get-lang-from-locale';
 import { components as componentsHeros } from '@/sections/heros';
 import { components as componentsSlices } from '@/sections/slices';
 import { components as componentsBruno } from '@/sections/bruno';
+import styles from './styles.module.scss'
 
 export default function Home({ page, header, footer, categories, articles }) { 
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -32,9 +33,10 @@ export default function Home({ page, header, footer, categories, articles }) {
         }}
       />
       <div>
-        <h2>Catégories:</h2>
-        <br />
         <ul>
+          <button onClick={() => setSelectedCategory(null)}>
+            Tous
+          </button>
           {categories.map(categorie => (
             <li key={categorie.id}>
               <button onClick={() => setSelectedCategory(categorie.id)}>
@@ -43,16 +45,10 @@ export default function Home({ page, header, footer, categories, articles }) {
             </li>
           ))}
           <li>
-            <button onClick={() => setSelectedCategory(null)}>
-              Tout afficher
-            </button>
           </li>
         </ul>
       </div>
-      <br />
       <div>
-        <h2>Articles:</h2>
-        <br />
         <ul>
           {filteredArticles.map(article => (
             <li key={article.id}>
@@ -61,7 +57,6 @@ export default function Home({ page, header, footer, categories, articles }) {
               <p>nom de la catégorie présent dans l'article: {article.data.categorie.slug}</p>
               <p>titre de l'article: {article.data.titlearticle[0].text}</p>
               <p>description de l'article: {article.data.descriptionarticle[0].text}</p>
-              <br/>
             </li>
           ))}
         </ul>

@@ -8,6 +8,7 @@ import { getLangFromLocale } from '@/utils/get-lang-from-locale';
 import { components as componentsHeros } from '@/sections/heros';
 import { components as componentsSlices } from '@/sections/slices';
 import { components as componentsBruno } from '@/sections/bruno';
+import Link from 'next/link';
 /* import styles from './styles.module.scss' */
 
 export default function Home({ page, header, footer, categories, articles }) { 
@@ -44,19 +45,22 @@ export default function Home({ page, header, footer, categories, articles }) {
               </button>
             </li>
           ))}
-          <li>
-          </li>
         </ul>
       </div>
       <div>
         <ul>
           {filteredArticles.map(article => (
             <li key={article.id}>
-              <p>id de l'article: {article.uid}</p>
-              <p>id de la catégorie présent dans l'article: {article.data.categorie.id}</p>
-              <p>nom de la catégorie présent dans l'article: {article.data.categorie.slug}</p>
-              <p>titre de l'article: {article.data.titlearticle[0].text}</p>
-              <p>description de l'article: {article.data.descriptionarticle[0].text}</p>
+              <Link href={`/article/${article.uid}`} legacyBehavior>
+                <a>
+                  <p>id de l'article: {article.uid}</p>
+                  <p>id de la catégorie présent dans l'article: {article.data.categorie.id}</p>
+                  <p>nom de la catégorie présent dans l'article: {article.data.categorie.slug}</p>
+                  <p>titre de l'article: {article.data.titlearticle[0].text}</p>
+                  <p>description de l'article: {article.data.descriptionarticle[0].text}</p>
+                  <br />
+                </a>
+              </Link>
             </li>
           ))}
         </ul>

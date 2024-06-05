@@ -196,6 +196,39 @@ type BlogDocumentDataSlicesSlice = never;
  */
 interface BlogDocumentData {
   /**
+   * Title field in *Blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * paragraph field in *Blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.paragraph
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * picture field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.picture
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  picture: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Blog*
    *
    * - **Field Type**: Slice Zone

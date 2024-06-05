@@ -13,6 +13,32 @@
           "placeholder": ""
         }
       },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1,strong,em"
+        }
+      },
+      "paragraph": {
+        "type": "StructuredText",
+        "config": {
+          "label": "paragraph",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "picture": {
+        "type": "Image",
+        "config": {
+          "label": "picture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

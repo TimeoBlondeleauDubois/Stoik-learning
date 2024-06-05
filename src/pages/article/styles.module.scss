@@ -8,6 +8,7 @@
     justify-content: space-between;
     font-family: $font_1_regular;
     color: #3C1441;
+    margin-bottom: 120px;
 
     .left_container {
         margin-left: 120px;
@@ -20,16 +21,32 @@
         .categorie_date_container {
             display: flex;
             font-size: 14px;
+            align-items: center;
+
+            .categorie_name {
+                background-color: #C8C8FF;
+                padding: 8px;
+                border-radius: 16px;
+                font-family: $font_1_bold;
+            }
 
             .point {
                 margin-left: 8px;
                 margin-right: 8px;
-                margin-top: -3px;
+                margin-top: -6px;
             }
+        }
 
-            .date_de_creation {
-                
-            }
+        .title {
+            font-size: 56px;
+            width: 592px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .description {
+            font-size: 18px;
+            width: 592px;
         }
     }
 

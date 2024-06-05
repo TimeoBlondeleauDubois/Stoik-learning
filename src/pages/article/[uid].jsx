@@ -44,11 +44,17 @@ const Article = ({ page, header, footer, altPage, article }) => {
             <p className={styles.point}>.</p>
             <p className={styles.date_de_creation}>{article.data.date_de_creation}</p>
           </div>
-          <PrismicRichText className={styles.title} field={article.data.titlearticle} />
-          <PrismicRichText className={styles.description} field={article.data.descriptionarticle} />
+          <div className={styles.title}>
+            <PrismicRichText field={article.data.titlearticle} />
+          </div>
+          <div className={styles.description}>
+            <PrismicRichText field={article.data.descriptionarticle} />
+          </div>
         </div>
         <div className={styles.right_container}>
-          <PrismicImage className={styles.picture} field={article.data.picture} />
+          <div className={styles.picture}>
+            <PrismicImage field={article.data.picture} />
+          </div>
         </div>
       </div>
     </Layout>

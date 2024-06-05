@@ -68,7 +68,6 @@ export async function getStaticProps({ locale, params, previewData }) {
     customService.getHeader(),
     customService.getFooter(),
     pageService.getAllCategories(),
-    pageService.getCategorie(params.uid),
     pageService.getArticle(params.uid),
   ])
 

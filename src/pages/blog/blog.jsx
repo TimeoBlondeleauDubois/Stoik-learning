@@ -8,7 +8,7 @@ import { getLangFromLocale } from '@/utils/get-lang-from-locale';
 import { components as componentsHeros } from '@/sections/heros';
 import { components as componentsSlices } from '@/sections/slices';
 import { components as componentsBruno } from '@/sections/bruno';
-import styles from './styles.module.scss'
+/* import styles from './styles.module.scss' */
 
 export default function Home({ page, header, footer, categories, articles }) { 
   const [selectedCategory, setSelectedCategory] = useState(null);

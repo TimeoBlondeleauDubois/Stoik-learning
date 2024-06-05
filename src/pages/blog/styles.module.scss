@@ -1,1 +1,95 @@
 @import "@/styles/common/globals.scss";
+
+
+.blog_main {
+    margin-bottom: 120px;
+    margin-top: 120px;
+    font-family: $font_1_regular;
+
+    .button_categories_container {
+        display: flex;
+        margin-bottom: 72px;
+        margin-left: 114px;
+        margin-right: 114px;
+
+        .button_tous,
+        .button_categories {
+            margin-right: 8px;
+            padding: 10px 24px;
+            border: solid 1px #320A37;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #320A37;
+                color: white;
+            }
+        }
+
+        .selected {
+            background-color: #320A37;
+            color: white;
+        }
+    }
+
+    .articles_container {
+            
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: solid 1px #320a3761;
+            margin-left: 114px;
+            margin-right: 114px;
+            padding-bottom: 16px;
+            padding-top: 16px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #EBEBFF;
+                border: solid 1px #C8C8FF;
+                border-radius: 8px;
+            }
+            
+            .articles_title {
+                font-size: 20px;
+                font-family: $font_1_bold;
+                color: #320A37;
+                max-width: 400px;
+                min-width: 400px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            
+            .articles_description {
+                font-size: 16px;
+                font-family: $font_1_regular;
+                color: #320A37;
+                max-width: 480px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                min-width: 480px;
+            }        
+        
+            .articles_name_categorie_container {
+                min-width: 160px;
+                max-width: 160px;
+                display: flex;
+                justify-content: flex-end;
+
+                .articles_name_categorie {
+                    font-size: 14px;
+                    font-family: $font_1_bold;
+                    color: #320A37;
+                    padding: 8px;
+                    background-color: #C8C8FF;
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 16px;
+                }
+            }
+        }
+    }
+}

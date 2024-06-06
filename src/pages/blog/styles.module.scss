@@ -3,14 +3,42 @@
 
 .blog_main {
     margin-bottom: 120px;
-    margin-top: 120px;
     font-family: $font_1_regular;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+        color: #1362DD;
+    }
+
+    .page_header {
+        width: 1192px;
+        margin-bottom: 120px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        .page_title {
+            font-size: 56px;
+            font-family: $font_2;
+            color: #320A37;
+            margin-bottom: 16px;
+            width: 592px;
+            margin-bottom: 40px;
+        }
+
+        .page_description {
+            font-size: 18px;
+            color: #320A37;
+            width: 592px;
+        }
+    }
 
     .button_categories_container {
         display: flex;
         margin-bottom: 72px;
-        margin-left: 114px;
-        margin-right: 114px;
+        width: 1192px;
 
         .button_tous,
         .button_categories {
@@ -39,8 +67,7 @@
             display: flex;
             justify-content: space-between;
             border-bottom: solid 1px #320a3761;
-            margin-left: 114px;
-            margin-right: 114px;
+            width: 1192px;
             padding-bottom: 16px;
             padding-top: 16px;
 

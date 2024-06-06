@@ -9,6 +9,8 @@ import { components as componentsHeros } from '@/sections/heros';
 import { components as componentsSlices } from '@/sections/slices';
 import { components as componentsBruno } from '@/sections/bruno';
 import Link from 'next/link';
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import styles from './styles.module.scss';
 
 export default function Home({ page, header, footer, categories, articles }) { 
@@ -16,6 +18,7 @@ export default function Home({ page, header, footer, categories, articles }) {
 
   console.log('Categories data:', categories);
   console.log('Articles data:', articles);
+  console.log('Page data:', page);
 
   const { data } = page;
 
@@ -39,6 +42,17 @@ export default function Home({ page, header, footer, categories, articles }) {
         }}
       />
       <div className={styles.blog_main}>
+        <div className={styles.page_header}>
+            <div className={styles.pagewrapper}>
+              <div className={styles.page_title}> 
+                <PrismicRichText field={page.data.title}/>
+              </div>
+              <div className={styles.page_description}>
+                <PrismicRichText field={page.data.paragraph}/>
+              </div>
+            </div>
+            <PrismicNextImage field={page.data.picture}/>
+        </div>
         <div>
           <ul>
             <div className={styles.button_categories_container}>
